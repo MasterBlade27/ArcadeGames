@@ -65,6 +65,9 @@ public class BallMove : MonoBehaviour
             BlockRespawn BR = collision.gameObject.GetComponentInParent<BlockRespawn>();
             BR.BlockActive--;
 
+            Scoring SC = collision.gameObject.GetComponentInParent<Scoring>();
+            SC.BlockScore(collision.gameObject);
+
             //Add in Block Script
             collision.gameObject.SetActive(false);
             direction = Vector3.Reflect(Vel.normalized, collision.contacts[0].normal);

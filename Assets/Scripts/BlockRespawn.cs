@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class BlockRespawn : MonoBehaviour
 {
@@ -28,14 +27,14 @@ public class BlockRespawn : MonoBehaviour
 
         BlockActive = BlockRow * BlockCol;
 
+        BlockArray = new GameObject[BlockRow, BlockCol];
+
         for (int k = 0; k < BlockRow; k++)
         {
             for (int j = 0; j < BlockCol; j++)
             {
                 int cc = k * BlockRow + j;
-                Debug.Log(cc);
-                BlockArray[k, j] = this.transform.GetChild(cc).gameObject;
-                Debug.Log(BlockArray[k, j]);
+                BlockArray[k, j] = transform.GetChild(cc).gameObject;
             }
         }    
 
