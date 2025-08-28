@@ -63,7 +63,7 @@ public class BallMove : MonoBehaviour
         else if(collision.gameObject.CompareTag("Block"))
         {
             BlockRespawn BR = collision.gameObject.GetComponentInParent<BlockRespawn>();
-            //BR.BlockActive--;
+            BR.BlockActive--;
 
             //Add in Block Script
             collision.gameObject.SetActive(false);

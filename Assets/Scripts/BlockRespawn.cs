@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 
 public class BlockRespawn : MonoBehaviour
 {
@@ -20,22 +19,34 @@ public class BlockRespawn : MonoBehaviour
     private void Start()
     {
         //Row First, then Columns
-        BlockArray = new GameObject[BlockRow, BlockCol];
-        for(int r = 0; r < BlockRow; r++)
-        {
-            for(int c = 0; c < BlockCol; c++)
-                BlockArray[r, c] = BlockSpawn;
-        }
+        /*        BlockArray = new GameObject[BlockRow, BlockCol];
+                for(int r = 0; r < BlockRow; r++)
+                {
+                    for(int c = 0; c < BlockCol; c++)
+                        BlockArray[r, c] = BlockSpawn;
+                }*/
 
         BlockActive = BlockRow * BlockCol;
 
-        TransBlock();
+        for (int k = 0; k < BlockRow; k++)
+        {
+            for (int j = 0; j < BlockCol; j++)
+            {
+                int cc = k * BlockRow + j;
+                Debug.Log(cc);
+                BlockArray[k, j] = this.transform.GetChild(cc).gameObject;
+                Debug.Log(BlockArray[k, j]);
+            }
+        }    
+
+//        TransBlock();
     }
 
     void Update()
     {
-       if (BlockActive == 0)
-            RestartBlock();
+        if (BlockActive == 0)
+            TempRestart();
+//            RestartBlock();
     }
 
     private void TransBlock()
@@ -49,6 +60,17 @@ public class BlockRespawn : MonoBehaviour
         {
             for (int c = 0; c < BlockCol; c++)
                 BlockArray[r, c] = BlockSpawn;
+        }
+
+        BlockActive = BlockRow * BlockCol;
+    }
+
+    void TempRestart()
+    {
+        for (int k = 0; k < BlockRow; k++)
+        {
+            for (int j = 0; j < BlockCol; j++)
+                BlockArray[k, j].SetActive(true);
         }
 
         BlockActive = BlockRow * BlockCol;
