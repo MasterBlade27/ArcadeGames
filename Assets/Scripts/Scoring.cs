@@ -11,7 +11,6 @@ public class Scoring : MonoBehaviour
     private List<Material> MatList;
     [SerializeField]
     private List<Color> ColorList;
-
     [SerializeField]
     private List<int> score;
 
@@ -27,6 +26,10 @@ public class Scoring : MonoBehaviour
             ColorList.Add(MatList[i].color);
             score.Add(i+3);
         }
+
+        int highscore = PlayerPrefs.GetInt("highscore", scoreCount);
+        string text = highscore.ToString();
+        Hiscoretext.text = text;
     }
 
     private void Update()
@@ -34,7 +37,11 @@ public class Scoring : MonoBehaviour
         scoretext.text = scoreCount.ToString();
 
         if (int.Parse(Hiscoretext.text) < scoreCount)
+        {
             Hiscoretext.text = scoreCount.ToString();
+
+            PlayerPrefs.SetInt("highscore", scoreCount);
+        }
     }
 
     public void BlockScore(GameObject go)

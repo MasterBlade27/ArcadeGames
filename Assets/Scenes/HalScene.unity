@@ -1176,6 +1176,52 @@ MonoBehaviour:
   PadDir: {x: 0, y: 0, z: 0}
   speed: 5
   Bounce: 0
+--- !u!1 &716405799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 716405801}
+  - component: {fileID: 716405800}
+  m_Layer: 0
+  m_Name: SaveData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &716405800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716405799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c545c02d753e14faac7ee271af6b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveData
+  HiScoreData: 12
+  SaveFile: {fileID: 4900000, guid: 0d181a6b39bd3334d8706ab66db9c5cf, type: 3}
+--- !u!4 &716405801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716405799}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &802984169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
@@ -2233,6 +2279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4206329ee6f8d53499e49f255c7682dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scoring
+  SD: {fileID: 716405800}
   mat: {fileID: 0}
   MatList:
   - {fileID: 2100000, guid: bb5aaaf5c48b02649af2d4d83e8f3cc7, type: 2}
@@ -2630,3 +2677,4 @@ SceneRoots:
   - {fileID: 1749915430}
   - {fileID: 1639204930}
   - {fileID: 1434077756}
+  - {fileID: 716405801}
