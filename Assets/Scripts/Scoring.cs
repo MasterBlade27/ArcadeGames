@@ -6,7 +6,6 @@ public class Scoring : MonoBehaviour
 {
     [SerializeField]
     private Material mat;
-
     [SerializeField]
     private List<Material> MatList;
     [SerializeField]
@@ -21,38 +20,46 @@ public class Scoring : MonoBehaviour
 
     void Start()
     {
+        //Adding the Colors and Scores corresponding from the Materials
         for (int i = 0; i < MatList.Count; i++)
         {
             ColorList.Add(MatList[i].color);
+            //Adds 3 on each color to differ the Score
             score.Add(i+3);
         }
 
+        //Gather the Highscore from Stored Data
         int highscore = PlayerPrefs.GetInt("highscore", scoreCount);
-        string text = highscore.ToString();
-        Hiscoretext.text = text;
+        //Updates the Highscore Text with the Stored Data
+        Hiscoretext.text = highscore.ToString();
     }
 
     private void Update()
     {
+        //Updates the Score Text with Score Variable
         scoretext.text = scoreCount.ToString();
 
+        //Tests if the Highscore is lesser than the Score
         if (int.Parse(Hiscoretext.text) < scoreCount)
         {
+            //Updates the Highscore with the Score
             Hiscoretext.text = scoreCount.ToString();
-
+            //Stores the new Highscore in Data
             PlayerPrefs.SetInt("highscore", scoreCount);
         }
     }
 
+    //Custom Method used for giving Score for Blocks
     public void BlockScore(GameObject go)
     {
+        //Sets Mat Variable as the Block's Material
         mat = go.GetComponent<MeshRenderer>().material;
 
         for (int i = 0; i < score.Count; i++)
         {
-            Debug.Log(mat);
-
+            //See if the Block's Color is the same in the list
             if (mat.color == ColorList[i])
+                //Updates the Score with the corresponding Score
                 scoreCount += score[i];
         }
     }

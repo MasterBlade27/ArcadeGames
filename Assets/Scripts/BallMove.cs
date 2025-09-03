@@ -62,14 +62,9 @@ public class BallMove : MonoBehaviour
 
         else if(collision.gameObject.CompareTag("Block"))
         {
-            BlockRespawn BR = collision.gameObject.GetComponentInParent<BlockRespawn>();
-            BR.BlockActive--;
+            ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
+            AB.ArmorDestroy();
 
-            Scoring SC = collision.gameObject.GetComponentInParent<Scoring>();
-            SC.BlockScore(collision.gameObject);
-
-            //Add in Block Script
-            collision.gameObject.SetActive(false);
             direction = Vector3.Reflect(Vel.normalized, collision.contacts[0].normal);
         }
 
