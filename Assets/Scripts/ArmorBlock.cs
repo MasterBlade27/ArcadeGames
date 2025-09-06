@@ -12,8 +12,15 @@ public class ArmorBlock : MonoBehaviour
     [SerializeField]
     private Material[] MatsArr;
 
-    void Start()
+    [SerializeField]
+    private int RealScore;
+
+    private Material mat;
+
+    void OnEnable()
     {
+        ArmorSet = ArmorLvl - 1;
+
         //Will set Armor Level as MatArr's Length in case unset
         if (ArmorLvl == 0)
             if (MatsArr != null)
@@ -24,16 +31,17 @@ public class ArmorBlock : MonoBehaviour
 
         //Starting Material for the block is the highest in the heirarchy
         gameObject.GetComponent<MeshRenderer>().material = MatsArr[ArmorSet];
+        mat = gameObject.GetComponent<MeshRenderer>().material;
     }
 
     //Custom Method used for calling from BallMove script
     public void ArmorDestroy()
     {
         //Adds a level to Armor Set
-        ArmorSet++;
+        ArmorSet--;
 
         //If Armor Set and Armor Level are the same
-        if(ArmorLvl == ArmorSet)
+        if(ArmorSet == -1)
             //Calls DeleteBlock because the block would be destroyed
             DeleteBlock();
 
@@ -54,7 +62,7 @@ public class ArmorBlock : MonoBehaviour
 
         //Calls the Block's Scoring script and sets the score of the blocks
         Scoring SC = gameObject.GetComponentInParent<Scoring>();
-        SC.BlockScore(gameObject);
+        SC.BlockScore(mat);
 
         //"Deletes" the block
         gameObject.SetActive(false);

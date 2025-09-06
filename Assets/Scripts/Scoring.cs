@@ -5,8 +5,6 @@ using System.Linq;
 public class Scoring : MonoBehaviour
 {
     [SerializeField]
-    private Material mat;
-    [SerializeField]
     private List<Material> MatList;
     [SerializeField]
     private List<Color> ColorList;
@@ -50,15 +48,12 @@ public class Scoring : MonoBehaviour
     }
 
     //Custom Method used for giving Score for Blocks
-    public void BlockScore(GameObject go)
+    public void BlockScore(Material gomat)
     {
-        //Sets Mat Variable as the Block's Material
-        mat = go.GetComponent<MeshRenderer>().material;
-
         for (int i = 0; i < score.Count; i++)
         {
             //See if the Block's Color is the same in the list
-            if (mat.color == ColorList[i])
+            if (gomat.color == ColorList[i])
                 //Updates the Score with the corresponding Score
                 scoreCount += score[i];
         }
