@@ -64,6 +64,10 @@ public class ArmorBlock : MonoBehaviour
         Scoring SC = gameObject.GetComponentInParent<Scoring>();
         SC.BlockScore(mat);
 
+        //Calls the PowerUpSpawn script to attempt to spawn a powerup
+        PowerUpSpawn PUS = gameObject.GetComponentInParent<PowerUpSpawn>();
+        PUS.SpawnPowerUp();
+
         //"Deletes" the block
         gameObject.SetActive(false);
     }

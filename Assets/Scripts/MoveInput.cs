@@ -10,7 +10,7 @@ public class MoveInput : MonoBehaviour
     //pInput = Paddle/Player Input
     private PaddleMove pInput;
     [SerializeField]
-    private Vector3 direction, moveDirection;
+    private float direction, moveDirection;
 
     private void Start()
     {
@@ -23,13 +23,13 @@ public class MoveInput : MonoBehaviour
     private void Update()
     {
         //Reads Player's Input
-        direction = new Vector3(pInput.Movement.Move.ReadValue<Vector2>().x,
-                                0,
-                                0);
+        direction = pInput.Movement.Move.ReadValue<Vector2>().x;
 
         //Normalize and Multiply the Direction of the Paddle
         moveDirection = direction * Time.deltaTime * speed;
         //Moves the Paddle
-        transform.position += moveDirection;
+        transform.position += new Vector3(moveDirection, 0, 0);
+        //Clamp the Paddle's Position
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), transform.position.y, transform.position.z);
     }
 }
