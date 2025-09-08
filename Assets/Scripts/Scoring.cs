@@ -13,11 +13,15 @@ public class Scoring : MonoBehaviour
 
     int scoreCount = 0;
 
+    HSHandler HSH;
+
     [SerializeField]
     private TextMeshProUGUI scoretext, Hiscoretext;
 
     void Start()
     {
+        HSH = FindAnyObjectByType<HSHandler>();
+
         //Adding the Colors and Scores corresponding from the Materials
         for (int i = 0; i < MatList.Count; i++)
         {
@@ -45,6 +49,11 @@ public class Scoring : MonoBehaviour
             //Stores the new Highscore in Data
             PlayerPrefs.SetInt("highscore", scoreCount);
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            EndingGame();
+        }
     }
 
     //Custom Method used for giving Score for Blocks
@@ -57,5 +66,10 @@ public class Scoring : MonoBehaviour
                 //Updates the Score with the corresponding Score
                 scoreCount += score[i];
         }
+    }
+
+    private void EndingGame()
+    {
+        HSH.AddHS(new HighscoreElement("ABC", scoreCount));
     }
 }
