@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Linq;
+
 public class Scoring : MonoBehaviour
 {
     [SerializeField]
@@ -11,7 +11,7 @@ public class Scoring : MonoBehaviour
     [SerializeField]
     private List<int> score;
 
-    int scoreCount = 0;
+    private int scoreCount = 0;
 
     HSHandler HSH;
 
@@ -27,11 +27,12 @@ public class Scoring : MonoBehaviour
         {
             ColorList.Add(MatList[i].color);
             //Adds 3 on each color to differ the Score
-            score.Add(i+3);
+            score.Add((i*10)+30);
         }
 
         //Gather the Highscore from Stored Data
-        int highscore = PlayerPrefs.GetInt("highscore", scoreCount);
+        int highscore = FileHandler.ReadTopFromJSON<HighscoreElement>(HSH.filename).Points;
+        Debug.Log(highscore);
         //Updates the Highscore Text with the Stored Data
         Hiscoretext.text = highscore.ToString();
     }
@@ -47,7 +48,7 @@ public class Scoring : MonoBehaviour
             //Updates the Highscore with the Score
             Hiscoretext.text = scoreCount.ToString();
             //Stores the new Highscore in Data
-            PlayerPrefs.SetInt("highscore", scoreCount);
+
         }
 
         if(Input.GetKeyDown(KeyCode.Space))

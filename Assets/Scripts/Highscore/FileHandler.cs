@@ -34,16 +34,17 @@ public static class FileHandler
         return result;
     }
 
-    public static T ReadFromJSON<T>(string filename)
+    public static T ReadTopFromJSON<T>(string filename)
     {
+        Debug.Log (GetPath(filename));
         string content = ReadFile(GetPath(filename));
 
         if (string.IsNullOrEmpty(content) || content == "{}")
         {
             return default(T);
         }
-
-        T result = JsonUtility.FromJson<T>(content);
+        List<T> rs = JsonHelper.FromJson<T>(content).ToList();
+        T result = rs[0];
         return result;
     }
 

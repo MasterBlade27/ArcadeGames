@@ -13,7 +13,7 @@ public class BallMove : MonoBehaviour
     private Vector3 PadDir;
 
     [SerializeField]
-    private float speed = 5f;
+    private int speed = 5;
     [SerializeField]
     private int Bounce;
 
@@ -72,6 +72,16 @@ public class BallMove : MonoBehaviour
             direction = PadDir.normalized;
         }
 
+        else if (collision.gameObject.CompareTag("KillBox"))
+        {
+            Restart rs = GetComponent<Restart>();
+            rs.BallReset();
+
+            Bounce = -1;
+            speed = 5;
+            direction = Vector3.zero;
+        }
+
         else if (collision.gameObject.CompareTag("Block"))
         {
             //Play sound when ball hits the blocks
@@ -82,13 +92,6 @@ public class BallMove : MonoBehaviour
 
             direction = Vector3.Reflect(Vel.normalized, collision.contacts[0].normal);
         }
-
-        /*        else if (collision.gameObject.CompareTag("KillBox"))
-                {
-                    direction = Vector3.zero;
-                    Kill = true;
-                }*/
-
 
         //Test if the Ball hits anything else
         else

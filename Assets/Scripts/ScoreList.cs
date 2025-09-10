@@ -43,8 +43,6 @@ public class ScoreList : MonoBehaviour
                     var inst = Instantiate(HSUIPrefab, Vector3.zero, Quaternion.identity);
                     inst.transform.SetParent(ElmWrapper.transform, false);
 
-                    Debug.Log(inst + " " + el);
-
                     UIElem.Add(inst);
 
                 }

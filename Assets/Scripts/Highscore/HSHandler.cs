@@ -8,8 +8,7 @@ public class HSHandler : MonoBehaviour
     [SerializeField]
     private int MaxCount = 10;
 
-    [SerializeField]
-    private string filename;
+    public string filename;
 
     ScoreList sl;
 
