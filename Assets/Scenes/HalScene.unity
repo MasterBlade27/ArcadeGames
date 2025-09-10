@@ -1318,9 +1318,9 @@ MonoBehaviour:
   speed: 5
   Bounce: 0
   audioSource: {fileID: 695277250}
-  paddleSFX: {fileID: 8300000, guid: 087837b7c4746f749b01889a45d0dea5, type: 3}
-  blockSFX: {fileID: 8300000, guid: df9fdd0ef5351ba43b49a93d0c03ef3d, type: 3}
-  wallSFX: {fileID: 8300000, guid: e252b0a3f5950ab4ab36d4b5b562ea54, type: 3}
+  paddleSFX: {fileID: 8300000, guid: 4eb0f46995521a24ebba707de939f322, type: 3}
+  blockSFX: {fileID: 8300000, guid: e6dd88cbef08884449c4a793e89e7fb3, type: 3}
+  wallSFX: {fileID: 8300000, guid: 0418195693ffe844f97033522d4f2427, type: 3}
 --- !u!4 &802984169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
