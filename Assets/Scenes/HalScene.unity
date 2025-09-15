@@ -1320,7 +1320,7 @@ MonoBehaviour:
   audioSource: {fileID: 695277250}
   paddleSFX: {fileID: 8300000, guid: 4eb0f46995521a24ebba707de939f322, type: 3}
   blockSFX: {fileID: 8300000, guid: e6dd88cbef08884449c4a793e89e7fb3, type: 3}
-  wallSFX: {fileID: 8300000, guid: 0418195693ffe844f97033522d4f2427, type: 3}
+  wallSFX: {fileID: 8300000, guid: 0a1d48c8808255543bc6089d7350162c, type: 3}
 --- !u!4 &802984169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}

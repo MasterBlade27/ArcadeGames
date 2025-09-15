@@ -28,6 +28,8 @@ public class BallMove : MonoBehaviour
     [SerializeField]
     private AudioClip wallSFX;
 
+    private int ballPitch = 1;
+
     void Start()
     {
         //Starting Movement for the Ball
@@ -61,6 +63,7 @@ public class BallMove : MonoBehaviour
         if (collision.gameObject.CompareTag("GameController"))
         {
             //Play sound when ball hits the paddle
+            audioSource.pitch = 1;
             audioSource.PlayOneShot(paddleSFX);
 
             //Finds the angle between the Ball and the Paddle
@@ -85,7 +88,12 @@ public class BallMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("Block"))
         {
             //Play sound when ball hits the blocks
-            audioSource.PlayOneShot(blockSFX);
+            if (audioSource.pitch < 5)
+            {
+                ballPitch += 1;
+                audioSource.pitch = ballPitch;
+                audioSource.PlayOneShot(blockSFX);
+            }
 
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
             AB.ArmorDestroy();
@@ -97,6 +105,7 @@ public class BallMove : MonoBehaviour
         else
         {
             //Play sound when ball hits the wall
+            audioSource.pitch = 1;
             audioSource.PlayOneShot(wallSFX);
 
             //The Ball will Bounce off the object in a Normal Reflective way
