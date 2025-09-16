@@ -7,8 +7,6 @@ public class Restart : MonoBehaviour
     [SerializeField]
     private GameObject Ball;
     [SerializeField]
-    private Vector3 BallOri;
-    [SerializeField]
     private Vector3 StopPos;
     private Coroutine Reseting;
 
@@ -18,12 +16,18 @@ public class Restart : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI livetext;
 
+    [SerializeField]
+    private GameObject ReplayGo;
+
+    private MoveInput mip;
+
     private void Start()
     {
-        Ball = gameObject;
-        BallOri = Ball.transform.position;
+        mip = FindAnyObjectByType<MoveInput>();
 
-        livetext.text = lives.ToString();
+        Ball = gameObject;
+
+        ReplayGo.SetActive(false);
     }
 
     public void BallReset()
@@ -38,31 +42,48 @@ public class Restart : MonoBehaviour
 
     private void StartAgain()
     {
-        Rigidbody RB = Ball.GetComponent<Rigidbody>();
-
-        //Starting Movement for the Ball
-        Vector3 fforce = new Vector3(1f, 1f, 0f);
-
-        //Moves the Ball upon Starting
-        RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
+        Ball.GetComponent<BallMove>().Starto = true;
     }
 
     private void GamaOvar()
     {
+        ReplayGo.SetActive(true);
+        mip.enabled = false;
+    }
 
+    private void Update()
+    {
+        livetext.text = lives.ToString();
+
+        if (Input.GetKeyUp(KeyCode.Space) && ReplayGo.activeSelf)
+        {
+            Restarto();
+        }
+    }
+
+    private void Restarto()
+    {
+        lives = 3;
+        ReplayGo.SetActive(false);
+        mip.enabled = true;
+
+        BlockRespawn BR = FindAnyObjectByType<BlockRespawn>();
+        BR.TempRestart();
+        Scoring SC = FindAnyObjectByType<Scoring>();
+        SC.ResetScore();
+
+        Ball.GetComponent<BallMove>().Starto = true;
     }
 
     private IEnumerator ResetEnum()
     {
-        livetext.text = lives.ToString();
-
         if(lives == 0)
         {
             GamaOvar();
             yield break;
         }
 
-        float endtime = 1f;
+        float endtime = .5f;
         float timer = 0f;
         while (timer < endtime)
         {
@@ -72,7 +93,6 @@ public class Restart : MonoBehaviour
 
             if (timer >= endtime)
             {
-                Ball.transform.position = BallOri;
                 StartAgain();
                 Reseting = null;
             }

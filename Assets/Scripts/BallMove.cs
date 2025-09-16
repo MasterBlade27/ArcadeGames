@@ -4,6 +4,9 @@ public class BallMove : MonoBehaviour
 {
     private Rigidbody RB;
 
+    [SerializeField]
+    private GameObject Paddle;
+
     //Vel = Velocity
     [SerializeField]
     private Vector3 Vel;
@@ -18,6 +21,7 @@ public class BallMove : MonoBehaviour
     private int Bounce;
 
     private bool Kill;
+    public bool Starto;
 
     [SerializeField]
     private AudioSource audioSource;
@@ -32,16 +36,32 @@ public class BallMove : MonoBehaviour
 
     void Start()
     {
-        //Starting Movement for the Ball
-        Vector3 fforce = new Vector3(1f, 1f, 0f);
         RB = GetComponent<Rigidbody>();
 
-        //Moves the Ball upon Starting
-        RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
+        Starto = true;
     }
 
     private void Update()
     {
+        if (Starto)
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                //Starting Movement for the Ball
+                Vector3 fforce = new Vector3(Random.Range(-1f, 1f), 1f, 0f);
+
+                //Moves the Ball upon Starting
+                RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
+
+                Starto = false;
+            }
+
+            else
+            {
+                transform.position = Paddle.transform.position + Vector3.up;
+            }
+        }
+
         //Sets Vel as Ball's Velocity
         Vel = RB.linearVelocity;
 
@@ -60,10 +80,11 @@ public class BallMove : MonoBehaviour
         Vector3 direction;
 
         //Test for if the Ball hits the Paddle
-        if (collision.gameObject.CompareTag("GameController"))
+        if (collision.gameObject == Paddle)
         {
             //Play sound when ball hits the paddle
             audioSource.pitch = 1;
+            ballPitch = 0;
             audioSource.PlayOneShot(paddleSFX);
 
             //Finds the angle between the Ball and the Paddle
@@ -88,12 +109,11 @@ public class BallMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("Block"))
         {
             //Play sound when ball hits the blocks
-            if (audioSource.pitch < 5)
-            {
+            if (ballPitch < 5)
                 ballPitch += 1;
-                audioSource.pitch = ballPitch;
-                audioSource.PlayOneShot(blockSFX);
-            }
+
+            audioSource.pitch = ballPitch;
+            audioSource.PlayOneShot(blockSFX);
 
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
             AB.ArmorDestroy();

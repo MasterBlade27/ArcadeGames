@@ -6,7 +6,6 @@ public class MoveInput : MonoBehaviour
     [SerializeField]
     private float speed = 10f;
 
-    private Vector3 position;
     //pInput = Paddle/Player Input
     private PaddleMove pInput;
     [SerializeField]
@@ -14,7 +13,6 @@ public class MoveInput : MonoBehaviour
 
     private void Start()
     {
-        position = transform.position;
         pInput = new PaddleMove();
         //Enable the Movement Script
         pInput.Enable();
