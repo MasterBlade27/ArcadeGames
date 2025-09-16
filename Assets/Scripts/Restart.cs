@@ -20,10 +20,12 @@ public class Restart : MonoBehaviour
     private GameObject ReplayGo;
 
     private MoveInput mip;
+    private Vector3 OriPad;
 
     private void Start()
     {
         mip = FindAnyObjectByType<MoveInput>();
+        OriPad = mip.transform.position;
 
         Ball = gameObject;
 
@@ -49,6 +51,13 @@ public class Restart : MonoBehaviour
     {
         ReplayGo.SetActive(true);
         mip.enabled = false;
+
+        PowerUp[] golist = FindObjectsOfType<PowerUp>();
+        foreach (PowerUp powerup in golist)
+        {
+            Destroy(powerup.gameObject);
+        }
+
     }
 
     private void Update()
@@ -66,6 +75,7 @@ public class Restart : MonoBehaviour
         lives = 3;
         ReplayGo.SetActive(false);
         mip.enabled = true;
+        mip.gameObject.transform.position = OriPad;
 
         BlockRespawn BR = FindAnyObjectByType<BlockRespawn>();
         BR.TempRestart();
