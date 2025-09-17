@@ -336,8 +336,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: ArmorLvl
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: MatsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c990be33e23c9344bbceb8c0c136099e, type: 2}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c990be33e23c9344bbceb8c0c136099e, type: 2}
     - target: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.25
@@ -1313,14 +1325,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f67787fba2abd84b9c4995adb407fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Paddle: {fileID: 407880197}
   Vel: {x: 0, y: 0, z: 0}
   PadDir: {x: 0, y: 0, z: 0}
   speed: 5
   Bounce: 0
+  Starto: 0
   audioSource: {fileID: 695277250}
-  paddleSFX: {fileID: 8300000, guid: 4eb0f46995521a24ebba707de939f322, type: 3}
-  blockSFX: {fileID: 8300000, guid: e6dd88cbef08884449c4a793e89e7fb3, type: 3}
-  wallSFX: {fileID: 8300000, guid: 0418195693ffe844f97033522d4f2427, type: 3}
+  paddleSFX: {fileID: 8300000, guid: e6dd88cbef08884449c4a793e89e7fb3, type: 3}
+  blockSFX: {fileID: 8300000, guid: 0418195693ffe844f97033522d4f2427, type: 3}
+  wallSFX: {fileID: 8300000, guid: 4eb0f46995521a24ebba707de939f322, type: 3}
 --- !u!4 &802984169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
@@ -1525,8 +1539,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: ArmorLvl
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: MatsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c990be33e23c9344bbceb8c0c136099e, type: 2}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c990be33e23c9344bbceb8c0c136099e, type: 2}
     - target: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.25
@@ -1595,8 +1621,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: ArmorLvl
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: MatsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e5c85ee126be14145a9749fa509770d8, type: 2}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bb5aaaf5c48b02649af2d4d83e8f3cc7, type: 2}
     - target: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.25
@@ -1665,8 +1703,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: ArmorLvl
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: MatsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c990be33e23c9344bbceb8c0c136099e, type: 2}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c990be33e23c9344bbceb8c0c136099e, type: 2}
     - target: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2467,7 +2517,7 @@ GameObject:
   - component: {fileID: 1972895619}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: KillBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2578,8 +2628,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: ArmorLvl
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: MatsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e5c85ee126be14145a9749fa509770d8, type: 2}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bb5aaaf5c48b02649af2d4d83e8f3cc7, type: 2}
     - target: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.25
@@ -2759,8 +2821,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: ArmorLvl
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: MatsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e5c85ee126be14145a9749fa509770d8, type: 2}
+    - target: {fileID: 2907782605703049283, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
+      propertyPath: 'MatsArr.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bb5aaaf5c48b02649af2d4d83e8f3cc7, type: 2}
     - target: {fileID: 4279986262522420920, guid: 43f8f7c63b2e67c4288ab81037387d55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

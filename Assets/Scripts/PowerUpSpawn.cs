@@ -4,11 +4,6 @@ public class PowerUpSpawn : MonoBehaviour
 {
     [SerializeField]
     private GameObject powerUpPrefab;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     public void SpawnPowerUp()
     {

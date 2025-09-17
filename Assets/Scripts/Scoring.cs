@@ -51,7 +51,7 @@ public class Scoring : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.C))
         {
             EndingGame();
         }
@@ -72,5 +72,10 @@ public class Scoring : MonoBehaviour
     private void EndingGame()
     {
         HSH.AddHS(new HighscoreElement("ABC", scoreCount));
+    }
+
+    public void ResetScore()
+    {
+        scoreCount = 0;
     }
 }

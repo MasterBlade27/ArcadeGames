@@ -64,7 +64,7 @@ public class BlockRespawn : MonoBehaviour
         BlockActive = BlockRow * BlockCol;
     }
 
-    void TempRestart()
+    public void TempRestart()
     {
         for (int k = 0; k < BlockRow; k++)
         {
