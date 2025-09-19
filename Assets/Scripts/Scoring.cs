@@ -50,11 +50,6 @@ public class Scoring : MonoBehaviour
             //Stores the new Highscore in Data
 
         }
-
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            EndingGame();
-        }
     }
 
     //Custom Method used for giving Score for Blocks
@@ -69,9 +64,9 @@ public class Scoring : MonoBehaviour
         }
     }
 
-    private void EndingGame()
+    public void CheckScore()
     {
-        HSH.AddHS(new HighscoreElement("ABC", scoreCount));
+        HSH.CheckHS(scoreCount);
     }
 
     public void ResetScore()

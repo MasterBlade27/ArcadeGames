@@ -59,15 +59,14 @@ public class Restart : MonoBehaviour
     private void GamaOvar()
     {
         audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
+
+        Scoring SC = FindAnyObjectByType<Scoring>();
+        SC.CheckScore();
+
         ReplayGo.SetActive(true);
         mip.enabled = false;
 
-        PowerUp[] golist = FindObjectsOfType<PowerUp>();
-        foreach (PowerUp powerup in golist)
-        {
-            Destroy(powerup.gameObject);
-        }
-
+        DelPowerUps();
     }
 
     private void Update()
