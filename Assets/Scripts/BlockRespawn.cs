@@ -8,7 +8,7 @@ public class BlockRespawn : MonoBehaviour
     [SerializeField]
     private GameObject[,] BlockArray;
 
-    [SerializeField,Range(0f, 100f)]
+    [SerializeField,Range(0f, 14f)]
     private int BlockCol;
     [SerializeField, Range(0f, 5f)]
     private int BlockRow;
@@ -36,7 +36,7 @@ public class BlockRespawn : MonoBehaviour
         {
             for (int j = 0; j < BlockCol; j++)
             {
-                int cc = k * BlockRow + j;
+                int cc = k * BlockCol + j;
                 BlockArray[k, j] = transform.GetChild(cc).gameObject;
             }
         }    

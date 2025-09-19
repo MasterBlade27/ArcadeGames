@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
+
     private GameObject Ball;
-    [SerializeField]
     private Vector3 StopPos;
     private Coroutine Reseting;
 

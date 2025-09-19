@@ -4,8 +4,6 @@ using System.Collections;
 public class BallMove : MonoBehaviour
 {
     private Rigidbody RB;
-
-    [SerializeField]
     private GameObject Paddle;
 
     //Vel = Velocity
@@ -19,7 +17,8 @@ public class BallMove : MonoBehaviour
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
-    private int Bounce;
+    private int Bounce, StuckBounce;
+    private bool Stuck;
 
     private bool Kill;
     public bool Starto;
@@ -68,7 +67,6 @@ public class BallMove : MonoBehaviour
 
             else
             {
-                transform.position = Paddle.transform.position + Vector3.up;
             }
         }
 
@@ -80,6 +78,14 @@ public class BallMove : MonoBehaviour
         {
             //Course Correction
             RB.linearVelocity = Vel.normalized * speed;
+        }
+
+        //Anti Stuck Correction
+        if(Stuck)
+        {
+            Stuck = false;
+            Vector3 fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(0.1f, 0.75f), 0f);
+            RB.AddForce(fforce, ForceMode.VelocityChange);
         }
     }
 
@@ -104,6 +110,9 @@ public class BallMove : MonoBehaviour
             //When hitting the Ball with a Paddle
             //The Ball will go in the Direction with the Paddle and not Bounce off
             direction = PadDir.normalized;
+
+            //Reset StuckBounce Counter
+            StuckBounce = -1;
         }
 
         else if (collision.gameObject.CompareTag("KillBox"))
@@ -112,6 +121,7 @@ public class BallMove : MonoBehaviour
             rs.BallReset();
 
             Bounce = -1;
+            StuckBounce = -1;
             speed = 5;
             direction = Vector3.zero;
         }
@@ -128,7 +138,11 @@ public class BallMove : MonoBehaviour
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
             AB.ArmorDestroy();
 
+            //The Ball will Bounce off the object in a Normal Reflective way
             direction = Vector3.Reflect(Vel.normalized, collision.contacts[0].normal);
+
+            //Reset StuckBounce Counter
+            StuckBounce = -1;
         }
 
         //Test if the Ball hits anything else
@@ -146,6 +160,15 @@ public class BallMove : MonoBehaviour
         RB.linearVelocity = direction * speed;
         //Adds 1 to the Bounce Counter
         Bounce++;
+        //Adds 1 to the StuckBounce Counter
+        StuckBounce++;
+
+        //If the Ball Bounces 5 Times Without Touching Anything 
+        if (StuckBounce % 5 == 0 && !(StuckBounce == 0))
+        {
+            //Activates Anti Stuck Correction
+            Stuck = true;
+        }
 
         //Ball's Speed increases on certain Bounces
         if (Bounce == 4 || Bounce == 12)
