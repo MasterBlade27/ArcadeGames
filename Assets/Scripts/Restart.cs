@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class Restart : MonoBehaviour
     private MoveInput mip;
     private Vector3 OriPad;
 
+    public static event Action DelPowerUps;
+
     private void Start()
     {
         mip = FindAnyObjectByType<MoveInput>();
@@ -37,6 +40,9 @@ public class Restart : MonoBehaviour
         lives--;
 
         StopPos = Ball.transform.position;
+
+        DelPowerUps();
+
         if (Reseting != null)
             StopCoroutine(Reseting);
         Reseting = StartCoroutine(ResetEnum());

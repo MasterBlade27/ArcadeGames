@@ -1,7 +1,18 @@
 using UnityEngine;
+using System;
 
 public class PowerUp : MonoBehaviour
 {
+    public static event Action HalfSpeed;
+
+    private void Start()
+    {
+        Restart.DelPowerUps += ResetPups;
+    }
+    private void OnDisable()
+    {
+        Restart.DelPowerUps -= ResetPups;
+    }
     void Update()
     {
         transform.position += Vector3.down * Time.deltaTime;
@@ -11,7 +22,16 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("GameController"))
         {
-            collision.gameObject.GetComponent<Paddle>().doubleSize();
+            float pUp = UnityEngine.Random.Range(0, 2);
+            if (pUp == 1)
+            {
+                collision.gameObject.GetComponent<Paddle>().doubleSize();
+            }
+            else
+            {
+                HalfSpeed();
+            }
+
             Destroy(gameObject);
         }
 
@@ -19,6 +39,10 @@ public class PowerUp : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void ResetPups()
+    {
+        Destroy(gameObject);
     }
 }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class BallMove : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class BallMove : MonoBehaviour
     private Vector3 PadDir;
 
     [SerializeField]
-    private int speed = 5;
+    private float speed = 5f;
     [SerializeField]
     private int Bounce;
 
@@ -34,11 +35,20 @@ public class BallMove : MonoBehaviour
 
     private int ballPitch = 1;
 
+    private bool isHalfSpeedActive = false;
+
     void Start()
     {
         RB = GetComponent<Rigidbody>();
 
         Starto = true;
+
+        PowerUp.HalfSpeed += OnHalfSpeed;
+    }
+
+    private void OnDisable()
+    {
+        PowerUp.HalfSpeed -= OnHalfSpeed;
     }
 
     private void Update()
@@ -143,5 +153,34 @@ public class BallMove : MonoBehaviour
             //Increase Speed
             speed += 3;
         }
+    }
+    private Coroutine halfSpeedCoroutine;
+    private float originalSpeed;
+
+    private void OnHalfSpeed()
+    {
+        if (halfSpeedCoroutine != null)
+            StopCoroutine(halfSpeedCoroutine);
+
+        halfSpeedCoroutine = StartCoroutine(HalfSpeedTimer(5f)); // 5 seconds as example
+    }
+
+    private IEnumerator HalfSpeedTimer(float duration)
+    {
+        originalSpeed = speed;
+
+        if (!isHalfSpeedActive)
+        {
+            speed *= 0.5f;
+            RB.linearVelocity = Vel.normalized * speed;
+        }
+        isHalfSpeedActive = true;
+
+        yield return new WaitForSeconds(duration);
+
+        speed = originalSpeed;
+        RB.linearVelocity = Vel.normalized * speed;
+        isHalfSpeedActive = false;
+        halfSpeedCoroutine = null;
     }
 }
