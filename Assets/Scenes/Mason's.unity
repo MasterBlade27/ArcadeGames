@@ -1284,10 +1284,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f67787fba2abd84b9c4995adb407fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Paddle: {fileID: 0}
   Vel: {x: 0, y: 0, z: 0}
   PadDir: {x: 0, y: 0, z: 0}
   speed: 5
   Bounce: 0
+  Starto: 0
   audioSource: {fileID: 0}
   paddleSFX: {fileID: 0}
   blockSFX: {fileID: 0}
@@ -1563,6 +1565,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e5db96c237832a64fbb3c6ad3bcdbaaf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 879822717}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e5db96c237832a64fbb3c6ad3bcdbaaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 879822719}
   m_SourcePrefab: {fileID: 100100000, guid: e5db96c237832a64fbb3c6ad3bcdbaaf, type: 3}
 --- !u!4 &802984169 stripped
 Transform:
@@ -1670,6 +1675,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &879822719
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879822715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1905409654a7a394ea23ca4528ad14b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &974705810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,10 +3081,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f67787fba2abd84b9c4995adb407fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Paddle: {fileID: 0}
   Vel: {x: 0, y: 0, z: 0}
   PadDir: {x: 0, y: 0, z: 0}
   speed: 5
   Bounce: 0
+  Starto: 0
   audioSource: {fileID: 0}
   paddleSFX: {fileID: 0}
   blockSFX: {fileID: 0}
