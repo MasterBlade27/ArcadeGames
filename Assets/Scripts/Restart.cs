@@ -44,7 +44,7 @@ public class Restart : MonoBehaviour
 
         StopPos = Ball.transform.position;
 
-        //DelPowerUps();
+        DelPowerUps();
 
         if (Reseting != null)
             StopCoroutine(Reseting);
