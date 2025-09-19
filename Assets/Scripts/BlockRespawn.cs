@@ -18,6 +18,8 @@ public class BlockRespawn : MonoBehaviour
     [SerializeField]
     private AudioController audioController;
 
+    private int clear = 0;
+
     private void Start()
     {
         //Row First, then Columns
@@ -70,6 +72,14 @@ public class BlockRespawn : MonoBehaviour
     public void TempRestart()
     {
         audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
+
+        clear += 1;
+        for (int i = 0; i < audioController.musicSources.Count; i++)
+        {
+            if (clear <= 4)
+                audioController.musicSources[clear].volume = 1;
+        }
+
         for (int k = 0; k < BlockRow; k++)
         {
             for (int j = 0; j < BlockCol; j++)

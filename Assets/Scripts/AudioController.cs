@@ -9,6 +9,8 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     public AudioSource audioSource2;
     [SerializeField]
+    public List<AudioSource> musicSources = new List<AudioSource>();
+    [SerializeField]
     public List<AudioClip> paddleAudioClips = new List<AudioClip>();
     [SerializeField]
     public List<AudioClip> blockAudioClips = new List<AudioClip>();
