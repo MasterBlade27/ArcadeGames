@@ -25,7 +25,7 @@ public class BallMove : MonoBehaviour
     public bool Starto;
 
     [SerializeField]
-    private AudioSource audioSource;
+    private AudioController audioController;
     [SerializeField]
     private AudioClip paddleSFX;
     [SerializeField]
@@ -93,9 +93,9 @@ public class BallMove : MonoBehaviour
         if (collision.gameObject == Paddle)
         {
             //Play sound when ball hits the paddle
-            audioSource.pitch = 1;
+            audioController.audioSource1.pitch = 1;
             ballPitch = 0;
-            audioSource.PlayOneShot(paddleSFX);
+            audioController.audioSource1.PlayOneShot(paddleSFX);
 
             //Finds the angle between the Ball and the Paddle
             //Sends the Ball in that Direction
@@ -122,8 +122,8 @@ public class BallMove : MonoBehaviour
             if (ballPitch < 5)
                 ballPitch += 1;
 
-            audioSource.pitch = ballPitch;
-            audioSource.PlayOneShot(blockSFX);
+            audioController.audioSource1.pitch = ballPitch;
+            audioController.audioSource1.PlayOneShot(blockSFX);
 
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
             AB.ArmorDestroy();
@@ -135,8 +135,8 @@ public class BallMove : MonoBehaviour
         else
         {
             //Play sound when ball hits the wall
-            audioSource.pitch = 1;
-            audioSource.PlayOneShot(wallSFX);
+            audioController.audioSource1.pitch = 1;
+            audioController.audioSource1.PlayOneShot(wallSFX);
 
             //The Ball will Bounce off the object in a Normal Reflective way
             direction = Vector3.Reflect(Vel.normalized, collision.contacts[0].normal);

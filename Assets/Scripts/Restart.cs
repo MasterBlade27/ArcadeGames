@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
-    [SerializeField]
     private GameObject Ball;
     [SerializeField]
     private Vector3 StopPos;
@@ -25,6 +24,9 @@ public class Restart : MonoBehaviour
 
     public static event Action DelPowerUps;
 
+    [SerializeField]
+    private AudioController audioController;
+
     private void Start()
     {
         mip = FindAnyObjectByType<MoveInput>();
@@ -37,11 +39,12 @@ public class Restart : MonoBehaviour
 
     public void BallReset()
     {
+        audioController.audioSource2.PlayOneShot(audioController.floorSFX);
         lives--;
 
         StopPos = Ball.transform.position;
 
-        DelPowerUps();
+        //DelPowerUps();
 
         if (Reseting != null)
             StopCoroutine(Reseting);
@@ -55,6 +58,7 @@ public class Restart : MonoBehaviour
 
     private void GamaOvar()
     {
+        audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
         ReplayGo.SetActive(true);
         mip.enabled = false;
 
