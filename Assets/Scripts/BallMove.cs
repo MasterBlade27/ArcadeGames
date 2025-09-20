@@ -4,6 +4,7 @@ using System.Collections;
 public class BallMove : MonoBehaviour
 {
     private Rigidbody RB;
+    [SerializeField]
     private GameObject Paddle;
 
     //Vel = Velocity
