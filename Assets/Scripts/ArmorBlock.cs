@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ArmorBlock : MonoBehaviour
 {
+    [SerializeField]
+    private bool Demo;
+
     //ArmorLvel = Armor Level
     [SerializeField]
     private int ArmorLvl = 1;
@@ -11,9 +14,6 @@ public class ArmorBlock : MonoBehaviour
     //MatArr = Material Array
     [SerializeField]
     private Material[] MatsArr;
-
-    [SerializeField]
-    private int RealScore;
 
     private Material mat;
 
@@ -60,13 +60,17 @@ public class ArmorBlock : MonoBehaviour
         BlockRespawn BR = gameObject.GetComponentInParent<BlockRespawn>();
         BR.BlockActive--;
 
-        //Calls the Block's Scoring script and sets the score of the blocks
-        Scoring SC = gameObject.GetComponentInParent<Scoring>();
-        SC.BlockScore(mat);
+        if (!Demo)
+        {
+            //Calls the Block's Scoring script and sets the score of the blocks
+            Scoring SC = gameObject.GetComponentInParent<Scoring>();
+            SC.BlockScore(mat);
 
-        //Calls the PowerUpSpawn script to attempt to spawn a powerup
-        PowerUpSpawn PUS = gameObject.GetComponentInParent<PowerUpSpawn>();
-        PUS.SpawnPowerUp();
+
+            //Calls the PowerUpSpawn script to attempt to spawn a powerup
+            PowerUpSpawn PUS = gameObject.GetComponentInParent<PowerUpSpawn>();
+            PUS.SpawnPowerUp();
+        }
 
         //"Deletes" the block
         gameObject.SetActive(false);

@@ -38,6 +38,16 @@ public class Restart : MonoBehaviour
         ReplayGo.SetActive(false);
     }
 
+    private void Update()
+    {
+        livetext.text = lives.ToString();
+
+        if (Input.GetKeyUp(KeyCode.Space) && ReplayGo.activeSelf)
+        {
+            Replay();
+        }
+    }
+
     public void BallReset()
     {
         audioController.audioSource2.PlayOneShot(audioController.floorSFX);
@@ -77,17 +87,7 @@ public class Restart : MonoBehaviour
             DelPowerUps();
     }
 
-    private void Update()
-    {
-        livetext.text = lives.ToString();
-
-        if (Input.GetKeyUp(KeyCode.Space) && ReplayGo.activeSelf)
-        {
-            Restarto();
-        }
-    }
-
-    private void Restarto()
+    private void Replay()
     {
         /*
         foreach (AudioSource i in audioController.musicSources)

@@ -3151,6 +3151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HSHandler
   MaxCount: 10
   filename: highscore.json
+  InputArea: {fileID: 0}
 --- !u!1001 &1164718563
 PrefabInstance:
   m_ObjectHideFlags: 0

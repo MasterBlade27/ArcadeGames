@@ -71,13 +71,16 @@ public class BlockRespawn : MonoBehaviour
 
     public void TempRestart()
     {
-        audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
-
-        clear += 1;
-        for (int i = 0; i < audioController.musicSources.Count; i++)
+        if (audioController != null)
         {
-            if (clear <= 4)
-                audioController.musicSources[clear].volume = 1;
+            audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
+
+            clear += 1;
+            for (int i = 0; i < audioController.musicSources.Count; i++)
+            {
+                if (clear <= 4)
+                    audioController.musicSources[clear].volume = 1;
+            }
         }
 
         for (int k = 0; k < BlockRow; k++)
