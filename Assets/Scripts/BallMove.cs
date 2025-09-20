@@ -67,6 +67,7 @@ public class BallMove : MonoBehaviour
 
             else
             {
+                transform.position = Paddle.transform.position + Vector3.up * 0.5f;
             }
         }
 
@@ -84,8 +85,14 @@ public class BallMove : MonoBehaviour
         if(Stuck)
         {
             Stuck = false;
-            Vector3 fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(0.1f, 0.75f), 0f);
-            RB.AddForce(fforce, ForceMode.VelocityChange);
+            Vector3 fforce;
+
+            if(RB.linearVelocity.y > 0f)
+                fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(0.1f, 0.75f), 0f);
+            else
+                fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(-0.1f, -0.75f), 0f);
+            
+            RB.AddForce(fforce * 2, ForceMode.VelocityChange);
         }
     }
 
@@ -164,7 +171,7 @@ public class BallMove : MonoBehaviour
         StuckBounce++;
 
         //If the Ball Bounces 5 Times Without Touching Anything 
-        if (StuckBounce % 5 == 0 && !(StuckBounce == 0))
+        if (StuckBounce % 8 == 0 && !(StuckBounce == 0))
         {
             //Activates Anti Stuck Correction
             Stuck = true;

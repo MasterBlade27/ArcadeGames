@@ -4,7 +4,7 @@ public class MoveInput : MonoBehaviour
 {
     //Speed for the Paddle, 10 seems like good speed
     [SerializeField]
-    private float speed = 10f;
+    private float speed = 15f;
 
     //pInput = Paddle/Player Input
     private PaddleMove pInput;

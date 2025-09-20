@@ -44,7 +44,8 @@ public class Restart : MonoBehaviour
 
         StopPos = Ball.transform.position;
 
-        DelPowerUps();
+        if (FindAnyObjectByType<PowerUp>())
+            DelPowerUps();
 
         if (Reseting != null)
             StopCoroutine(Reseting);
@@ -60,13 +61,11 @@ public class Restart : MonoBehaviour
     {
         audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
 
-        Scoring SC = FindAnyObjectByType<Scoring>();
-        SC.CheckScore();
-
         ReplayGo.SetActive(true);
         mip.enabled = false;
 
-        DelPowerUps();
+        if(FindAnyObjectByType<PowerUp>())
+            DelPowerUps();
     }
 
     private void Update()
