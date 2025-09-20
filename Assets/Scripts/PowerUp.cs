@@ -5,6 +5,13 @@ public class PowerUp : MonoBehaviour
 {
     public static event Action HalfSpeed;
 
+    [SerializeField]
+    private AudioSource powerUp;
+    [SerializeField]
+    private AudioClip slowTime;
+    [SerializeField]
+    private AudioClip largePaddle;
+
     private void Start()
     {
         Restart.DelPowerUps += ResetPups;
@@ -25,10 +32,12 @@ public class PowerUp : MonoBehaviour
             float pUp = UnityEngine.Random.Range(0, 2);
             if (pUp == 1)
             {
+                powerUp.PlayOneShot(largePaddle);
                 collision.gameObject.GetComponent<Paddle>().doubleSize();
             }
             else
             {
+                powerUp.PlayOneShot(slowTime);
                 HalfSpeed();
             }
 

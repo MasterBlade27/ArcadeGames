@@ -18,7 +18,7 @@ public class BlockRespawn : MonoBehaviour
     [SerializeField]
     private AudioController audioController;
 
-    private int clear = 0;
+    public static int clear = 0;
 
     private void Start()
     {

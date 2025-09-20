@@ -148,7 +148,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -248,22 +248,41 @@ MonoBehaviour:
   audioSource1: {fileID: 7018680046792066289}
   audioSource2: {fileID: 6991771469696027791}
   musicSources:
-  - {fileID: 4524522183221113494}
   - {fileID: 1720392566706210209}
   - {fileID: 5241776785211524085}
   - {fileID: 6729761282350284347}
   - {fileID: 4425271521064281843}
   paddleAudioClips:
-  - {fileID: 8300000, guid: 4eb0f46995521a24ebba707de939f322, type: 3}
+  - {fileID: 8300000, guid: 4a9e995f8e22f604881f3f5f003ecf12, type: 3}
+  - {fileID: 8300000, guid: 1e7786be42a672c428c9bfa568de15b4, type: 3}
+  - {fileID: 8300000, guid: f115119ef3900d34aaf4728c0051996c, type: 3}
+  - {fileID: 8300000, guid: 9e2471ba4d38f2f4cab0c70825dc7789, type: 3}
+  - {fileID: 8300000, guid: ae6b10a61edbf6a4faa639ff71c2bec2, type: 3}
   blockAudioClips:
-  - {fileID: 8300000, guid: e6dd88cbef08884449c4a793e89e7fb3, type: 3}
+  - {fileID: 8300000, guid: c3931b53481f2c34dbb7550e5c7edc49, type: 3}
+  - {fileID: 8300000, guid: 83e5dd99d659247419729073b2e46c78, type: 3}
+  - {fileID: 8300000, guid: 86c02a1f35a56fd47813b914c699dac9, type: 3}
+  - {fileID: 8300000, guid: 673c3a48872f7684f8f5f57b2eab1291, type: 3}
+  - {fileID: 8300000, guid: ec03b2e4f34474b48a479238785ee367, type: 3}
+  - {fileID: 8300000, guid: 069d902fa170ccb44bf542c004c7ead2, type: 3}
+  - {fileID: 8300000, guid: a7f381706270fe642af8be2bd642d48d, type: 3}
+  - {fileID: 8300000, guid: ff7ab594e1aec114aa10e796d4165ac4, type: 3}
+  - {fileID: 8300000, guid: 85a96ff208744734a926dd1239444bd0, type: 3}
+  - {fileID: 8300000, guid: 8b439cf92a8a329438ec5d0efc3ad121, type: 3}
+  - {fileID: 8300000, guid: 0a522d1ad790a60479f7eece8f510b04, type: 3}
+  - {fileID: 8300000, guid: f71cc5ad4d4409642accca7d3d1eb200, type: 3}
   wallAudioClips:
-  - {fileID: 8300000, guid: 0a1d48c8808255543bc6089d7350162c, type: 3}
-  powerupAudioClips:
-  - {fileID: 0}
-  floorSFX: {fileID: 0}
-  gameOverSFX: {fileID: 8300000, guid: 95283c6ec36b74148916931f5b12f109, type: 3}
-  oneUpSFX: {fileID: 8300000, guid: 3965a288af6201c4ea1914f346970e71, type: 3}
+  - {fileID: 8300000, guid: 88e20bf646af291438edb3c92fdea7bf, type: 3}
+  - {fileID: 8300000, guid: 74395e543bffdfc419154459c6ca1ca7, type: 3}
+  - {fileID: 8300000, guid: e892364124027524dbe725225e39a7cb, type: 3}
+  - {fileID: 8300000, guid: 44a01bcfd4f3ba94f8c6f27ba0694879, type: 3}
+  - {fileID: 8300000, guid: 6acfa497a9de3414ab6dc96bc0655372, type: 3}
+  powerupSlowTime: {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
+  powerupLargePaddle: {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
+  floorSFX: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
+  gameOverSFX: {fileID: 8300000, guid: 95428563d93624243b5431d49bb11d40, type: 3}
+  powerupSpawnSFX: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
+  oneUpSFX: {fileID: 8300000, guid: 4dcb316a6bef55d448e436ca39d6513c, type: 3}
 --- !u!82 &4524522183221113494
 AudioSource:
   m_ObjectHideFlags: 0

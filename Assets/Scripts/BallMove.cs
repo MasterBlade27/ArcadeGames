@@ -25,12 +25,6 @@ public class BallMove : MonoBehaviour
 
     [SerializeField]
     private AudioController audioController;
-    [SerializeField]
-    private AudioClip paddleSFX;
-    [SerializeField]
-    private AudioClip blockSFX;
-    [SerializeField]
-    private AudioClip wallSFX;
 
     private int ballPitch = 1;
 
@@ -108,7 +102,11 @@ public class BallMove : MonoBehaviour
             //Play sound when ball hits the paddle
             audioController.audioSource1.pitch = 1;
             ballPitch = 0;
-            audioController.audioSource1.PlayOneShot(paddleSFX);
+            for (int i = 0; i < audioController.paddleAudioClips.Count; i++)
+            {
+                int paddleIndex = Random.Range(0, 4);
+                audioController.audioSource1.PlayOneShot(audioController.paddleAudioClips[paddleIndex]);
+            }
 
             //Finds the angle between the Ball and the Paddle
             //Sends the Ball in that Direction
@@ -140,7 +138,11 @@ public class BallMove : MonoBehaviour
                 ballPitch += 1;
 
             audioController.audioSource1.pitch = ballPitch;
-            audioController.audioSource1.PlayOneShot(blockSFX);
+            for (int i = 0; i < audioController.blockAudioClips.Count; i++)
+            {
+                int blockIndex = Random.Range(0, 11);
+                audioController.audioSource1.PlayOneShot(audioController.blockAudioClips[blockIndex]);
+            }
 
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
             AB.ArmorDestroy();
@@ -157,7 +159,11 @@ public class BallMove : MonoBehaviour
         {
             //Play sound when ball hits the wall
             audioController.audioSource1.pitch = 1;
-            audioController.audioSource1.PlayOneShot(wallSFX);
+            for (int i = 0; i < audioController.wallAudioClips.Count; i++)
+            {
+                int wallIndex = Random.Range(0, 4);
+                audioController.audioSource1.PlayOneShot(audioController.wallAudioClips[wallIndex]);
+            }
 
             //The Ball will Bounce off the object in a Normal Reflective way
             direction = Vector3.Reflect(Vel.normalized, collision.contacts[0].normal);
