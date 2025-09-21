@@ -18,6 +18,11 @@ public class MoveInput : MonoBehaviour
         pInput.Enable();
     }
 
+    private void OnDisable()
+    {
+        pInput.Disable();
+    }
+
     private void Update()
     {
         //Reads Player's Input
