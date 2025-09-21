@@ -38,11 +38,13 @@ public class BallMove : MonoBehaviour
         Starto = true;
 
         PowerUp.HalfSpeed += OnHalfSpeed;
+        Restart.DelPowerUps += onRestart;
     }
 
     private void OnDisable()
     {
         PowerUp.HalfSpeed -= OnHalfSpeed;
+        Restart.DelPowerUps -= onRestart;
     }
 
     private void Update()
@@ -202,12 +204,19 @@ public class BallMove : MonoBehaviour
         halfSpeedCoroutine = StartCoroutine(HalfSpeedTimer(5f)); // 5 seconds as example
     }
 
+    private void onRestart()
+    {
+        if (halfSpeedCoroutine != null)
+            StopCoroutine(halfSpeedCoroutine);
+        isHalfSpeedActive = false;
+    }
+
     private IEnumerator HalfSpeedTimer(float duration)
     {
-        originalSpeed = speed;
 
         if (!isHalfSpeedActive)
         {
+            originalSpeed = speed;
             speed *= 0.5f;
             RB.linearVelocity = Vel.normalized * speed;
         }

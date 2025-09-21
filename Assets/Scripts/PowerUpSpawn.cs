@@ -12,7 +12,7 @@ public class PowerUpSpawn : MonoBehaviour
     public void SpawnPowerUp()
     {
         float chance = Random.Range(0f, 100f);
-        if (chance <= 20f)
+        if (chance <= 30f)
         {
             powerupSFX.PlayOneShot(powerupSpawn);
             Instantiate(powerUpPrefab, transform.position, Quaternion.identity);

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1487f6d1f1fcbb54cb3a689d4668f6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUp
+  fallSpeed: 1
   powerUp: {fileID: -7159837589920833156}
   slowTime: {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
   largePaddle: {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
