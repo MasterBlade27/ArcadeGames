@@ -1,4 +1,6 @@
+using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HSHandler : MonoBehaviour
@@ -7,11 +9,17 @@ public class HSHandler : MonoBehaviour
     
     [SerializeField]
     private int MaxCount = 10;
+    [SerializeField]
+    private int Count;
 
     public string filename;
 
-/*    [SerializeField]
-    private GameObject InputArea = null;*/
+    private string Username;
+    private bool NameDone;
+
+    [SerializeField]
+    private GameObject InputArea;
+    private TextMeshProUGUI[] InputName = new TextMeshProUGUI[3];
 
     ScoreList sl;
 
@@ -19,6 +27,64 @@ public class HSHandler : MonoBehaviour
     {
         sl = gameObject.GetComponent<ScoreList>();
         LoadHS();
+
+        InputName = InputArea.GetComponentsInChildren<TextMeshProUGUI>();
+
+        InputArea.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (InputArea.activeSelf)
+        {
+            bool Change = false;
+
+            InputName[Count].fontStyle = FontStyles.Underline;
+
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                Change = true;
+                Count--;
+
+                if (Count == -1)
+                    Count = 2;
+            }
+
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                Change = true;
+                Count++;
+
+                if (Count == 3)
+                    Count = 0;
+            }
+
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                InputName[Count].GetComponent<NameInput>().PreviousLetter();
+            }
+
+            if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                InputName[Count].GetComponent<NameInput>().NextLetter();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                foreach (TextMeshProUGUI tm in InputName)
+                    Username = string.Join(" ", tm.text);
+
+                NameDone = true;
+            }
+
+            if(Change)
+            {
+                foreach(TextMeshProUGUI tm in InputName)
+                {
+                    tm.fontStyle = FontStyles.Normal;
+                }
+            }
+        }
     }
 
     private void LoadHS()
@@ -45,34 +111,36 @@ public class HSHandler : MonoBehaviour
         {
             if (i >= hsList.Count || score > hsList[i].Points)
             {
-                HighscoreElement hs = AddHS(score);
+                InputArea.SetActive(true);
 
-                hsList.Insert(i, hs);
-
-                while (hsList.Count > MaxCount)
+                if (NameDone)
                 {
-                    hsList.RemoveAt(MaxCount);
+                    NameDone = false;
+
+                    HighscoreElement hs = AddHS(score);
+
+                    hsList.Insert(i, hs);
+
+                    while (hsList.Count > MaxCount)
+                    {
+                        hsList.RemoveAt(MaxCount);
+                    }
+
+                    SaveHS();
+
+                    sl.UpdateUI(hsList);
+
+                    InputArea.SetActive(false);
+
+                    break;
                 }
-
-                SaveHS();
-
-                sl.UpdateUI(hsList);
-
-//                InputArea.SetActive(false);
-
-                break;
             }
         }
     }
 
     private HighscoreElement AddHS (int score)
     {
-//        InputArea.SetActive (true);
-
-        string name;
-        name = "ABC";
-
-        HighscoreElement hse = new HighscoreElement(name,score);
+        HighscoreElement hse = new HighscoreElement(Username,score);
 
         return hse;
     }

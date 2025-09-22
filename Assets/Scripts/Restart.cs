@@ -50,7 +50,9 @@ public class Restart : MonoBehaviour
 
     public void BallReset()
     {
-        audioController.audioSource2.PlayOneShot(audioController.floorSFX);
+        if(audioController != null)
+            audioController.audioSource2.PlayOneShot(audioController.floorSFX);
+
         lives--;
 
         StopPos = Ball.transform.position;
@@ -70,15 +72,18 @@ public class Restart : MonoBehaviour
 
     private void GamaOvar()
     {
-        for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
+        if (audioController != null)
         {
-            audioController.musicSources[0].volume = 0;
-            audioController.musicSources[1].volume = 0;
-            audioController.musicSources[2].volume = 0;
-            audioController.musicSources[3].volume = 0;
-            audioController.musicSources[4].volume = 0;
+            for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
+            {
+                audioController.musicSources[0].volume = 0;
+                audioController.musicSources[1].volume = 0;
+                audioController.musicSources[2].volume = 0;
+                audioController.musicSources[3].volume = 0;
+                audioController.musicSources[4].volume = 0;
+            }
+            audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
         }
-        audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
 
         ReplayGo.SetActive(true);
         mip.enabled = false;
@@ -89,24 +94,26 @@ public class Restart : MonoBehaviour
 
     private void Replay()
     {
-        /*
-        foreach (AudioSource i in audioController.musicSources)
+        if (audioController != null)
         {
-            for (int j = 0; j < audioController.musicSources.Count; j++)
+            foreach (AudioSource i in audioController.musicSources)
             {
-                if (j != 0)
-                    i.volume = 0;
+                for (int j = 0; j < audioController.musicSources.Count; j++)
+                {
+                    if (j != 0)
+                        i.volume = 0;
+                }
             }
-        }
-        */
-        BlockRespawn.clear = 0;
-        for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
-        {
-            audioController.musicSources[0].volume = 1;
-            audioController.musicSources[1].volume = 0;
-            audioController.musicSources[2].volume = 0;
-            audioController.musicSources[3].volume = 0;
-            audioController.musicSources[4].volume = 0;
+
+            BlockRespawn.clear = 0;
+            for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
+            {
+                audioController.musicSources[0].volume = 1;
+                audioController.musicSources[1].volume = 0;
+                audioController.musicSources[2].volume = 0;
+                audioController.musicSources[3].volume = 0;
+                audioController.musicSources[4].volume = 0;
+            }
         }
 
         lives = 3;
@@ -126,7 +133,11 @@ public class Restart : MonoBehaviour
     {
         if(lives == 0)
         {
-            GamaOvar();
+            Scoring SC = FindAnyObjectByType<Scoring>();
+
+            if(SC.CheckScore())
+                GamaOvar();
+    
             yield break;
         }
 

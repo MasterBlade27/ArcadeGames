@@ -39,6 +39,8 @@ public class BallMove : MonoBehaviour
 
         RB = GetComponent<Rigidbody>();
 
+        Paddle = FindAnyObjectByType<MoveInput>().gameObject;
+
         Starto = true;
 
         if (!Demo)
