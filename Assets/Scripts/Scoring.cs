@@ -65,11 +65,9 @@ public class Scoring : MonoBehaviour
         }
     }
 
-    public bool CheckScore()
+    public int GiveScore()
     {
-        HSH.CheckHS(scoreCount);
-
-        return true;
+        return scoreCount;
     }
 
     public void ResetScore()

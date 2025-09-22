@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
-using System.Runtime.ConstrainedExecution;
 using TMPro;
 using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
+    [SerializeField]
+    private bool Test;
 
     private GameObject Ball;
     private Vector3 StopPos;
@@ -13,6 +14,7 @@ public class Restart : MonoBehaviour
 
     [SerializeField]
     private int lives = 3;
+    private int totallives;
 
     [SerializeField]
     private TextMeshProUGUI livetext;
@@ -30,6 +32,8 @@ public class Restart : MonoBehaviour
 
     private void Start()
     {
+        totallives = lives;
+
         mip = FindAnyObjectByType<MoveInput>();
         OriPad = mip.transform.position;
 
@@ -42,7 +46,7 @@ public class Restart : MonoBehaviour
     {
         livetext.text = lives.ToString();
 
-        if (Input.GetKeyUp(KeyCode.Space) && ReplayGo.activeSelf)
+        if (Input.GetKeyUp(KeyCode.Space) && ReplayGo.activeSelf && Test)
         {
             Replay();
         }
@@ -70,7 +74,7 @@ public class Restart : MonoBehaviour
         Ball.GetComponent<BallMove>().Starto = true;
     }
 
-    private void GamaOvar()
+    public void GamaOvar()
     {
         if (audioController != null)
         {
@@ -86,7 +90,6 @@ public class Restart : MonoBehaviour
         }
 
         ReplayGo.SetActive(true);
-        mip.enabled = false;
 
         if(FindAnyObjectByType<PowerUp>())
             DelPowerUps();
@@ -116,7 +119,7 @@ public class Restart : MonoBehaviour
             }
         }
 
-        lives = 3;
+        lives = totallives;
         ReplayGo.SetActive(false);
         mip.enabled = true;
         mip.gameObject.transform.position = OriPad;
@@ -131,13 +134,12 @@ public class Restart : MonoBehaviour
 
     private IEnumerator ResetEnum()
     {
-        if(lives == 0)
+        if (lives == 0)
         {
-            Scoring SC = FindAnyObjectByType<Scoring>();
+            ScoreName SN = FindAnyObjectByType<ScoreName>();
+            SN.HighscoreRestart();
+            mip.enabled = false;
 
-            if(SC.CheckScore())
-                GamaOvar();
-    
             yield break;
         }
 

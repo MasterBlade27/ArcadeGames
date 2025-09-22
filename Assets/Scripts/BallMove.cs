@@ -39,12 +39,12 @@ public class BallMove : MonoBehaviour
 
         RB = GetComponent<Rigidbody>();
 
-        Paddle = FindAnyObjectByType<MoveInput>().gameObject;
-
         Starto = true;
 
         if (!Demo)
         {
+            Paddle = FindAnyObjectByType<MoveInput>().gameObject;
+
             PowerUp.HalfSpeed += OnHalfSpeed;
         }
     }

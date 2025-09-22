@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 
-public class NameInput : MonoBehaviour
+public class NameArray : MonoBehaviour
 {
     private char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
     [SerializeField]
