@@ -2013,6 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cbf9392bdc0f7449a3b3d61aa70c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restart
+  Test: 1
   lives: 1
   livetext: {fileID: 1449296127}
   ReplayGo: {fileID: 1512167726}
@@ -3298,6 +3299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScoreName
   Count: 0
   Username: 
+  InParent: {fileID: 0}
   InputArea: {fileID: 174674796}
   HSH: {fileID: 0}
   totalscore: 0
