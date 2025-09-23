@@ -41,7 +41,9 @@ public class Scoring : MonoBehaviour
     {
         //Updates the Score Text with Score Variable
         scoretext.text = scoreCount.ToString();
-        EndingScore.text = scoreCount.ToString();
+    
+        if(EndingScore != null)
+            EndingScore.text = scoreCount.ToString();
 
         //Tests if the Highscore is lesser than the Score
         if (int.Parse(Hiscoretext.text) < scoreCount)

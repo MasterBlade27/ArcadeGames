@@ -149,9 +149,12 @@ public class Restart : MonoBehaviour
     {
         if (lives == 0)
         {
+            mip.enabled = false;
+            if (Test)
+                GamaOvar();
+
             ScoreName SN = FindAnyObjectByType<ScoreName>();
             SN.HighscoreRestart();
-            mip.enabled = false;
 
             yield break;
         }
