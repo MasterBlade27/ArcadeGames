@@ -7,28 +7,12 @@ using UnityEngine.UI;
 public class ScoreList : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ScoreListing;
-
-    [SerializeField]
     private GameObject HSUIPrefab;
     [SerializeField]
     private Transform ElmWrapper;
 
     List<GameObject> UIElem = new List<GameObject>();
 
-    void Start()
-    {
-        ScoreListing.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Tab))
-            ScoreListing.SetActive(true);
-        else
-            ScoreListing.SetActive(false);
-
-    }
 
     public void UpdateUI(List<HighscoreElement> list)
     {

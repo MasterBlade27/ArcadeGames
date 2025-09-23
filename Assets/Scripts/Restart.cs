@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
-using System.Runtime.ConstrainedExecution;
 using TMPro;
 using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
+    [SerializeField]
+    private bool Test;
 
     private GameObject Ball;
     private Vector3 StopPos;
@@ -13,6 +14,7 @@ public class Restart : MonoBehaviour
 
     [SerializeField]
     private int lives = 3;
+    private int totallives;
 
     [SerializeField]
     private TextMeshProUGUI livetext;
@@ -28,8 +30,12 @@ public class Restart : MonoBehaviour
     [SerializeField]
     private AudioController audioController;
 
+    private PaddleMove pInput;
+
     private void Start()
     {
+        totallives = lives;
+
         mip = FindAnyObjectByType<MoveInput>();
         OriPad = mip.transform.position;
 
@@ -38,9 +44,32 @@ public class Restart : MonoBehaviour
         ReplayGo.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        pInput = new PaddleMove();
+        pInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        pInput.Disable();
+    }
+
+    private void Update()
+    {
+        livetext.text = lives.ToString();
+
+        if (pInput.Movement.Play.IsPressed() && ReplayGo.activeSelf && Test)
+        {
+            Replay();
+        }
+    }
+
     public void BallReset()
     {
-        audioController.audioSource2.PlayOneShot(audioController.floorSFX);
+        if(audioController != null)
+            audioController.audioSource2.PlayOneShot(audioController.floorSFX);
+
         lives--;
 
         StopPos = Ball.transform.position;
@@ -58,58 +87,52 @@ public class Restart : MonoBehaviour
         Ball.GetComponent<BallMove>().Starto = true;
     }
 
-    private void GamaOvar()
+    public void GamaOvar()
     {
-        for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
+        if (audioController != null)
         {
-            audioController.musicSources[0].volume = 0;
-            audioController.musicSources[1].volume = 0;
-            audioController.musicSources[2].volume = 0;
-            audioController.musicSources[3].volume = 0;
-            audioController.musicSources[4].volume = 0;
+            for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
+            {
+                audioController.musicSources[0].volume = 0;
+                audioController.musicSources[1].volume = 0;
+                audioController.musicSources[2].volume = 0;
+                audioController.musicSources[3].volume = 0;
+                audioController.musicSources[4].volume = 0;
+            }
+            audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
         }
-        audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
 
         ReplayGo.SetActive(true);
-        mip.enabled = false;
 
         if(FindAnyObjectByType<PowerUp>())
             DelPowerUps();
     }
 
-    private void Update()
+    private void Replay()
     {
-        livetext.text = lives.ToString();
-
-        if (Input.GetKeyUp(KeyCode.Space) && ReplayGo.activeSelf)
+        if (audioController != null)
         {
-            Restarto();
-        }
-    }
-
-    private void Restarto()
-    {
-        /*
-        foreach (AudioSource i in audioController.musicSources)
-        {
-            for (int j = 0; j < audioController.musicSources.Count; j++)
+            foreach (AudioSource i in audioController.musicSources)
             {
-                if (j != 0)
-                    i.volume = 0;
+                for (int j = 0; j < audioController.musicSources.Count; j++)
+                {
+                    if (j != 0)
+                        i.volume = 0;
+                }
+            }
+
+            BlockRespawn.clear = 0;
+            for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
+            {
+                audioController.musicSources[0].volume = 1;
+                audioController.musicSources[1].volume = 0;
+                audioController.musicSources[2].volume = 0;
+                audioController.musicSources[3].volume = 0;
+                audioController.musicSources[4].volume = 0;
             }
         }
-        */
-        BlockRespawn.clear = 0;
-        for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
-        {
-            audioController.musicSources[0].volume = 1;
-            audioController.musicSources[1].volume = 0;
-            audioController.musicSources[2].volume = 0;
-            audioController.musicSources[3].volume = 0;
-            audioController.musicSources[4].volume = 0;
-        }
 
-        lives = 3;
+        lives = totallives;
         ReplayGo.SetActive(false);
         mip.enabled = true;
         mip.gameObject.transform.position = OriPad;
@@ -124,9 +147,12 @@ public class Restart : MonoBehaviour
 
     private IEnumerator ResetEnum()
     {
-        if(lives == 0)
+        if (lives == 0)
         {
-            GamaOvar();
+            ScoreName SN = FindAnyObjectByType<ScoreName>();
+            SN.HighscoreRestart();
+            mip.enabled = false;
+
             yield break;
         }
 

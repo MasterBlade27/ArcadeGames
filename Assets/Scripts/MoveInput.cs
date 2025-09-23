@@ -11,11 +11,16 @@ public class MoveInput : MonoBehaviour
     [SerializeField]
     private float direction, moveDirection;
 
-    private void Start()
+    private void OnEnable()
     {
         pInput = new PaddleMove();
         //Enable the Movement Script
         pInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        pInput.Disable();
     }
 
     private void Update()

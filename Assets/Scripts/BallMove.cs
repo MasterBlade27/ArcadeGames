@@ -1,8 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Windows;
 
 public class BallMove : MonoBehaviour
 {
+    [SerializeField]
+    private bool Demo;
+
     private Rigidbody RB;
     [SerializeField]
     private GameObject Paddle;
@@ -31,27 +35,49 @@ public class BallMove : MonoBehaviour
 
     private bool isHalfSpeedActive = false;
 
+    private PaddleMove pInput;
+
     void Start()
     {
+
         RB = GetComponent<Rigidbody>();
 
         Starto = true;
 
-        PowerUp.HalfSpeed += OnHalfSpeed;
-        Restart.DelPowerUps += onRestart;
+        if (!Demo)
+        {
+            Paddle = FindAnyObjectByType<MoveInput>().gameObject;
+
+			PowerUp.HalfSpeed += OnHalfSpeed;
+			Restart.DelPowerUps += onRestart;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if(!Demo)
+        {
+            pInput = new PaddleMove();
+            pInput.Enable();
+        }
     }
 
     private void OnDisable()
     {
-        PowerUp.HalfSpeed -= OnHalfSpeed;
-        Restart.DelPowerUps -= onRestart;
+
+        if (!Demo)
+        {
+            pInput.Disable();
+            PowerUp.HalfSpeed -= OnHalfSpeed;
+			Restart.DelPowerUps -= onRestart;
+        }
     }
 
     private void Update()
     {
-        if (Starto)
+        if (Starto && !Demo)
         {
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (pInput.Movement.Play.IsPressed())
             {
                 //Starting Movement for the Ball
                 Vector3 fforce = new Vector3(Random.Range(-1f, 1f), 1f, 0f);
@@ -66,6 +92,17 @@ public class BallMove : MonoBehaviour
             {
                 transform.position = Paddle.transform.position + Vector3.up * 0.5f;
             }
+        }
+
+        else if(Starto && Demo)
+        {
+            //Starting Movement for the Ball
+            Vector3 fforce = new Vector3(Random.Range(-1f, 1f), 1f, 0f);
+
+            //Moves the Ball upon Starting
+            RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
+
+            Starto = false;
         }
 
         //Sets Vel as Ball's Velocity
@@ -102,13 +139,16 @@ public class BallMove : MonoBehaviour
         //Test for if the Ball hits the Paddle
         if (collision.gameObject == Paddle)
         {
-            //Play sound when ball hits the paddle
-            audioController.audioSource1.pitch = 1;
-            ballPitch = 0;
-            for (int i = 0; i < audioController.paddleAudioClips.Count; i++)
+            if (audioController != null)
             {
-                int paddleIndex = Random.Range(0, 4);
-                audioController.audioSource1.PlayOneShot(audioController.paddleAudioClips[paddleIndex]);
+                //Play sound when ball hits the paddle
+                audioController.audioSource1.pitch = 1;
+                ballPitch = 0;
+                for (int i = 0; i < audioController.paddleAudioClips.Count; i++)
+                {
+                    int paddleIndex = Random.Range(0, 4);
+                    audioController.audioSource1.PlayOneShot(audioController.paddleAudioClips[paddleIndex]);
+                }
             }
 
             //Finds the angle between the Ball and the Paddle
@@ -136,15 +176,18 @@ public class BallMove : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Block"))
         {
-            //Play sound when ball hits the blocks
-            if (ballPitch < 5)
-                ballPitch += 1;
-
-            audioController.audioSource1.pitch = ballPitch;
-            for (int i = 0; i < audioController.blockAudioClips.Count; i++)
+            if (audioController != null)
             {
-                int blockIndex = Random.Range(0, 11);
-                audioController.audioSource1.PlayOneShot(audioController.blockAudioClips[blockIndex]);
+                //Play sound when ball hits the blocks
+                if (ballPitch < 5)
+                    ballPitch += 1;
+
+                audioController.audioSource1.pitch = ballPitch;
+                for (int i = 0; i < audioController.blockAudioClips.Count; i++)
+                {
+                    int blockIndex = Random.Range(0, 11);
+                    audioController.audioSource1.PlayOneShot(audioController.blockAudioClips[blockIndex]);
+                }
             }
 
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
@@ -160,12 +203,15 @@ public class BallMove : MonoBehaviour
         //Test if the Ball hits anything else
         else
         {
-            //Play sound when ball hits the wall
-            audioController.audioSource1.pitch = 1;
-            for (int i = 0; i < audioController.wallAudioClips.Count; i++)
+            if (audioController != null)
             {
-                int wallIndex = Random.Range(0, 4);
-                audioController.audioSource1.PlayOneShot(audioController.wallAudioClips[wallIndex]);
+                //Play sound when ball hits the wall
+                audioController.audioSource1.pitch = 1;
+                for (int i = 0; i < audioController.wallAudioClips.Count; i++)
+                {
+                    int wallIndex = Random.Range(0, 4);
+                    audioController.audioSource1.PlayOneShot(audioController.wallAudioClips[wallIndex]);
+                }
             }
 
             //The Ball will Bounce off the object in a Normal Reflective way
@@ -180,7 +226,7 @@ public class BallMove : MonoBehaviour
         StuckBounce++;
 
         //If the Ball Bounces 5 Times Without Touching Anything 
-        if (StuckBounce % 8 == 0 && !(StuckBounce == 0))
+        if (StuckBounce % 6 == 0 && !(StuckBounce == 0))
         {
             //Activates Anti Stuck Correction
             Stuck = true;
@@ -193,6 +239,7 @@ public class BallMove : MonoBehaviour
             speed += 3;
         }
     }
+
     private Coroutine halfSpeedCoroutine;
     private float originalSpeed;
 
