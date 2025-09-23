@@ -11,6 +11,8 @@ public class TransitionLoad : MonoBehaviour
     [SerializeField]
     private string SceneName;
 
+    private PaddleMove pInput;
+
     public bool BSwitch = false;
 
     private Coroutine BufferTime;
@@ -26,6 +28,18 @@ public class TransitionLoad : MonoBehaviour
 
             BufferTime = StartCoroutine(Buffering());
         }
+
+        else
+        {
+            pInput = new PaddleMove();
+            pInput.Enable();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (Demo)
+            pInput.Disable();
     }
 
     void Update()
@@ -37,7 +51,8 @@ public class TransitionLoad : MonoBehaviour
 
         if (Demo)
         {
-            if (Input.GetKeyUp(KeyCode.Space))
+
+            if(pInput.Movement.Play.IsPressed())
             {
                 BSwitch = true;
             }

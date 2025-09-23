@@ -142,7 +142,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: PlayStart
+    path: Play
     classID: 1
     script: {fileID: 0}
     flags: 16
@@ -155,7 +155,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2322167522
+      path: 4273697156
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -310,7 +310,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: PlayStart
+    path: Play
     classID: 1
     script: {fileID: 0}
     flags: 16

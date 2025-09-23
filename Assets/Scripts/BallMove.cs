@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Windows;
 
 public class BallMove : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class BallMove : MonoBehaviour
 
     private bool isHalfSpeedActive = false;
 
+    private PaddleMove pInput;
+
     void Start()
     {
 
@@ -49,17 +52,29 @@ public class BallMove : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnEnable()
     {
         if(!Demo)
+        {
+            pInput = new PaddleMove();
+            pInput.Enable();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (!Demo)
+        {
+            pInput.Disable();
             PowerUp.HalfSpeed -= OnHalfSpeed;
+        }
     }
 
     private void Update()
     {
         if (Starto && !Demo)
         {
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (pInput.Movement.Play.IsPressed())
             {
                 //Starting Movement for the Ball
                 Vector3 fforce = new Vector3(Random.Range(-1f, 1f), 1f, 0f);

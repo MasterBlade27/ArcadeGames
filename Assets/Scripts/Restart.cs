@@ -30,6 +30,8 @@ public class Restart : MonoBehaviour
     [SerializeField]
     private AudioController audioController;
 
+    private PaddleMove pInput;
+
     private void Start()
     {
         totallives = lives;
@@ -42,11 +44,22 @@ public class Restart : MonoBehaviour
         ReplayGo.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        pInput = new PaddleMove();
+        pInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        pInput.Disable();
+    }
+
     private void Update()
     {
         livetext.text = lives.ToString();
 
-        if (Input.GetKeyUp(KeyCode.Space) && ReplayGo.activeSelf && Test)
+        if (pInput.Movement.Play.IsPressed() && ReplayGo.activeSelf && Test)
         {
             Replay();
         }

@@ -16,9 +16,13 @@ public class ScoreName : MonoBehaviour
     private TextMeshProUGUI[] InputName = new TextMeshProUGUI[3];
 
     [SerializeField]
-    HSHandler HSH;
+    private HSHandler HSH;
     [SerializeField]
-    int totalscore;
+    private int totalscore;
+
+    private PaddleMove pInput;
+
+    private float Secs = 0.2f;
 
     private void Start()
     {
@@ -27,6 +31,17 @@ public class ScoreName : MonoBehaviour
         InputName = InputArea.GetComponentsInChildren<TextMeshProUGUI>();
 
         InParent.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        pInput = new PaddleMove();
+        pInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        pInput.Disable();
     }
 
     public void HighscoreRestart()
@@ -63,35 +78,43 @@ public class ScoreName : MonoBehaviour
 
             InputName[Count].fontStyle = FontStyles.Underline;
 
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            if (pInput.Movement.Move.ReadValue<Vector2>().x < 0 && pInput.Movement.Move.IsPressed())
             {
                 Change = true;
                 Count--;
 
                 if (Count == -1)
                     Count = 2;
+
+                yield return new WaitForSeconds(Secs);
             }
 
-            if (Input.GetKeyUp(KeyCode.RightArrow))
+            if (pInput.Movement.Move.ReadValue<Vector2>().x > 0 && pInput.Movement.Move.IsPressed())
             {
                 Change = true;
                 Count++;
 
                 if (Count == 3)
                     Count = 0;
+
+                yield return new WaitForSeconds(Secs);
             }
 
-            if (Input.GetKeyUp(KeyCode.UpArrow))
+            if (pInput.Movement.Cycle.ReadValue<Vector2>().y > 0 && pInput.Movement.Cycle.IsPressed())
             {
                 InputName[Count].GetComponent<NameArray>().PreviousLetter();
+
+                yield return new WaitForSeconds(Secs);
             }
 
-            if (Input.GetKeyUp(KeyCode.DownArrow))
+            if (pInput.Movement.Cycle.ReadValue<Vector2>().y < 0 && pInput.Movement.Cycle.IsPressed())
             {
                 InputName[Count].GetComponent<NameArray>().NextLetter();
+
+                yield return new WaitForSeconds(Secs);
             }
 
-            if (Input.GetKeyUp(KeyCode.Return))
+            if (pInput.Movement.Play.IsPressed())
             {
                 Username = string.Join("", InputName[0].text, InputName[1].text, InputName[2].text);
 
