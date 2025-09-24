@@ -39,7 +39,6 @@ public class BallMove : MonoBehaviour
 
     void Start()
     {
-
         RB = GetComponent<Rigidbody>();
 
         Starto = true;
@@ -64,7 +63,6 @@ public class BallMove : MonoBehaviour
 
     private void OnDisable()
     {
-
         if (!Demo)
         {
             pInput.Disable();

@@ -96,8 +96,6 @@ public class Restart : MonoBehaviour
                 audioController.musicSources[0].volume = 0;
                 audioController.musicSources[1].volume = 0;
                 audioController.musicSources[2].volume = 0;
-                audioController.musicSources[3].volume = 0;
-                audioController.musicSources[4].volume = 0;
             }
             audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
         }
@@ -127,8 +125,6 @@ public class Restart : MonoBehaviour
                 audioController.musicSources[0].volume = 1;
                 audioController.musicSources[1].volume = 0;
                 audioController.musicSources[2].volume = 0;
-                audioController.musicSources[3].volume = 0;
-                audioController.musicSources[4].volume = 0;
             }
         }
 

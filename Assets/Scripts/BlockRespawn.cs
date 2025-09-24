@@ -78,7 +78,7 @@ public class BlockRespawn : MonoBehaviour
             clear += 1;
             for (int i = 0; i < audioController.musicSources.Count; i++)
             {
-                if (clear <= 4)
+                if (clear <= 2)
                     audioController.musicSources[clear].volume = 1;
             }
         }
