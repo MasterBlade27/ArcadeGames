@@ -78,13 +78,14 @@ public class BallMove : MonoBehaviour
             if (pInput.Movement.Play.IsPressed())
             {
                 //Starting Movement for the Ball
-                Vector3 fforce = new Vector3(Random.Range(-1f, 1f), 1f, 0f);
+                Vector3 fforce = new Vector3(Paddle.transform.position.x / 7.5f, 1f, 0f);
 
                 //Moves the Ball upon Starting
                 RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
 
                 Starto = false;
             }
+
             else
             {
                 transform.position = Paddle.transform.position + Vector3.up * 0.5f;

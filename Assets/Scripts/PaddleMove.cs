@@ -118,6 +118,15 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""854a942c-26e6-4064-996e-032db6878a5c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -450,6 +459,28 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
                     ""action"": ""Play"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbcbbd16-3137-4924-9bd6-a93815034514"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67c4da3a-1069-400e-a19f-7bf2f208dc54"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -461,6 +492,7 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Play = m_Movement.FindAction("Play", throwIfNotFound: true);
         m_Movement_Cycle = m_Movement.FindAction("Cycle", throwIfNotFound: true);
+        m_Movement_Escape = m_Movement.FindAction("Escape", throwIfNotFound: true);
     }
 
     ~@PaddleMove()
@@ -544,6 +576,7 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Play;
     private readonly InputAction m_Movement_Cycle;
+    private readonly InputAction m_Movement_Escape;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -567,6 +600,10 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Cycle".
         /// </summary>
         public InputAction @Cycle => m_Wrapper.m_Movement_Cycle;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_Movement_Escape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -602,6 +639,9 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
             @Cycle.started += instance.OnCycle;
             @Cycle.performed += instance.OnCycle;
             @Cycle.canceled += instance.OnCycle;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         /// <summary>
@@ -622,6 +662,9 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
             @Cycle.started -= instance.OnCycle;
             @Cycle.performed -= instance.OnCycle;
             @Cycle.canceled -= instance.OnCycle;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         /// <summary>
@@ -683,5 +726,12 @@ public partial class @PaddleMove: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCycle(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

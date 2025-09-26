@@ -12,8 +12,7 @@ public class Restart : MonoBehaviour
     private Vector3 StopPos;
     private Coroutine Reseting;
 
-    [SerializeField]
-    private int lives = 3;
+    public int lives = 3;
     private int totallives;
 
     [SerializeField]
@@ -133,18 +132,6 @@ public class Restart : MonoBehaviour
 
     private IEnumerator ResetEnum()
     {
-        if (lives == 0)
-        {
-            mip.enabled = false;
-            if (Test)
-                GamaOvar();
-
-            ScoreName SN = FindAnyObjectByType<ScoreName>();
-            SN.HighscoreRestart();
-
-            yield break;
-        }
-
         float endtime = .5f;
         float timer = 0f;
         while (timer < endtime)
@@ -155,6 +142,18 @@ public class Restart : MonoBehaviour
 
             if (timer >= endtime)
             {
+                if (lives <= 0)
+                {
+                    mip.enabled = false;
+                    if (Test)
+                        GamaOvar();
+
+                    ScoreName SN = FindAnyObjectByType<ScoreName>();
+                    SN.HighscoreRestart();
+
+                    yield break;
+                }
+
                 StartAgain();
                 Reseting = null;
             }
