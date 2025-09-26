@@ -115,6 +115,7 @@ public class Restart : MonoBehaviour
         mip.gameObject.transform.position = OriPad;
 
         BlockRespawn BR = FindAnyObjectByType<BlockRespawn>();
+        BR.ResetLevels();
         BR.TempRestart();
         Scoring SC = FindAnyObjectByType<Scoring>();
         SC.ResetScore();

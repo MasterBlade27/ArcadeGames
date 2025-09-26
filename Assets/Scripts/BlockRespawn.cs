@@ -95,4 +95,9 @@ public class BlockRespawn : MonoBehaviour
 
         BlockActive = BlockRow * BlockCol;
     }
+
+    public void ResetLevels()
+    {
+        Level = 0;
+    }
 }
