@@ -16,15 +16,9 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     public List<AudioClip> wallAudioClips = new List<AudioClip>();
     [SerializeField]
-    public AudioClip powerupSlowTime;
-    [SerializeField]
-    public AudioClip powerupLargePaddle;
-    [SerializeField]
     public AudioClip floorSFX;
     [SerializeField]
     public AudioClip gameOverSFX;
-    [SerializeField]
-    public AudioClip powerupSpawnSFX;
     [SerializeField]
     public AudioClip oneUpSFX;
 }

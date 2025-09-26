@@ -75,7 +75,8 @@ public class BlockRespawn : MonoBehaviour
         {
             audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
 
-            clear += 1;
+            if (!Restart.isGameOver)
+                clear += 1;
             for (int i = 0; i < audioController.musicSources.Count; i++)
             {
                 if (clear <= 2)

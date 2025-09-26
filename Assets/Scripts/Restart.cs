@@ -32,6 +32,8 @@ public class Restart : MonoBehaviour
 
     private PaddleMove pInput;
 
+    public static bool isGameOver = false;
+
     private void Start()
     {
         totallives = lives;
@@ -67,6 +69,8 @@ public class Restart : MonoBehaviour
 
     public void BallReset()
     {
+        isGameOver = false;
+
         if(audioController != null)
             audioController.audioSource2.PlayOneShot(audioController.floorSFX);
 
@@ -89,14 +93,11 @@ public class Restart : MonoBehaviour
 
     public void GamaOvar()
     {
+        isGameOver = true;
         if (audioController != null)
         {
-            for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
-            {
-                audioController.musicSources[0].volume = 0;
-                audioController.musicSources[1].volume = 0;
-                audioController.musicSources[2].volume = 0;
-            }
+            for (int i = 0; i < audioController.musicSources.Count; i++)    //I will change this code later
+                audioController.musicSources[i].volume = 0;
             audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
         }
 
@@ -109,25 +110,12 @@ public class Restart : MonoBehaviour
     private void Replay()
     {
         if (audioController != null)
-            audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
-        if (audioController != null)
         {
-            foreach (AudioSource i in audioController.musicSources)
-            {
-                for (int j = 0; j < audioController.musicSources.Count; j++)
-                {
-                    if (j != 0)
-                        i.volume = 0;
-                }
-            }
-
-            BlockRespawn.clear = 0;
-            for (int j = 0; j < audioController.musicSources.Count; j++)    //I will change this code later
-            {
+            for (int i = 0; i < audioController.musicSources.Count; i++)
                 audioController.musicSources[0].volume = 1;
                 audioController.musicSources[1].volume = 0;
                 audioController.musicSources[2].volume = 0;
-            }
+            audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
         }
 
         lives = totallives;

@@ -6316,10 +6316,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio
       objectReference: {fileID: 0}
-    - target: {fileID: 1720392566706210209, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3361165258368421169, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6359,14 +6355,6 @@ PrefabInstance:
     - target: {fileID: 3361165258368421169, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524522183221113494, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 3cd70e3857e82aa4cb39a2b4c0bf6552, type: 3}
-    - target: {fileID: 5241776785211524085, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: m_Resource
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: musicSources.Array.size

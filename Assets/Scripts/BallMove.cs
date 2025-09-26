@@ -85,7 +85,6 @@ public class BallMove : MonoBehaviour
 
                 Starto = false;
             }
-
             else
             {
                 transform.position = Paddle.transform.position + Vector3.up * 0.5f;
