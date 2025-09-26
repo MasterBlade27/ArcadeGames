@@ -16,9 +16,9 @@ public class BlockRespawn : MonoBehaviour
     public int BlockActive;
 
     [SerializeField]
-    private AudioController audioController;
+    private AudioController AC;
 
-    public static int clear = 0;
+    private int Level = 0;
 
     private void Start()
     {
@@ -71,16 +71,19 @@ public class BlockRespawn : MonoBehaviour
 
     public void TempRestart()
     {
-        if (audioController != null)
-        {
-            audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
+        Level++;
 
-            if (!Restart.isGameOver)
-                clear += 1;
-            for (int i = 0; i < audioController.musicSources.Count; i++)
+        if (AC != null)
+        {
+            AC.PlaySound(AC.oneUpSFX);
+
+            for(int c = 0; c < Level; c++)
             {
-                if (clear <= 2)
-                    audioController.musicSources[clear].volume = 1;
+                if (c < 2)
+                {
+                    AC.MusicLevel = c;
+                    AC.StartMusic(c);
+                }
             }
         }
 

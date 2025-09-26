@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3361165258368421169}
   - component: {fileID: 7018680046792066289}
   - component: {fileID: 6991771469696027791}
+  - component: {fileID: 292087297682339312}
   - component: {fileID: 5345499242922925253}
   - component: {fileID: 4524522183221113494}
   - component: {fileID: 1720392566706210209}
@@ -231,6 +232,103 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &292087297682339312
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706804667762919123}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &5345499242922925253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,12 +341,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f108bd1a18d070548bc57dc6193fbf25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  audioSource1: {fileID: 7018680046792066289}
-  audioSource2: {fileID: 6991771469696027791}
+  audioSources:
+  - {fileID: 7018680046792066289}
+  - {fileID: 6991771469696027791}
+  - {fileID: 292087297682339312}
   musicSources:
   - {fileID: 4524522183221113494}
   - {fileID: 1720392566706210209}
-  - {fileID: 5241776785211524085}
   - {fileID: 5241776785211524085}
   paddleAudioClips:
   - {fileID: 8300000, guid: 4a9e995f8e22f604881f3f5f003ecf12, type: 3}
@@ -275,12 +374,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e892364124027524dbe725225e39a7cb, type: 3}
   - {fileID: 8300000, guid: 44a01bcfd4f3ba94f8c6f27ba0694879, type: 3}
   - {fileID: 8300000, guid: 6acfa497a9de3414ab6dc96bc0655372, type: 3}
-  powerupSlowTime: {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
-  powerupLargePaddle: {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
+  powerupClips:
+  - {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
+  - {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
   floorSFX: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 95428563d93624243b5431d49bb11d40, type: 3}
-  powerupSpawnSFX: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
   oneUpSFX: {fileID: 8300000, guid: 4dcb316a6bef55d448e436ca39d6513c, type: 3}
+  powerupSpawn: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
+  MusicLevel: 0
+  volume: 1
 --- !u!82 &4524522183221113494
 AudioSource:
   m_ObjectHideFlags: 0
@@ -294,7 +396,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4cd489553d52bb94a877eba2a217e38d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

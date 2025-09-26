@@ -29,7 +29,7 @@ public class BallMove : MonoBehaviour
     public bool Starto;
 
     [SerializeField]
-    private AudioController audioController;
+    private AudioController AC;
 
     private int ballPitch = 1;
 
@@ -137,16 +137,12 @@ public class BallMove : MonoBehaviour
         //Test for if the Ball hits the Paddle
         if (collision.gameObject == Paddle)
         {
-            if (audioController != null)
+            if (AC != null)
             {
                 //Play sound when ball hits the paddle
-                audioController.audioSource1.pitch = 1;
                 ballPitch = 0;
-                for (int i = 0; i < audioController.paddleAudioClips.Count; i++)
-                {
-                    int paddleIndex = Random.Range(0, 4);
-                    audioController.audioSource1.PlayOneShot(audioController.paddleAudioClips[paddleIndex]);
-                }
+                AC.PlayBall(1, AC.paddleAudioClips, Random.Range(0, 5));
+
             }
 
             //Finds the angle between the Ball and the Paddle
@@ -174,18 +170,13 @@ public class BallMove : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Block"))
         {
-            if (audioController != null)
+            if (AC != null)
             {
                 //Play sound when ball hits the blocks
                 if (ballPitch < 5)
                     ballPitch += 1;
 
-                audioController.audioSource1.pitch = ballPitch;
-                for (int i = 0; i < audioController.blockAudioClips.Count; i++)
-                {
-                    int blockIndex = Random.Range(0, 11);
-                    audioController.audioSource1.PlayOneShot(audioController.blockAudioClips[blockIndex]);
-                }
+                AC.PlayBall(ballPitch, AC.blockAudioClips, Random.Range(0,12));
             }
 
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
@@ -201,15 +192,10 @@ public class BallMove : MonoBehaviour
         //Test if the Ball hits anything else
         else
         {
-            if (audioController != null)
+            if (AC != null)
             {
                 //Play sound when ball hits the wall
-                audioController.audioSource1.pitch = 1;
-                for (int i = 0; i < audioController.wallAudioClips.Count; i++)
-                {
-                    int wallIndex = Random.Range(0, 4);
-                    audioController.audioSource1.PlayOneShot(audioController.wallAudioClips[wallIndex]);
-                }
+                AC.PlayBall(1, AC.wallAudioClips, Random.Range(0, 5));
             }
 
             //The Ball will Bounce off the object in a Normal Reflective way

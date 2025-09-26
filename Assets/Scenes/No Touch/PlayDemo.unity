@@ -1302,6 +1302,7 @@ GameObject:
   - component: {fileID: 407880199}
   - component: {fileID: 407880203}
   - component: {fileID: 407880204}
+  - component: {fileID: 407880205}
   m_Layer: 7
   m_Name: Paddle
   m_TagString: GameController
@@ -1428,6 +1429,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f80a888907a8d48af63e1e9b51bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paddle
+--- !u!114 &407880205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407880197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885fac130a73e0d4aa0dfd9d70e71eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuickEscape
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,29 +2289,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: musicSources.Array.size
-      value: 5
+      propertyPath: volume
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: 'musicSources.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1677286324}
-    - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: 'musicSources.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1677286323}
-    - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: 'musicSources.Array.data[2]'
-      value: 
-      objectReference: {fileID: 1677286322}
-    - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: 'musicSources.Array.data[3]'
-      value: 
-      objectReference: {fileID: 1677286321}
-    - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: 'musicSources.Array.data[4]'
-      value: 
-      objectReference: {fileID: 1677286320}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2551,7 +2544,7 @@ MonoBehaviour:
   Bounce: 0
   StuckBounce: 0
   Starto: 0
-  audioController: {fileID: 1677286319}
+  AC: {fileID: 1677286319}
 --- !u!114 &712360593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,7 +2561,7 @@ MonoBehaviour:
   lives: 5
   livetext: {fileID: 1449296127}
   ReplayGo: {fileID: 1512167726}
-  audioController: {fileID: 1677286319}
+  AC: {fileID: 1677286319}
 --- !u!1001 &760191912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6079,7 +6072,7 @@ MonoBehaviour:
   BlockCol: 13
   BlockRow: 3
   BlockActive: 0
-  audioController: {fileID: 1677286319}
+  AC: {fileID: 1677286319}
 --- !u!4 &1666333811
 Transform:
   m_ObjectHideFlags: 0
@@ -6252,31 +6245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f108bd1a18d070548bc57dc6193fbf25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!82 &1677286320 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4425271521064281843, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-  m_PrefabInstance: {fileID: 685051028}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1677286321 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6729761282350284347, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-  m_PrefabInstance: {fileID: 685051028}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1677286322 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5241776785211524085, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-  m_PrefabInstance: {fileID: 685051028}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1677286323 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1720392566706210209, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-  m_PrefabInstance: {fileID: 685051028}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1677286324 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4524522183221113494, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-  m_PrefabInstance: {fileID: 685051028}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1677843360
 GameObject:
   m_ObjectHideFlags: 0

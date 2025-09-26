@@ -27,11 +27,9 @@ public class Restart : MonoBehaviour
     public static event Action DelPowerUps;
 
     [SerializeField]
-    private AudioController audioController;
+    private AudioController AC;
 
     private PaddleMove pInput;
-
-    public static bool isGameOver = false;
 
     private void Start()
     {
@@ -68,10 +66,8 @@ public class Restart : MonoBehaviour
 
     public void BallReset()
     {
-        isGameOver = false;
-
-        if(audioController != null)
-            audioController.audioSource2.PlayOneShot(audioController.floorSFX);
+        if(AC != null)
+            AC.PlaySound(AC.floorSFX);
 
         lives--;
 
@@ -92,12 +88,10 @@ public class Restart : MonoBehaviour
 
     public void GamaOvar()
     {
-        isGameOver = true;
-        if (audioController != null)
+        if (AC != null)
         {
-            for (int i = 0; i < audioController.musicSources.Count; i++)    //I will change this code later
-                audioController.musicSources[i].volume = 0;
-            audioController.audioSource2.PlayOneShot(audioController.gameOverSFX);
+            AC.ResetMusic();
+            AC.PlaySound(AC.gameOverSFX);
         }
 
         ReplayGo.SetActive(true);
@@ -108,13 +102,11 @@ public class Restart : MonoBehaviour
 
     private void Replay()
     {
-        if (audioController != null)
+        if (AC != null)
         {
-            for (int i = 0; i < audioController.musicSources.Count; i++)
-                audioController.musicSources[0].volume = 1;
-                audioController.musicSources[1].volume = 0;
-                audioController.musicSources[2].volume = 0;
-            audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
+            AC.StartMusic(0);
+
+            AC.PlaySound(AC.oneUpSFX);
         }
 
         lives = totallives;

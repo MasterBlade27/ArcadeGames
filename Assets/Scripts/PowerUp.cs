@@ -9,15 +9,12 @@ public class PowerUp : MonoBehaviour
     [SerializeField]
     private float fallSpeed;
     [SerializeField]
-    private AudioSource powerUp;
-    [SerializeField]
-    private AudioClip slowTime;
-    [SerializeField]
-    private AudioClip largePaddle;
-    
+    private AudioController AC;
 
     private void Start()
     {
+        AC = FindAnyObjectByType<AudioController>();
+
         Restart.DelPowerUps += ResetPups;
     }
     private void OnDisable()
@@ -33,18 +30,26 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("GameController"))
         {
-            float pUp = UnityEngine.Random.Range(0, 2);
+            int pUp = UnityEngine.Random.Range(0, 2);
             if (pUp == 1)
             {
-                powerUp.PlayOneShot(largePaddle, 10f);
                 collision.gameObject.GetComponent<Paddle>().doubleSize();
-                StartCoroutine(DestroyAfterSFX(largePaddle.length));
+
+                if (AC != null)
+                {
+                    AC.PlayPower(AC.powerupClips, pUp);
+                    StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
+                }
             }
             else
             {
-                powerUp.PlayOneShot(slowTime, 10f);
                 HalfSpeed?.Invoke();
-                StartCoroutine(DestroyAfterSFX(slowTime.length));
+
+                if (AC != null)
+                {
+                    AC.PlayPower(AC.powerupClips, pUp);
+                    StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
+                }
             }
         }
         else if (collision.gameObject.CompareTag("KillBox"))
