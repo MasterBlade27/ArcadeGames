@@ -109,6 +109,8 @@ public class Restart : MonoBehaviour
     private void Replay()
     {
         if (audioController != null)
+            audioController.audioSource2.PlayOneShot(audioController.oneUpSFX);
+        if (audioController != null)
         {
             foreach (AudioSource i in audioController.musicSources)
             {
