@@ -66,10 +66,11 @@ public class Restart : MonoBehaviour
 
     public void BallReset()
     {
-        if(AC != null)
-            AC.PlaySound(AC.floorSFX);
-
         lives--;
+
+        if (lives > 0)
+            if (AC != null)
+                AC.PlayVol(AC.floorSFX, 2f);
 
         StopPos = Ball.transform.position;
 
@@ -89,10 +90,7 @@ public class Restart : MonoBehaviour
     public void GamaOvar()
     {
         if (AC != null)
-        {
-            AC.ResetMusic();
             AC.PlaySound(AC.gameOverSFX);
-        }
 
         ReplayGo.SetActive(true);
 
@@ -106,7 +104,7 @@ public class Restart : MonoBehaviour
         {
             AC.StartMusic(0);
 
-            AC.PlaySound(AC.oneUpSFX);
+            AC.PlayVol(AC.oneUpSFX, 5f);
         }
 
         lives = totallives;
@@ -125,33 +123,27 @@ public class Restart : MonoBehaviour
 
     private IEnumerator ResetEnum()
     {
-        float endtime = .5f;
-        float timer = 0f;
-        while (timer < endtime)
+        Ball.transform.position = StopPos;
+        Ball.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+
+        if (lives <= 0)
         {
-            timer += Time.deltaTime;
-            Ball.transform.position = StopPos;
-            Ball.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            if (AC != null)
+                AC.ResetMusic();
 
-            if (timer >= endtime)
-            {
-                if (lives <= 0)
-                {
-                    mip.enabled = false;
-                    if (Test)
-                        GamaOvar();
+            mip.enabled = false;
+            if (Test)
+                GamaOvar();
 
-                    ScoreName SN = FindAnyObjectByType<ScoreName>();
-                    SN.HighscoreRestart();
+            ScoreName SN = FindAnyObjectByType<ScoreName>();
+            SN.HighscoreRestart();
 
-                    yield break;
-                }
-
-                StartAgain();
-                Reseting = null;
-            }
-
-            yield return null;
+            yield break;
         }
+
+        yield return new WaitForSeconds(0.5f);
+
+        StartAgain();
+        Reseting = null;
     }
 }

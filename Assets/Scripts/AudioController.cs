@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ public class AudioController : MonoBehaviour
 
     public int MusicLevel;
     public bool volume = true;
+    private bool ResetMute = false;
 
     private void Start()
     {
@@ -45,6 +47,7 @@ public class AudioController : MonoBehaviour
             foreach (AudioSource AS in audioSources)
                 AS.volume = 1;
 
+            if(!ResetMute)
             for (int i = 0; i <= Mathf.Clamp(MusicLevel, 0, 2); i++)
                 musicSources[i].volume = 1;
         }
@@ -83,16 +86,25 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    public void PlayPower(List<AudioClip> Sounds, int index)
+    public void PlayVol(AudioClip Sound, float Vol)
     {
         if (volume)
         {
-            audioSources[2].PlayOneShot(Sounds[index]);
+            audioSources[2].PlayOneShot(Sound, Vol);
+        }
+    }
+
+    public void PlayVol(List<AudioClip> Sounds, int index, float Vol)
+    {
+        if (volume)
+        {
+            audioSources[2].PlayOneShot(Sounds[index], Vol);
         }
     }
 
     public void StartMusic(int index)
     {
+        ResetMute = false;
         if (volume)
         {
             musicSources[index].volume = 1;
@@ -101,6 +113,7 @@ public class AudioController : MonoBehaviour
 
     public void ResetMusic()
     {
+        ResetMute = true;
         for (int i = 0; i < musicSources.Count; i++)
             musicSources[i].volume = 0;
     }

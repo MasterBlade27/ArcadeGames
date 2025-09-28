@@ -34,22 +34,16 @@ public class PowerUp : MonoBehaviour
             if (pUp == 1)
             {
                 collision.gameObject.GetComponent<Paddle>().doubleSize();
-
-                if (AC != null)
-                {
-                    AC.PlayPower(AC.powerupClips, pUp);
-                    StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
-                }
             }
             else
             {
                 HalfSpeed?.Invoke();
+            }
 
-                if (AC != null)
-                {
-                    AC.PlayPower(AC.powerupClips, pUp);
-                    StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
-                }
+            if (AC != null)
+            {
+                AC.PlayVol(AC.powerupClips, pUp, 2f);
+                StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
             }
         }
         else if (collision.gameObject.CompareTag("KillBox"))

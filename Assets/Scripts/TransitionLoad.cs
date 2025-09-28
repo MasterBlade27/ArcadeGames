@@ -69,24 +69,12 @@ public class TransitionLoad : MonoBehaviour
         BSwitch = false;
         SceneManager.LoadScene(SceneName);
     }
-    
+
     private IEnumerator Buffering()
     {
-        float endtime = 2.5f;
-        float timer = 0f;
-        while (timer < endtime)
-        {
-            timer += Time.deltaTime;
+        yield return new WaitForSeconds(2.5f);
 
-            Debug.Log(timer);
-
-            if (timer >= endtime)
-            {
-                BSwitch = true;
-                BufferTime = null;
-            }
-
-            yield return null;
-        }
+        BSwitch = true;
+        BufferTime = null;
     }
 }

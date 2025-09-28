@@ -75,7 +75,7 @@ public class BlockRespawn : MonoBehaviour
 
         if (AC != null)
         {
-            AC.PlaySound(AC.oneUpSFX);
+            AC.PlayVol(AC.oneUpSFX, 5f);
 
             for(int c = 0; c < Level; c++)
             {

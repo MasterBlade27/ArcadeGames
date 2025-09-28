@@ -45,10 +45,12 @@ public class BallMove : MonoBehaviour
 
         if (!Demo)
         {
+            StartCoroutine(BallStart());
+
             Paddle = FindAnyObjectByType<MoveInput>().gameObject;
 
 			PowerUp.HalfSpeed += OnHalfSpeed;
-			Restart.DelPowerUps += onRestart;
+			Restart.DelPowerUps += OnRestart;
         }
     }
 
@@ -67,7 +69,7 @@ public class BallMove : MonoBehaviour
         {
             pInput.Disable();
             PowerUp.HalfSpeed -= OnHalfSpeed;
-			Restart.DelPowerUps -= onRestart;
+			Restart.DelPowerUps -= OnRestart;
         }
     }
 
@@ -75,6 +77,8 @@ public class BallMove : MonoBehaviour
     {
         if (Starto && !Demo)
         {
+            transform.position = Paddle.transform.position + Vector3.up * 0.5f;
+
             if (pInput.Movement.Play.IsPressed())
             {
                 //Starting Movement for the Ball
@@ -84,11 +88,6 @@ public class BallMove : MonoBehaviour
                 RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
 
                 Starto = false;
-            }
-
-            else
-            {
-                transform.position = Paddle.transform.position + Vector3.up * 0.5f;
             }
         }
 
@@ -235,7 +234,7 @@ public class BallMove : MonoBehaviour
         halfSpeedCoroutine = StartCoroutine(HalfSpeedTimer(5f)); // 5 seconds as example
     }
 
-    private void onRestart()
+    private void OnRestart()
     {
         if (halfSpeedCoroutine != null)
             StopCoroutine(halfSpeedCoroutine);
@@ -259,5 +258,13 @@ public class BallMove : MonoBehaviour
         RB.linearVelocity = Vel.normalized * speed;
         isHalfSpeedActive = false;
         halfSpeedCoroutine = null;
+    }
+
+    private IEnumerator BallStart()
+    {
+        pInput.Movement.Play.Disable();
+        yield return new WaitForSeconds(0.1f);
+        pInput.Movement.Play.Enable();
+        StopCoroutine(BallStart());
     }
 }
