@@ -132,8 +132,12 @@ public class Restart : MonoBehaviour
                 AC.ResetMusic();
 
             mip.enabled = false;
+
             if (Test)
+            {
                 GamaOvar();
+                yield break;
+            }
 
             ScoreName SN = FindAnyObjectByType<ScoreName>();
             SN.HighscoreRestart();

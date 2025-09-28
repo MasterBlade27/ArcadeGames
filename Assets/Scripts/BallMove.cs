@@ -45,8 +45,6 @@ public class BallMove : MonoBehaviour
 
         if (!Demo)
         {
-            StartCoroutine(BallStart());
-
             Paddle = FindAnyObjectByType<MoveInput>().gameObject;
 
 			PowerUp.HalfSpeed += OnHalfSpeed;
@@ -60,6 +58,8 @@ public class BallMove : MonoBehaviour
         {
             pInput = new PaddleMove();
             pInput.Enable();
+
+            StartCoroutine(BallStart());
         }
     }
 
@@ -119,9 +119,9 @@ public class BallMove : MonoBehaviour
             Vector3 fforce;
 
             if(RB.linearVelocity.y > 0f)
-                fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(0.1f, 0.75f), 0f);
+                fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(0.5f, 0.75f), 0f);
             else
-                fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(-0.1f, -0.75f), 0f);
+                fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(-0.5f, -0.75f), 0f);
             
             RB.AddForce(fforce * 2, ForceMode.VelocityChange);
         }
@@ -263,7 +263,9 @@ public class BallMove : MonoBehaviour
     private IEnumerator BallStart()
     {
         pInput.Movement.Play.Disable();
-        yield return new WaitForSeconds(0.1f);
+
+        yield return new WaitForFixedUpdate();
+
         pInput.Movement.Play.Enable();
         StopCoroutine(BallStart());
     }

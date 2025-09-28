@@ -22,6 +22,9 @@ public class AudioController : MonoBehaviour
     public bool volume = true;
     private bool ResetMute = false;
 
+    [SerializeField]
+    private GameObject MuteIcon;
+
     private void Start()
     {
         StartMusic(0);
@@ -31,6 +34,9 @@ public class AudioController : MonoBehaviour
             volume = true;
         else
             volume = false;
+
+        if(MuteIcon != null)
+            MuteIcon.SetActive(!volume);
     }
 
     private void Update()
@@ -67,6 +73,8 @@ public class AudioController : MonoBehaviour
     private void ToggleMute()
     {
         volume = !volume;
+        if (MuteIcon != null)
+            MuteIcon.SetActive(!volume);
     }
 
     public void PlayBall(int Pitch, List<AudioClip> Sounds, int index)

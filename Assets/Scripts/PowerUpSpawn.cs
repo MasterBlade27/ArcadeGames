@@ -18,7 +18,7 @@ public class PowerUpSpawn : MonoBehaviour
         if (chance <= 30f)
         {
             if(AC != null)
-                AC.PlaySound(AC.powerupSpawn);
+                AC.PlayVol(AC.powerupSpawn, 2f);
     
             Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
         }
