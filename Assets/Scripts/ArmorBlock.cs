@@ -19,17 +19,24 @@ public class ArmorBlock : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void OnEnable()
     {
         ArmorSet = ArmorLvl - 1;
 
         //Will set Armor Level as MatArr's Length in case unset
         if (ArmorLvl == 0)
+        {
             if (MatsArr != null)
                 ArmorLvl = MatsArr.Length;
-        //If Armor Level is unset and no Materials in MatArr, Send Warning
+            //If Armor Level is unset and no Materials in MatArr, Send Warning
             else
                 Debug.LogWarning("No Material Set");
+        }
 
         //Starting Material for the block is the highest in the heirarchy
         gameObject.GetComponent<MeshRenderer>().material = MatsArr[ArmorSet];
@@ -41,7 +48,6 @@ public class ArmorBlock : MonoBehaviour
     {
         if(anim != null)
         {
-
             //If the Armor Set is not the last one
             if (ArmorSet != 0)
                 //Plays the Hit Animation
@@ -88,9 +94,10 @@ public class ArmorBlock : MonoBehaviour
                 PUS.SpawnPowerUp();
             }
         }
-/*
-        //"Deletes" the block
-        gameObject.SetActive(false);*/
+
+        if( anim == null )
+            //"Deletes" the block
+            gameObject.SetActive(false);
     }
 
     private void AnimDelete()
