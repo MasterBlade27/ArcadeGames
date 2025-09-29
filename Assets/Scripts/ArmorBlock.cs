@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class ArmorBlock : MonoBehaviour
 {
     [SerializeField]
@@ -16,6 +15,9 @@ public class ArmorBlock : MonoBehaviour
     private Material[] MatsArr;
 
     private Material mat;
+
+    [SerializeField]
+    private Animator anim;
 
     void OnEnable()
     {
@@ -37,6 +39,15 @@ public class ArmorBlock : MonoBehaviour
     //Custom Method used for calling from BallMove script
     public void ArmorDestroy()
     {
+        if(anim != null)
+        {
+
+            //If the Armor Set is not the last one
+            if (ArmorSet != 0)
+                //Plays the Hit Animation
+                anim.SetTrigger("hit");
+        }
+
         //Adds a level to Armor Set
         ArmorSet--;
 
@@ -52,6 +63,10 @@ public class ArmorBlock : MonoBehaviour
     //Custom Method used for Deleting Blocks
     private void DeleteBlock()
     {
+        if (anim != null)
+        {
+            anim.SetTrigger("break");
+        }
 
         //Reset Armor Set Variable
         ArmorSet = 0;
@@ -66,13 +81,21 @@ public class ArmorBlock : MonoBehaviour
             Scoring SC = gameObject.GetComponentInParent<Scoring>();
             SC.BlockScore(mat);
 
-
-            //Calls the PowerUpSpawn script to attempt to spawn a powerup
-            PowerUpSpawn PUS = gameObject.GetComponentInParent<PowerUpSpawn>();
-            PUS.SpawnPowerUp();
+            if (FindAnyObjectByType<PowerUpSpawn>() != null)
+            {
+                //Calls the PowerUpSpawn script to attempt to spawn a powerup
+                PowerUpSpawn PUS = gameObject.GetComponentInParent<PowerUpSpawn>();
+                PUS.SpawnPowerUp();
+            }
         }
-
+/*
         //"Deletes" the block
+        gameObject.SetActive(false);*/
+    }
+
+    private void AnimDelete()
+    {
         gameObject.SetActive(false);
     }
+
 }
