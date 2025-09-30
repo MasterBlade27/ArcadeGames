@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Windows;
+using System.Threading;
 
 public class BallMove : MonoBehaviour
 {
@@ -37,6 +38,14 @@ public class BallMove : MonoBehaviour
 
     private PaddleMove pInput;
 
+    [SerializeField]
+    private bool bColliding;
+    private Coroutine ArmorStuck;
+    [SerializeField]
+    private float Armortimer;
+    [SerializeField]
+    private float Armorendtime;
+
     void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -49,6 +58,8 @@ public class BallMove : MonoBehaviour
 
 			PowerUp.HalfSpeed += OnHalfSpeed;
 			Restart.DelPowerUps += OnRestart;
+
+            Armorendtime = 0.15f;
         }
     }
 
@@ -129,7 +140,7 @@ public class BallMove : MonoBehaviour
 
     //Test for if the Ball hits anything
     private void OnCollisionEnter(Collision collision)
-    {        
+    {
         //Local Variable, Direction the Ball needs to go in
         Vector3 direction;
 
@@ -175,7 +186,7 @@ public class BallMove : MonoBehaviour
                 if (ballPitch < 5)
                     ballPitch += 1;
 
-                AC.PlayBall(ballPitch, AC.blockAudioClips, Random.Range(0,12));
+                AC.PlayBall(ballPitch, AC.blockAudioClips, Random.Range(0, 12));
             }
 
             ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
@@ -220,6 +231,21 @@ public class BallMove : MonoBehaviour
         {
             //Increase Speed
             speed += 3;
+        }
+
+        bColliding = false;
+        Armortimer = 0;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Block"))
+        {
+            bColliding = true;
+
+            if (ArmorStuck != null)
+                StopCoroutine(ArmorStuck);
+            ArmorStuck = StartCoroutine(ArmorCorrect(collision));
         }
     }
 
@@ -268,5 +294,43 @@ public class BallMove : MonoBehaviour
 
         pInput.Movement.Play.Enable();
         StopCoroutine(BallStart());
+    }
+
+    private IEnumerator ArmorCorrect(Collision collision)
+    {
+        Debug.Log("SEMI WORK");
+
+        if (bColliding)
+        {
+            Armortimer += Time.deltaTime;
+            Debug.Log(Armortimer);
+
+            if (Armortimer > Armorendtime)
+            {
+                Debug.Log("WORKS");
+
+                if (AC != null)
+                {
+                    if (ballPitch < 5)
+                        ballPitch += 1;
+
+                    AC.PlayBall(ballPitch, AC.blockAudioClips, Random.Range(0, 12));
+                }
+
+                ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
+                AB.ArmorDestroy();
+
+
+                Vector3 fforce = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+                RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
+            }
+
+            yield return null;
+        }
+
+        else
+        {
+            StopCoroutine(ArmorStuck);
+        }
     }
 }
