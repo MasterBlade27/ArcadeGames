@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreName : MonoBehaviour
 {
@@ -24,8 +25,13 @@ public class ScoreName : MonoBehaviour
 
     private float Secs = 0.2f;
 
+    [SerializeField]
+    private Image Button;
+
     private void Start()
     {
+        Button.color = Color.white;
+
         HSH = FindAnyObjectByType<HSHandler>();
 
         InputName = InputArea.GetComponentsInChildren<TextMeshProUGUI>();
@@ -116,7 +122,11 @@ public class ScoreName : MonoBehaviour
 
             if (pInput.Movement.Play.IsPressed())
             {
+                Button.color = new Color(0f, 0.533f, 0f);
+
                 Username = string.Join("", InputName[0].text, InputName[1].text, InputName[2].text);
+
+                yield return new WaitForSeconds(Secs);
 
                 InParent.SetActive(false);
 
@@ -125,7 +135,7 @@ public class ScoreName : MonoBehaviour
                 if (GameOverScreen != null)
                     StopCoroutine(GameOverScreen);
                 GameOverScreen = StartCoroutine(GameOver());
-
+                
                 yield break;
             }
 
@@ -146,5 +156,21 @@ public class ScoreName : MonoBehaviour
         RS.GamaOvar();
 
         yield return null;
+    }
+
+    public void NameSelect()
+    {
+        if (AddName != null)
+            StopCoroutine(AddName);
+
+        Username = string.Join("", InputName[0].text, InputName[1].text, InputName[2].text);
+
+        InParent.SetActive(false);
+
+        HSH.AddHS(Username, totalscore);
+
+        if (GameOverScreen != null)
+            StopCoroutine(GameOverScreen);
+        GameOverScreen = StartCoroutine(GameOver());
     }
 }

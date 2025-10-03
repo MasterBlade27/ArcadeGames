@@ -4,6 +4,9 @@ public class QuickEscape : MonoBehaviour
 {
     private Restart RS;
     private BallMove BM;
+    [SerializeField]
+    private GameObject GMS, INS;
+    private bool XOR;
 
     private void Start()
     {
@@ -13,11 +16,21 @@ public class QuickEscape : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        XOR = GMS.activeSelf ^ INS.activeSelf;
+
+        if (!XOR)
         {
-            BM.Starto = false;
-            RS.lives = 0;
-            RS.BallReset();
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                ESCAPE();
+            }
         }
+    }
+
+    public void ESCAPE()
+    {
+        BM.Starto = false;
+        RS.lives = 0;
+        RS.BallReset();
     }
 }

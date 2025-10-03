@@ -70,7 +70,7 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    private void ToggleMute()
+    public void ToggleMute()
     {
         volume = !volume;
         if (MuteIcon != null)
