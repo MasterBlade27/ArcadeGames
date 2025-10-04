@@ -13,6 +13,8 @@ public class Paddle : MonoBehaviour
 
     private System.Collections.IEnumerator DoubleSizeRoutine()
     {
+        MoveInput MI = FindAnyObjectByType<MoveInput>();
+
         float originalX = transform.localScale.x;
         float doubledX = 4;
         float sizeTime = 5f;
@@ -26,12 +28,13 @@ public class Paddle : MonoBehaviour
         {
             timer += Time.deltaTime;
             // Optionally clamp position here if needed
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -6.5f, 6.5f), transform.position.y, transform.position.z);
+            MI.clamping = 6.5f;
             yield return null;
         }
 
         // Restore original size
         transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
+        MI.clamping = 7.5f;
         sizeCoroutine = null;
     }
 }

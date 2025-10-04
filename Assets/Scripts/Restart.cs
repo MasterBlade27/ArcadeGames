@@ -22,6 +22,7 @@ public class Restart : MonoBehaviour
     private GameObject ReplayGo;
 
     private MoveInput mip;
+    private MouseMobile mm;
     private Vector3 OriPad;
 
     public static event Action DelPowerUps;
@@ -36,6 +37,7 @@ public class Restart : MonoBehaviour
         totallives = lives;
 
         mip = FindAnyObjectByType<MoveInput>();
+        mm = FindAnyObjectByType<MouseMobile>();
         OriPad = mip.transform.position;
 
         Ball = gameObject;
@@ -61,6 +63,11 @@ public class Restart : MonoBehaviour
         if (pInput.Movement.Play.IsPressed() && ReplayGo.activeSelf && Test)
         {
             Replay();
+        }
+
+        if(ReplayGo.activeSelf)
+        {
+
         }
     }
 
@@ -109,6 +116,7 @@ public class Restart : MonoBehaviour
 
         lives = totallives;
         ReplayGo.SetActive(false);
+        mip.GameOver = true;
         mip.enabled = true;
         mip.gameObject.transform.position = OriPad;
 
@@ -131,6 +139,7 @@ public class Restart : MonoBehaviour
             if (AC != null)
                 AC.ResetMusic();
 
+            mip.GameOver = true;
             mip.enabled = false;
 
             if (Test)
