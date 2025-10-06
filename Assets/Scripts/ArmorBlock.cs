@@ -80,6 +80,7 @@ public class ArmorBlock : MonoBehaviour
         //Calls the Block's Respawn script and lowers the Block Active Count
         BlockRespawn BR = gameObject.GetComponentInParent<BlockRespawn>();
         BR.BlockActive--;
+        BR.CheckMusic();
 
         if (!Demo)
         {

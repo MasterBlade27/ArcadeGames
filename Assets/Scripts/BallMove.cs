@@ -34,7 +34,7 @@ public class BallMove : MonoBehaviour
 
     private int ballPitch = 1;
 
-    private bool isHalfSpeedActive = false;
+    //private bool isHalfSpeedActive = false;
 
     private PaddleMove pInput;
 
@@ -56,10 +56,11 @@ public class BallMove : MonoBehaviour
         {
             Paddle = FindAnyObjectByType<MoveInput>().gameObject;
 
-			PowerUp.HalfSpeed += OnHalfSpeed;
-			Restart.DelPowerUps += OnRestart;
-
             Armorendtime = 0.15f;
+
+            PowerUp.HalfSpeed += OnHalfSpeed;
+            PowerUp.DoubleSpeed += OnDoubleSpeed;
+            Restart.OnRestart += OnRestart;
         }
     }
 
@@ -80,7 +81,8 @@ public class BallMove : MonoBehaviour
         {
             pInput.Disable();
             PowerUp.HalfSpeed -= OnHalfSpeed;
-			Restart.DelPowerUps -= OnRestart;
+            PowerUp.DoubleSpeed -= OnDoubleSpeed;
+            Restart.OnRestart -= OnRestart;
         }
     }
 
@@ -249,7 +251,54 @@ public class BallMove : MonoBehaviour
         }
     }
 
-    private Coroutine halfSpeedCoroutine;
+    private Coroutine speedEffectCoroutine;
+    private float originalSpeed;
+    private bool isSpeedEffectActive = false;
+
+    private void OnHalfSpeed()
+    {
+        StartSpeedEffect(0.5f, 5f); // 0.5x speed for 5 seconds
+    }
+
+    private void OnDoubleSpeed()
+    {
+        StartSpeedEffect(2f, 5f); // 2x speed for 5 seconds
+    }
+
+    private void StartSpeedEffect(float multiplier, float duration)
+    {
+        if (speedEffectCoroutine != null)
+            StopCoroutine(speedEffectCoroutine);
+
+        speedEffectCoroutine = StartCoroutine(SpeedEffectTimer(multiplier, duration));
+    }
+
+    private IEnumerator SpeedEffectTimer(float multiplier, float duration)
+    {
+        if (!isSpeedEffectActive)
+        {
+            originalSpeed = speed;
+            speed *= multiplier;
+            RB.linearVelocity = Vel.normalized * speed;
+        }
+        isSpeedEffectActive = true;
+
+        yield return new WaitForSeconds(duration);
+
+        speed = originalSpeed;
+        RB.linearVelocity = Vel.normalized * speed;
+        isSpeedEffectActive = false;
+        speedEffectCoroutine = null;
+    }
+
+    private void OnRestart()
+    {
+        if (speedEffectCoroutine != null)
+            StopCoroutine(speedEffectCoroutine);
+        isSpeedEffectActive = false;
+    }
+
+    /*private Coroutine halfSpeedCoroutine;
     private float originalSpeed;
 
     private void OnHalfSpeed()
@@ -284,7 +333,7 @@ public class BallMove : MonoBehaviour
         RB.linearVelocity = Vel.normalized * speed;
         isHalfSpeedActive = false;
         halfSpeedCoroutine = null;
-    }
+    }*/
 
     private IEnumerator BallStart()
     {

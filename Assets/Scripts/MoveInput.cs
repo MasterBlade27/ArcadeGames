@@ -13,6 +13,8 @@ public class MoveInput : MonoBehaviour
     public float clamping;
 
     public bool GameOver;
+    [SerializeField]
+    Paddle Paddle;
 
     private void OnEnable()
     {
@@ -20,6 +22,7 @@ public class MoveInput : MonoBehaviour
         //Enable the Movement Script
         pInput.Enable();
         clamping = 7.5f;
+        Paddle = GetComponent<Paddle>();
     }
 
     private void OnDisable()
@@ -45,6 +48,8 @@ public class MoveInput : MonoBehaviour
         //Moves the Paddle
         transform.position += new Vector3(moveDirection, 0, 0);
         //Clamp the Paddle's Position
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clamping, clamping), transform.position.y, transform.position.z);
+
+        if(!Paddle.half)
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clamping, clamping), transform.position.y, transform.position.z);
     }
 }
