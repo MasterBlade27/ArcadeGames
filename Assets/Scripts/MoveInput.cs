@@ -10,12 +10,15 @@ public class MoveInput : MonoBehaviour
     private PaddleMove pInput;
     [SerializeField]
     private float direction, moveDirection;
+    [SerializeField]
+    Paddle Paddle;
 
     private void OnEnable()
     {
         pInput = new PaddleMove();
         //Enable the Movement Script
         pInput.Enable();
+        Paddle = GetComponent<Paddle>();
     }
 
     private void OnDisable()
@@ -33,6 +36,7 @@ public class MoveInput : MonoBehaviour
         //Moves the Paddle
         transform.position += new Vector3(moveDirection, 0, 0);
         //Clamp the Paddle's Position
+        if(!Paddle.half)
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), transform.position.y, transform.position.z);
     }
 }

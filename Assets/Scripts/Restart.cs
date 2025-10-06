@@ -24,7 +24,7 @@ public class Restart : MonoBehaviour
     private MoveInput mip;
     private Vector3 OriPad;
 
-    public static event Action DelPowerUps;
+    public static event Action OnRestart;
 
     [SerializeField]
     private AudioController AC;
@@ -74,8 +74,7 @@ public class Restart : MonoBehaviour
 
         StopPos = Ball.transform.position;
 
-        if (FindAnyObjectByType<PowerUp>())
-            DelPowerUps();
+            OnRestart();
 
         if (Reseting != null)
             StopCoroutine(Reseting);
@@ -94,8 +93,7 @@ public class Restart : MonoBehaviour
 
         ReplayGo.SetActive(true);
 
-        if(FindAnyObjectByType<PowerUp>())
-            DelPowerUps();
+            OnRestart();
     }
 
     private void Replay()

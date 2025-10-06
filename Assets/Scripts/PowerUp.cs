@@ -5,6 +5,10 @@ using System.Collections;
 public class PowerUp : MonoBehaviour
 {
     public static event Action HalfSpeed;
+    public static event Action DoubleSpeed;
+    public static event Action<int, float> ScoreMultiply;
+
+    private int pUp;
 
     [SerializeField]
     private float fallSpeed;
@@ -14,12 +18,13 @@ public class PowerUp : MonoBehaviour
     private void Start()
     {
         AC = FindAnyObjectByType<AudioController>();
+        pUp = UnityEngine.Random.Range(0, 5);
 
-        Restart.DelPowerUps += ResetPups;
+        Restart.OnRestart += ResetPups;
     }
     private void OnDisable()
     {
-        Restart.DelPowerUps -= ResetPups;
+        Restart.OnRestart -= ResetPups;
     }
     void Update()
     {
@@ -30,20 +35,32 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("GameController"))
         {
-            int pUp = UnityEngine.Random.Range(0, 2);
-            if (pUp == 1)
+            if (pUp == 0)
             {
-                collision.gameObject.GetComponent<Paddle>().doubleSize();
+                collision.gameObject.GetComponent<Paddle>().doubleSize(true);
+                Destroy(gameObject);
+
+            }
+            else if (pUp == 1)
+            {
+                collision.gameObject.GetComponent<Paddle>().doubleSize(false);
+                Destroy(gameObject);
+            }
+            else if (pUp == 2)
+            {
+                HalfSpeed?.Invoke();
+                Destroy(gameObject);
+
+            }
+            else if (pUp == 3)
+            {
+                DoubleSpeed?.Invoke();
+                Destroy(gameObject);
             }
             else
             {
-                HalfSpeed?.Invoke();
-            }
-
-            if (AC != null)
-            {
-                AC.PlayVol(AC.powerupClips, pUp, 2f);
-                StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
+                ScoreMultiply(2, 5f);
+                Destroy(gameObject);
             }
         }
         else if (collision.gameObject.CompareTag("KillBox"))

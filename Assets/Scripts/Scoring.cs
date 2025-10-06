@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -18,6 +19,8 @@ public class Scoring : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI scoretext, Hiscoretext, EndingScore;
 
+    private int multiplier = 1;
+
     void Start()
     {
         HSH = FindAnyObjectByType<HSHandler>();
@@ -30,11 +33,20 @@ public class Scoring : MonoBehaviour
             score.Add((i*10)+30);
         }
 
+        PowerUp.ScoreMultiply += MutltiplyScore;
+        Restart.OnRestart += onRestart;
+
         //Gather the Highscore from Stored Data
         int highscore = FileHandler.ReadTopFromJSON<HighscoreElement>(HSH.filename).Points;
         Debug.Log(highscore);
         //Updates the Highscore Text with the Stored Data
         Hiscoretext.text = highscore.ToString();
+    }
+
+    private void OnDisable()
+    {
+        PowerUp.ScoreMultiply -= MutltiplyScore;
+        Restart.OnRestart -= onRestart;
     }
 
     private void Update()
@@ -63,7 +75,7 @@ public class Scoring : MonoBehaviour
             //See if the Block's Color is the same in the list
             if (gomat.color == ColorList[i])
                 //Updates the Score with the corresponding Score
-                scoreCount += score[i];
+                scoreCount += score[i] * multiplier;
         }
     }
 
@@ -75,5 +87,27 @@ public class Scoring : MonoBehaviour
     public void ResetScore()
     {
         scoreCount = 0;
+    }
+
+    private Coroutine multiplyCoroutine;
+
+    private void MutltiplyScore(int mult, float duration)
+    {
+        if (multiplyCoroutine != null)
+            StopCoroutine(multiplyCoroutine);
+        multiplyCoroutine = StartCoroutine(Multiply(mult, duration));
+    }
+
+    private void onRestart()
+    {
+        if (multiplyCoroutine != null)
+            StopCoroutine(multiplyCoroutine);
+        multiplier = 1;
+    }
+    private IEnumerator Multiply(int mult, float duration)
+    {
+        multiplier = mult;
+        yield return new WaitForSeconds(duration);
+        multiplier = 1;
     }
 }
