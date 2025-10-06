@@ -10,6 +10,9 @@ public class MoveInput : MonoBehaviour
     private PaddleMove pInput;
     [SerializeField]
     private float direction, moveDirection;
+    public float clamping;
+
+    public bool GameOver;
     [SerializeField]
     Paddle Paddle;
 
@@ -18,6 +21,7 @@ public class MoveInput : MonoBehaviour
         pInput = new PaddleMove();
         //Enable the Movement Script
         pInput.Enable();
+        clamping = 7.5f;
         Paddle = GetComponent<Paddle>();
     }
 
@@ -28,6 +32,14 @@ public class MoveInput : MonoBehaviour
 
     private void Update()
     {
+        if (!GameOver)
+        {
+            if (direction == 0)
+                FindAnyObjectByType<MouseMobile>().enabled = true;
+            else
+                FindAnyObjectByType<MouseMobile>().enabled = false;
+        }
+
         //Reads Player's Input
         direction = pInput.Movement.Move.ReadValue<Vector2>().x;
 
@@ -36,7 +48,8 @@ public class MoveInput : MonoBehaviour
         //Moves the Paddle
         transform.position += new Vector3(moveDirection, 0, 0);
         //Clamp the Paddle's Position
+
         if(!Paddle.half)
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), transform.position.y, transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clamping, clamping), transform.position.y, transform.position.z);
     }
 }

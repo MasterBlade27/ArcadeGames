@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 
 public class TransitionLoad : MonoBehaviour
@@ -54,12 +53,12 @@ public class TransitionLoad : MonoBehaviour
 
             if(pInput.Movement.Play.IsPressed())
             {
-                BSwitch = true;
+                StartGame();
             }
 
             else if (Input.GetKeyUp(KeyCode.Escape))
             {
-                Application.Quit();
+                QuitGame();
             }
         }
     }
@@ -76,5 +75,15 @@ public class TransitionLoad : MonoBehaviour
 
         BSwitch = true;
         BufferTime = null;
+    }
+
+    public void StartGame()
+    {
+        BSwitch = true;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

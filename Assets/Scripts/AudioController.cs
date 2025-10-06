@@ -31,7 +31,7 @@ public class AudioController : MonoBehaviour
             PlayerPrefs.SetInt("Volume", 1);
 
         var BVol = PlayerPrefs.GetInt("Volume");
-        if(BVol == 1 )
+        if(BVol == 0 )
             volume = true;
         else
             volume = false;
@@ -49,7 +49,7 @@ public class AudioController : MonoBehaviour
 
         if (volume)
         {
-            PlayerPrefs.SetInt("Volume", 1);
+            PlayerPrefs.SetInt("Volume", 0);
 
             foreach (AudioSource AS in audioSources)
                 AS.volume = 1;
@@ -61,7 +61,7 @@ public class AudioController : MonoBehaviour
 
         else
         {
-            PlayerPrefs.SetInt("Volume", 0);
+            PlayerPrefs.SetInt("Volume", 1);
 
             foreach (AudioSource AS in audioSources)
                 AS.volume = 0;
@@ -71,7 +71,7 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    private void ToggleMute()
+    public void ToggleMute()
     {
         volume = !volume;
         if (MuteIcon != null)
