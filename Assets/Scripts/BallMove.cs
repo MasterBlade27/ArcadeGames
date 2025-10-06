@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Windows;
-using System.Threading;
 
 public class BallMove : MonoBehaviour
 {
@@ -92,7 +90,7 @@ public class BallMove : MonoBehaviour
         {
             transform.position = Paddle.transform.position + Vector3.up * 0.5f;
 
-            if (pInput.Movement.Play.IsPressed())
+            if (pInput.Movement.Play.IsPressed() || Input.GetMouseButtonUp(0))
             {
                 //Starting Movement for the Ball
                 Vector3 fforce = new Vector3(Paddle.transform.position.x / 7.5f, 1f, 0f);
