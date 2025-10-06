@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
@@ -28,6 +26,9 @@ public class AudioController : MonoBehaviour
     private void Start()
     {
         StartMusic(0);
+
+        if (!PlayerPrefs.HasKey("Volume"))
+            PlayerPrefs.SetInt("Volume", 1);
 
         var BVol = PlayerPrefs.GetInt("Volume");
         if(BVol == 0 )

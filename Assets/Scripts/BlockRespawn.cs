@@ -3,6 +3,9 @@ using UnityEngine;
 public class BlockRespawn : MonoBehaviour
 {
     [SerializeField]
+    private bool Test = true;
+
+    [SerializeField]
     private GameObject BlockSpawn;
 
     [SerializeField]
@@ -73,9 +76,14 @@ public class BlockRespawn : MonoBehaviour
     public void TempRestart()
     {
         Level++;
-        BlockClear = 0;
-        AC.ResetMusic();
-        AC.StartMusic(0);
+
+        if (Test)
+        {
+            BlockClear = 0;
+            AC.ResetMusic();
+            AC.StartMusic(0);
+        }
+
         if (AC != null)
         {
             AC.PlayVol(AC.oneUpSFX, 5f);
