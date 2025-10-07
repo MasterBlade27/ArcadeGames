@@ -28,7 +28,7 @@ public class AudioController : MonoBehaviour
         StartMusic(0);
 
         if (!PlayerPrefs.HasKey("Volume"))
-            PlayerPrefs.SetInt("Volume", 1);
+            PlayerPrefs.SetInt("Volume", 0);
 
         var BVol = PlayerPrefs.GetInt("Volume");
         if(BVol == 0 )
