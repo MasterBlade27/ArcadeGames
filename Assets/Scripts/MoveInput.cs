@@ -34,10 +34,13 @@ public class MoveInput : MonoBehaviour
     {
         if (!GameOver)
         {
-            if (direction == 0)
-                FindAnyObjectByType<MouseMobile>().enabled = true;
-            else
-                FindAnyObjectByType<MouseMobile>().enabled = false;
+            if (FindAnyObjectByType<MouseMobile>() != null)
+            {
+                if (direction == 0)
+                    FindAnyObjectByType<MouseMobile>().enabled = true;
+                else
+                    FindAnyObjectByType<MouseMobile>().enabled = false;
+            }
         }
 
         //Reads Player's Input
