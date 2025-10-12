@@ -1266,7 +1266,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 1d21508ff47412f448aec4e02302a5bd, type: 3}
     - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: volume
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: MuteIcon

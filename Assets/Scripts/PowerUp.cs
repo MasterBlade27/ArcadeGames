@@ -62,6 +62,9 @@ public class PowerUp : MonoBehaviour
                 ScoreMultiply(2, 5f);
                 Destroy(gameObject);
             }
+
+            AC.PlayVol(AC.powerupClips, pUp, 2f);
+            StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
         }
         else if (collision.gameObject.CompareTag("KillBox"))
         {

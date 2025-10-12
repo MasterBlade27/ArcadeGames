@@ -375,10 +375,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 44a01bcfd4f3ba94f8c6f27ba0694879, type: 3}
   - {fileID: 8300000, guid: 6acfa497a9de3414ab6dc96bc0655372, type: 3}
   powerupClips:
+  - {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
+  - {fileID: 8300000, guid: ea52b50f13c7faf429752170ea4a2b92, type: 3}
   - {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
   - {fileID: 8300000, guid: f88f6ca3a22b60e4186ad1a94fc2618a, type: 3}
-  - {fileID: 8300000, guid: ea52b50f13c7faf429752170ea4a2b92, type: 3}
-  - {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
   - {fileID: 8300000, guid: 8bbb1fc8f2421f14aa8706199e31a5d2, type: 3}
   floorSFX: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 95428563d93624243b5431d49bb11d40, type: 3}
