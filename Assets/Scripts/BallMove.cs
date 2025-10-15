@@ -4,11 +4,11 @@ using System.Collections;
 public class BallMove : MonoBehaviour
 {
     [SerializeField]
-    private bool Demo;
+    private bool Demo, Multi;
 
     private Rigidbody RB;
     [SerializeField]
-    private GameObject Paddle;
+    private GameObject Paddle, OriBall;
 
     //Vel = Velocity
     [SerializeField]
@@ -21,18 +21,15 @@ public class BallMove : MonoBehaviour
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
-    private int Bounce, StuckBounce;
+    private int Bounce, StuckBounce, BallAmt;
     private bool Stuck;
 
-    private bool Kill;
     public bool Starto;
 
     [SerializeField]
     private AudioController AC;
 
     private int ballPitch = 1;
-
-    //private bool isHalfSpeedActive = false;
 
     private PaddleMove pInput;
 
@@ -59,6 +56,11 @@ public class BallMove : MonoBehaviour
             PowerUp.HalfSpeed += OnHalfSpeed;
             PowerUp.DoubleSpeed += OnDoubleSpeed;
             Restart.OnRestart += OnRestart;
+        }
+
+        else if (Multi)
+        {
+            OriBall = FindFirstObjectByType<BallMove>().gameObject;
         }
     }
 
@@ -102,7 +104,7 @@ public class BallMove : MonoBehaviour
             }
         }
 
-        else if(Starto && Demo)
+        else if (Starto && Demo)
         {
             //Starting Movement for the Ball
             Vector3 fforce = new Vector3(Random.Range(-1f, 1f), 1f, 0f);
@@ -111,6 +113,22 @@ public class BallMove : MonoBehaviour
             RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
 
             Starto = false;
+        }
+
+        else if (Starto && Multi)
+        {
+            transform.position = OriBall.transform.position - Vector3.down * 0.5f;
+            Bounce = OriBall.GetComponent<BallMove>().Bounce;
+            speed = OriBall.GetComponent<BallMove>().speed;
+
+            //Starting Movement for the Ball
+            Vector3 fforce = OriBall.GetComponent<Rigidbody>().linearVelocity;
+
+            //Moves the Ball upon Starting
+            RB.AddForce(fforce * speed, ForceMode.VelocityChange);
+
+            Starto = false;
+            Multi = false;
         }
 
         //Sets Vel as Ball's Velocity
@@ -136,6 +154,8 @@ public class BallMove : MonoBehaviour
             
             RB.AddForce(fforce * 2, ForceMode.VelocityChange);
         }
+
+        BallAmt = FindObjectsByType<BallMove>(FindObjectsSortMode.InstanceID).Length;
     }
 
     //Test for if the Ball hits anything
@@ -152,7 +172,6 @@ public class BallMove : MonoBehaviour
                 //Play sound when ball hits the paddle
                 ballPitch = 0;
                 AC.PlayBall(1, AC.paddleAudioClips, Random.Range(0, 5));
-
             }
 
             //Finds the angle between the Ball and the Paddle
@@ -169,13 +188,23 @@ public class BallMove : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("KillBox"))
         {
-            Restart rs = GetComponent<Restart>();
-            rs.BallReset();
-
-            Bounce = -1;
-            StuckBounce = -1;
-            speed = 5;
             direction = Vector3.zero;
+
+            if (BallAmt > 1)
+            {
+                Restart rs = GetComponent<Restart>();
+                rs.MultiKill();
+            }
+
+            else
+            {
+                Restart rs = GetComponent<Restart>();
+                rs.BallReset();
+
+                Bounce = -1;
+                StuckBounce = -1;
+                speed = 5;
+            }
         }
 
         else if (collision.gameObject.CompareTag("Block"))
@@ -295,43 +324,6 @@ public class BallMove : MonoBehaviour
             StopCoroutine(speedEffectCoroutine);
         isSpeedEffectActive = false;
     }
-
-    /*private Coroutine halfSpeedCoroutine;
-    private float originalSpeed;
-
-    private void OnHalfSpeed()
-    {
-        if (halfSpeedCoroutine != null)
-            StopCoroutine(halfSpeedCoroutine);
-
-        halfSpeedCoroutine = StartCoroutine(HalfSpeedTimer(5f)); // 5 seconds as example
-    }
-
-    private void OnRestart()
-    {
-        if (halfSpeedCoroutine != null)
-            StopCoroutine(halfSpeedCoroutine);
-        isHalfSpeedActive = false;
-    }
-
-    private IEnumerator HalfSpeedTimer(float duration)
-    {
-
-        if (!isHalfSpeedActive)
-        {
-            originalSpeed = speed;
-            speed *= 0.5f;
-            RB.linearVelocity = Vel.normalized * speed;
-        }
-        isHalfSpeedActive = true;
-
-        yield return new WaitForSeconds(duration);
-
-        speed = originalSpeed;
-        RB.linearVelocity = Vel.normalized * speed;
-        isHalfSpeedActive = false;
-        halfSpeedCoroutine = null;
-    }*/
 
     private IEnumerator BallStart()
     {

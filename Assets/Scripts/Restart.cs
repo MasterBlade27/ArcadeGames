@@ -10,7 +10,7 @@ public class Restart : MonoBehaviour
 
     private GameObject Ball;
     private Vector3 StopPos;
-    private Coroutine Reseting;
+    private Coroutine Reseting, MultiReset;
 
     public int lives = 3;
     private int totallives;
@@ -88,6 +88,18 @@ public class Restart : MonoBehaviour
         Reseting = StartCoroutine(ResetEnum());
     }
 
+    public void MultiKill()
+    {
+            if (AC != null)
+                AC.PlayVol(AC.floorSFX, 2f);
+
+        StopPos = Ball.transform.position;
+
+        if (MultiReset != null)
+            StopCoroutine(MultiReset);
+        MultiReset = StartCoroutine(MultiEnum());
+    }
+
     private void StartAgain()
     {
         Ball.GetComponent<BallMove>().Starto = true;
@@ -156,5 +168,15 @@ public class Restart : MonoBehaviour
 
         StartAgain();
         Reseting = null;
+    }
+
+    private IEnumerator MultiEnum()
+    {
+        Ball.transform.position = StopPos;
+        Ball.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+
+        yield return new WaitForSeconds(0.2f);
+        MultiReset = null;
+        Destroy(this.gameObject);
     }
 }
