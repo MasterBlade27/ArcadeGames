@@ -23,7 +23,6 @@ public class BallMove : MonoBehaviour
     [SerializeField]
     private int Bounce, StuckBounce, BallAmt;
     private bool Stuck;
-
     public bool Starto;
 
     [SerializeField]
@@ -36,15 +35,11 @@ public class BallMove : MonoBehaviour
     [SerializeField]
     private bool bColliding;
     private Coroutine ArmorStuck;
-    [SerializeField]
-    private float Armortimer;
-    [SerializeField]
-    private float Armorendtime;
+    private float Armortimer, Armorendtime;
 
     void Start()
     {
         RB = GetComponent<Rigidbody>();
-
         Starto = true;
 
         if (!Demo)
@@ -58,10 +53,10 @@ public class BallMove : MonoBehaviour
             Restart.OnRestart += OnRestart;
         }
 
-        else if (Multi)
-        {
-            OriBall = FindFirstObjectByType<BallMove>().gameObject;
-        }
+        if (Multi)
+            foreach (BallMove BM in FindObjectsByType<BallMove>(FindObjectsSortMode.None))
+                if (BM.Multi == false)
+                    OriBall = BM.gameObject;
     }
 
     private void OnEnable()
@@ -115,17 +110,14 @@ public class BallMove : MonoBehaviour
             Starto = false;
         }
 
-        else if (Starto && Multi)
+        if (Starto && Multi)
         {
             transform.position = OriBall.transform.position - Vector3.down * 0.5f;
             Bounce = OriBall.GetComponent<BallMove>().Bounce;
             speed = OriBall.GetComponent<BallMove>().speed;
-
-            //Starting Movement for the Ball
-            Vector3 fforce = OriBall.GetComponent<Rigidbody>().linearVelocity;
-
-            //Moves the Ball upon Starting
-            RB.AddForce(fforce * speed, ForceMode.VelocityChange);
+            AC = OriBall.GetComponent<BallMove>().AC;
+            Vel = OriBall.GetComponent<BallMove>().Vel;
+            RB.linearVelocity = Vel.normalized * speed;
 
             Starto = false;
             Multi = false;
@@ -337,17 +329,12 @@ public class BallMove : MonoBehaviour
 
     private IEnumerator ArmorCorrect(Collision collision)
     {
-        Debug.Log("SEMI WORK");
-
         if (bColliding)
         {
             Armortimer += Time.deltaTime;
-            Debug.Log(Armortimer);
 
             if (Armortimer > Armorendtime)
             {
-                Debug.Log("WORKS");
-
                 if (AC != null)
                 {
                     if (ballPitch < 5)
@@ -363,13 +350,10 @@ public class BallMove : MonoBehaviour
                 Vector3 fforce = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
                 RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
             }
-
             yield return null;
         }
 
         else
-        {
             StopCoroutine(ArmorStuck);
-        }
     }
 }

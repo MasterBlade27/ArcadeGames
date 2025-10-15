@@ -6,9 +6,10 @@ using UnityEngine;
 public class Restart : MonoBehaviour
 {
     [SerializeField]
-    private bool Test;
+    private bool Test, Multi;
 
-    private GameObject Ball;
+    [SerializeField]
+    private GameObject Ball, OriBall;
     private Vector3 StopPos;
     private Coroutine Reseting, MultiReset;
 
@@ -22,7 +23,6 @@ public class Restart : MonoBehaviour
     private GameObject ReplayGo;
 
     private MoveInput mip;
-    private MouseMobile mm;
     private Vector3 OriPad;
 
     public static event Action OnRestart;
@@ -37,12 +37,17 @@ public class Restart : MonoBehaviour
         totallives = lives;
 
         mip = FindAnyObjectByType<MoveInput>();
-        mm = FindAnyObjectByType<MouseMobile>();
         OriPad = mip.transform.position;
 
         Ball = gameObject;
 
-        ReplayGo.SetActive(false);
+        if (ReplayGo != null)
+            ReplayGo.SetActive(false);
+
+        if (Multi)
+            foreach (Restart RS in FindObjectsByType<Restart>(FindObjectsSortMode.None))
+                if (RS.Multi == false)
+                    OriBall = RS.Ball;
     }
 
     private void OnEnable()
@@ -58,17 +63,20 @@ public class Restart : MonoBehaviour
 
     private void Update()
     {
+        if (Multi)
+        {
+            Test = OriBall.GetComponent<Restart>().Test;
+            livetext = OriBall.GetComponent<Restart>().livetext;
+            ReplayGo = OriBall.GetComponent<Restart>().ReplayGo;
+            AC = OriBall.GetComponent<Restart>().AC;
+
+            Multi = false;
+        }
+
         livetext.text = lives.ToString();
 
         if (pInput.Movement.Play.IsPressed() && ReplayGo.activeSelf && Test)
-        {
             Replay();
-        }
-
-        if(ReplayGo.activeSelf)
-        {
-
-        }
     }
 
     public void BallReset()
@@ -90,19 +98,14 @@ public class Restart : MonoBehaviour
 
     public void MultiKill()
     {
-            if (AC != null)
-                AC.PlayVol(AC.floorSFX, 2f);
+        if (AC != null)
+            AC.PlayVol(AC.floorSFX, 2f);
 
         StopPos = Ball.transform.position;
 
         if (MultiReset != null)
             StopCoroutine(MultiReset);
         MultiReset = StartCoroutine(MultiEnum());
-    }
-
-    private void StartAgain()
-    {
-        Ball.GetComponent<BallMove>().Starto = true;
     }
 
     public void GamaOvar()
@@ -120,7 +123,6 @@ public class Restart : MonoBehaviour
         if (AC != null)
         {
             AC.StartMusic(0);
-
             AC.PlayVol(AC.oneUpSFX, 5f);
         }
 
@@ -136,6 +138,11 @@ public class Restart : MonoBehaviour
         Scoring SC = FindAnyObjectByType<Scoring>();
         SC.ResetScore();
 
+        StartAgain();
+    }
+
+    private void StartAgain()
+    {
         Ball.GetComponent<BallMove>().Starto = true;
     }
 

@@ -155,17 +155,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Demo: 0
   Multi: 1
-  Paddle: {fileID: 0}
   Vel: {x: 0, y: 0, z: 0}
   PadDir: {x: 0, y: 0, z: 0}
   speed: 5
   Bounce: 0
   StuckBounce: 0
+  BallAmt: 0
   Starto: 0
   AC: {fileID: 0}
   bColliding: 0
-  Armortimer: 0
-  Armorendtime: 0
 --- !u!114 &5292052828356392541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restart
   Test: 0
+  Multi: 1
   lives: 5
   livetext: {fileID: 0}
   ReplayGo: {fileID: 0}

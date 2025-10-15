@@ -79,9 +79,12 @@ public class BlockRespawn : MonoBehaviour
 
         if (Test)
         {
-            BlockClear = 0;
-            AC.ResetMusic();
-            AC.StartMusic(0);
+            if (AC != null)
+            {
+                BlockClear = 0;
+                AC.ResetMusic();
+                AC.StartMusic(0);
+            }
         }
 
         if (AC != null)
@@ -121,8 +124,11 @@ public class BlockRespawn : MonoBehaviour
             {
                 if (BlockClear < 3)
                 {
-                    AC.PlaySound(AC.oneUpSFX);
-                    AC.StartMusic(BlockClear);
+                    if (AC != null)
+                    {
+                        AC.PlaySound(AC.oneUpSFX);
+                        AC.StartMusic(BlockClear);
+                    }
                 }
             }
         }

@@ -10241,6 +10241,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1677286319}
     - target: {fileID: 5292052828356392541, guid: b3eeb73dd07fbf94fb928dcc490eed09, type: 3}
+      propertyPath: Multi
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292052828356392541, guid: b3eeb73dd07fbf94fb928dcc490eed09, type: 3}
       propertyPath: ReplayGo
       value: 
       objectReference: {fileID: 1512167726}
