@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System;
 
 public class LevelThingIGuess : MonoBehaviour
 {
@@ -12,9 +11,10 @@ public class LevelThingIGuess : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        levelCounter = 0;
+        levelCounter = -1;
         BlocksForLevels.nextLevel += NextLevel;
-        Instantiate(Levels[levelCounter]);
+
+        NextLevel();
     }
 
     private void OnDisable()
@@ -25,12 +25,10 @@ public class LevelThingIGuess : MonoBehaviour
     private void NextLevel()
     {
         levelCounter++;
-        if (Levels.Count == levelCounter)
-        {
+        if (levelCounter >= Levels.Count)
             levelCounter = 0;
-            Instantiate(Levels[levelCounter]);
-        }
-        else
-            Instantiate(Levels[levelCounter]);
+
+        var go = Instantiate(Levels[levelCounter], Vector3.zero, Quaternion.identity);
+        go.transform.SetParent(transform, false);
     }
 }

@@ -67,6 +67,7 @@ public class ScoreName : MonoBehaviour
                 StopCoroutine(AddName);
             AddName = StartCoroutine(NameInsert());
         }
+
         else
         {
             if (GameOverScreen != null)
@@ -109,14 +110,12 @@ public class ScoreName : MonoBehaviour
             if (pInput.Movement.Cycle.ReadValue<Vector2>().y > 0 && pInput.Movement.Cycle.IsPressed())
             {
                 InputName[Count].GetComponent<NameArray>().PreviousLetter();
-
                 yield return new WaitForSeconds(Secs);
             }
 
             if (pInput.Movement.Cycle.ReadValue<Vector2>().y < 0 && pInput.Movement.Cycle.IsPressed())
             {
                 InputName[Count].GetComponent<NameArray>().NextLetter();
-
                 yield return new WaitForSeconds(Secs);
             }
 
@@ -140,12 +139,9 @@ public class ScoreName : MonoBehaviour
             }
 
             if (Change)
-            {
                 foreach (TextMeshProUGUI tm in InputName)
-                {
                     tm.fontStyle = FontStyles.Normal;
-                }
-            }
+
             yield return null;
         }
     }

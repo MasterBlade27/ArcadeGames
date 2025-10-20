@@ -32,11 +32,6 @@ public class BallMove : MonoBehaviour
 
     private PaddleMove pInput;
 
-    //[SerializeField]
-    //private bool bColliding;
-    //private Coroutine ArmorStuck;
-    //private float Armortimer, Armorendtime;
-
     private float test = 0;
 
     private bool oneHit = false;
@@ -49,8 +44,6 @@ public class BallMove : MonoBehaviour
         if (!Demo)
         {
             Paddle = FindAnyObjectByType<MoveInput>().gameObject;
-
-            //Armorendtime = 0.015f;
 
             PowerUp.HalfSpeed += OnHalfSpeed;
             PowerUp.DoubleSpeed += OnDoubleSpeed;
@@ -70,8 +63,6 @@ public class BallMove : MonoBehaviour
         {
             pInput = new PaddleMove();
             pInput.Enable();
-
-            StartCoroutine(BallStart());
         }
     }
 
@@ -266,26 +257,11 @@ public class BallMove : MonoBehaviour
         }
 
         //Ball's Speed increases on certain Bounces
-        if (Bounce % 5 == 0)
+        if (Bounce % 5 == 0 && !(Bounce == 0))
         {
             //Increase Speed
             speed += 0.4f;
         }
-
-       // bColliding = false;
-        //Armortimer = 0;
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        /*if (collision.gameObject.CompareTag("Block"))
-        {
-            bColliding = true;
-
-            if (ArmorStuck != null)
-                StopCoroutine(ArmorStuck);
-            ArmorStuck = StartCoroutine(ArmorCorrect(collision));
-        }*/
     }
 
     private Coroutine speedEffectCoroutine;
@@ -335,58 +311,16 @@ public class BallMove : MonoBehaviour
         isSpeedEffectActive = false;
         oneHit = false;
     }
-    private Coroutine oneHitTimer;
+
     private void OnOneHit(float duration)
     {
         oneHit = true;
         StartCoroutine(OneHitTimer(duration));
     }
+
     private IEnumerator OneHitTimer(float duration)
     {
         yield return new WaitForSeconds(duration);
         oneHit = false;
     }
-
-
-    private IEnumerator BallStart()
-    {
-        pInput.Movement.Play.Disable();
-
-        yield return new WaitForFixedUpdate();
-
-        pInput.Movement.Play.Enable();
-        StopCoroutine(BallStart());
-    }
-
-    /*private IEnumerator ArmorCorrect(Collision collision)
-    {
-        if (bColliding)
-        {
-            Armortimer += Time.deltaTime;
-            Armortimer = Mathf.Clamp(Armortimer, Armortimer, 1f);
-            Debug.Log(Armortimer);
-
-            if (Armortimer > Armorendtime)
-            {
-                if (AC != null)
-                {
-                    if (ballPitch < 5)
-                        ballPitch += 1;
-
-                    AC.PlayBall(ballPitch, AC.blockAudioClips, Random.Range(0, 12));
-                }
-
-                ArmorBlock AB = collision.gameObject.GetComponent<ArmorBlock>();
-                AB.ArmorDestroy(Vel);
-
-
-                Vector3 fforce = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
-                RB.AddForce(fforce * 3f, ForceMode.VelocityChange);
-            }
-            yield return null;
-        }
-
-        else
-            StopCoroutine(ArmorStuck);
-    }*/
 }

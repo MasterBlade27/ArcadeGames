@@ -19,12 +19,8 @@ public class QuickEscape : MonoBehaviour
         XOR = GMS.activeSelf ^ INS.activeSelf;
 
         if (!XOR)
-        {
             if (Input.GetKeyUp(KeyCode.Escape))
-            {
                 ESCAPE();
-            }
-        }
     }
 
     public void ESCAPE()

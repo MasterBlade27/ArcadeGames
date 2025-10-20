@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using TMPro;
 
 public class NameArray : MonoBehaviour
@@ -14,9 +13,8 @@ public class NameArray : MonoBehaviour
     {
         LetterNumb++;
         if (LetterNumb >= Alphabet.Length)
-        {
             LetterNumb = 0;
-        }
+
         UpdateLetterDisplay();
     }
 
@@ -24,9 +22,8 @@ public class NameArray : MonoBehaviour
     {
         LetterNumb--;
         if (LetterNumb < 0)
-        {
             LetterNumb = Alphabet.Length - 1;
-        }
+
         UpdateLetterDisplay();
     }
 
@@ -38,12 +35,9 @@ public class NameArray : MonoBehaviour
     private void UpdateLetterDisplay()
     {
         if (Display != null)
-        {
             Display.text = Alphabet[LetterNumb].ToString();
-        }
+        
         else
-        {
             Debug.LogError("Letter Display Text component is not assigned!");
-        }
     }
 }

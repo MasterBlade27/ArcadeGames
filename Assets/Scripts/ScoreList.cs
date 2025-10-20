@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreList : MonoBehaviour
 {
@@ -25,10 +23,9 @@ public class ScoreList : MonoBehaviour
                 if (i >= UIElem.Count)
                 {
                     var inst = Instantiate(HSUIPrefab, Vector3.zero, Quaternion.identity);
-                    inst.transform.SetParent(ElmWrapper.transform, false);
+                    inst.transform.SetParent(ElmWrapper, false);
 
                     UIElem.Add(inst);
-
                 }
 
                 var texts = UIElem[i].GetComponentsInChildren<TextMeshProUGUI>();

@@ -59,24 +59,18 @@ public class Scoring : MonoBehaviour
 
         //Tests if the Highscore is lesser than the Score
         if (int.Parse(Hiscoretext.text) < scoreCount)
-        {
             //Updates the Highscore with the Score
             Hiscoretext.text = scoreCount.ToString();
-            //Stores the new Highscore in Data
-
-        }
     }
 
     //Custom Method used for giving Score for Blocks
     public void BlockScore(Material gomat)
     {
         for (int i = 0; i < score.Count; i++)
-        {
             //See if the Block's Color is the same in the list
             if (gomat.color == ColorList[i])
                 //Updates the Score with the corresponding Score
                 scoreCount += score[i] * multiplier;
-        }
     }
 
     public int GiveScore()

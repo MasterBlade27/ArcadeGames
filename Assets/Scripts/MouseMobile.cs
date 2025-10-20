@@ -29,7 +29,11 @@ public class MouseMobile : MonoBehaviour
     {
         clamping = MI.clamping;
         GameOver = MI.GameOver;
-        PaddleGO.transform.position = new Vector3(Mathf.Clamp(PaddleGO.transform.position.x, -clamping, clamping), PaddleGO.transform.position.y, PaddleGO.transform.position.z);
+        PaddleGO.transform.position = new Vector3(
+            Mathf.Clamp(PaddleGO.transform.position.x, -clamping, clamping), 
+            PaddleGO.transform.position.y, 
+            PaddleGO.transform.position.z
+            );
 
         if (GameOver)
             gameObject.SetActive(false);
@@ -53,9 +57,17 @@ public class MouseMobile : MonoBehaviour
         PaddleGO.transform.position += new Vector3(Mathf.Clamp(direction, -0.10f, 0.10f), 0, 0);
 
         if (direction > 0)
-            PaddleGO.transform.position = new Vector3(Mathf.Clamp(PaddleGO.transform.position.x, PaddleGO.transform.position.x, objectPosition), PaddleGO.transform.position.y, PaddleGO.transform.position.z);
+            PaddleGO.transform.position = new Vector3(
+                Mathf.Clamp(PaddleGO.transform.position.x, PaddleGO.transform.position.x, objectPosition),
+                PaddleGO.transform.position.y,
+                PaddleGO.transform.position.z
+                );
         else if (direction < 0)
-            PaddleGO.transform.position = new Vector3(Mathf.Clamp(PaddleGO.transform.position.x, objectPosition, PaddleGO.transform.position.x), PaddleGO.transform.position.y, PaddleGO.transform.position.z);
+            PaddleGO.transform.position = new Vector3(
+                Mathf.Clamp(PaddleGO.transform.position.x, objectPosition, PaddleGO.transform.position.x),
+                PaddleGO.transform.position.y,
+                PaddleGO.transform.position.z
+                );
     }
 
     private void OnMouseUp()

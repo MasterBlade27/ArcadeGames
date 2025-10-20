@@ -44,22 +44,15 @@ public class TransitionLoad : MonoBehaviour
     void Update()
     {
         if (BSwitch)
-        {
             TransScene();
-        }
 
         if (Demo)
         {
-
-            if(pInput.Movement.Play.IsPressed())
-            {
+            if (pInput.Movement.Play.IsPressed())
                 StartGame();
-            }
 
             else if (Input.GetKeyUp(KeyCode.Escape))
-            {
                 QuitGame();
-            }
         }
     }
 

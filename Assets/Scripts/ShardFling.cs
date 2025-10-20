@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +14,9 @@ public class ShardFling : MonoBehaviour
 
         foreach (GameObject shard in shards)
         {
+            shard.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
+            shard.GetComponent<MeshRenderer>().enabled = true;
+
             Rigidbody rb = shard.GetComponent<Rigidbody>();
             rb.isKinematic = false;
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+
 public class ArmorBlock : MonoBehaviour
 {
     [SerializeField]
@@ -72,31 +73,27 @@ public class ArmorBlock : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = MatsArr[ArmorSet];
     }
 
-    private Coroutine ShatterCoroutine;
-
     //Custom Method used for Deleting Blocks
     // Now receives impact velocity and forwards it to the shatter coroutine
     public void DeleteBlock(Vector3 impactVelocity)
     {
-        if (anim != null)
-        {
-            anim.SetTrigger("break");
-        }
-
         //Reset Armor Set Variable
         ArmorSet = 0;
 
         //Calls the Block's Respawn script and lowers the Block Active Count
-        BlockRespawn BR = gameObject.GetComponentInParent<BlockRespawn>();
-        BR.BlockActive--;
-        BR.CheckMusic();
-
+        if (GetComponentInParent<BlockRespawn>() != null)
+        {
+            BlockRespawn BR = gameObject.GetComponentInParent<BlockRespawn>();
+            BR.BlockActive--;
+            BR.CheckMusic();
+        }
 
         if (!Demo)
         {
             //Calls the Block's Scoring script and sets the score of the blocks
             Scoring SC = gameObject.GetComponentInParent<Scoring>();
             SC.BlockScore(mat);
+            Debug.Log(SC);
 
             if (FindAnyObjectByType<PowerUpSpawn>() != null)
             {
@@ -106,20 +103,18 @@ public class ArmorBlock : MonoBehaviour
             }
         }
 
-        blockDel();
+        if (FindAnyObjectByType<BlocksForLevels>() != null)
+            blockDel();
 
         if(gameObject.GetComponent<ShardFling>() != null)
-            ShatterCoroutine = StartCoroutine(ShatterTimer(impactVelocity));
+            StartCoroutine(ShatterTimer(impactVelocity));
         else
             gameObject.SetActive(false);
-
-        /*if ( anim == null )
-            //"Deletes" the block
-            gameObject.SetActive(false);*/
     }
 
     private IEnumerator ShatterTimer(Vector3 impactVelocity)
     {
+        GetComponent<MeshRenderer>().enabled = false;
         ShardFling SF = gameObject.GetComponent<ShardFling>();
         SF.Shatter(impactVelocity);
         BoxCollider fuck = gameObject.GetComponent<BoxCollider>();
