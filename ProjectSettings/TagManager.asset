@@ -6,6 +6,7 @@ TagManager:
   tags:
   - KillBox
   - Block
+  - Stuck
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Paddle
   - Ball
   - KillBox
-  - 
+  - Shards
   - 
   - 
   - 

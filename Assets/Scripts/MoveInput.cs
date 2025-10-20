@@ -52,7 +52,6 @@ public class MoveInput : MonoBehaviour
         transform.position += new Vector3(moveDirection, 0, 0);
         //Clamp the Paddle's Position
 
-        if(!Paddle.half)
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clamping, clamping), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clamping, clamping), transform.position.y, transform.position.z);
     }
 }

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1487f6d1f1fcbb54cb3a689d4668f6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUp
-  fallSpeed: 1
+  fallSpeed: 3
   AC: {fileID: 0}
 --- !u!54 &1245048965385228923
 Rigidbody:

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 public class ArmorBlock : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class ArmorBlock : MonoBehaviour
 
     [SerializeField]
     private Animator anim;
+
+    public static event Action blockDel;
 
     private void Start()
     {
@@ -44,7 +48,8 @@ public class ArmorBlock : MonoBehaviour
     }
 
     //Custom Method used for calling from BallMove script
-    public void ArmorDestroy()
+    // Now accepts the impact velocity so the block can pass it down to shatter logic
+    public void ArmorDestroy(Vector3 impactVelocity)
     {
         if(anim != null)
         {
@@ -56,18 +61,22 @@ public class ArmorBlock : MonoBehaviour
 
         //Adds a level to Armor Set
         ArmorSet--;
-
+        Debug.Log("AD");
         //If Armor Set and Armor Level are the same
         if(ArmorSet == -1)
             //Calls DeleteBlock because the block would be destroyed
-            DeleteBlock();
+            DeleteBlock(impactVelocity);
 
-        //Changes the Material to the next one in the set
-        gameObject.GetComponent<MeshRenderer>().material = MatsArr[ArmorSet];
+        //Changes the Material to the next one in the set (only if valid index)
+        if (ArmorSet >= 0 && MatsArr != null && ArmorSet < MatsArr.Length)
+            gameObject.GetComponent<MeshRenderer>().material = MatsArr[ArmorSet];
     }
 
+    private Coroutine ShatterCoroutine;
+
     //Custom Method used for Deleting Blocks
-    private void DeleteBlock()
+    // Now receives impact velocity and forwards it to the shatter coroutine
+    public void DeleteBlock(Vector3 impactVelocity)
     {
         if (anim != null)
         {
@@ -81,6 +90,7 @@ public class ArmorBlock : MonoBehaviour
         BlockRespawn BR = gameObject.GetComponentInParent<BlockRespawn>();
         BR.BlockActive--;
         BR.CheckMusic();
+
 
         if (!Demo)
         {
@@ -96,13 +106,25 @@ public class ArmorBlock : MonoBehaviour
             }
         }
 
-        if( anim == null )
-            //"Deletes" the block
+        blockDel();
+
+        if(gameObject.GetComponent<ShardFling>() != null)
+            ShatterCoroutine = StartCoroutine(ShatterTimer(impactVelocity));
+        else
             gameObject.SetActive(false);
+
+        /*if ( anim == null )
+            //"Deletes" the block
+            gameObject.SetActive(false);*/
     }
 
-    private void AnimDelete()
+    private IEnumerator ShatterTimer(Vector3 impactVelocity)
     {
+        ShardFling SF = gameObject.GetComponent<ShardFling>();
+        SF.Shatter(impactVelocity);
+        BoxCollider fuck = gameObject.GetComponent<BoxCollider>();
+        fuck.enabled = false;
+        yield return new WaitForSeconds(3.5f);
         gameObject.SetActive(false);
     }
 

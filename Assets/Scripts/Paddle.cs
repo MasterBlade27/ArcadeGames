@@ -3,6 +3,14 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     private Coroutine sizeCoroutine;
+    private void OnEnable()
+    {
+        Restart.OnRestart += OnRestart;
+    }
+    private void OnDisable()
+    {
+        Restart.OnRestart -= OnRestart;
+    }
 
     public void doubleSize(bool big)
     {
@@ -16,7 +24,7 @@ public class Paddle : MonoBehaviour
     {
         MoveInput MI = FindAnyObjectByType<MoveInput>();
 
-        float originalX = transform.localScale.x;
+        float originalX = 2;
         float doubledX = 4;
         float halfX = 1;
         float sizeTime = 5f;
@@ -44,6 +52,16 @@ public class Paddle : MonoBehaviour
 
         // Restore original size
         transform.localScale = new Vector3(originalX, transform.localScale.y, transform.localScale.z);
+        MI.clamping = 7.5f;
+        half = false;
+        sizeCoroutine = null;
+    }
+    private void OnRestart()
+    {
+        MoveInput MI = FindAnyObjectByType<MoveInput>();
+        if (sizeCoroutine != null)
+            StopCoroutine(sizeCoroutine);
+        transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
         MI.clamping = 7.5f;
         half = false;
         sizeCoroutine = null;

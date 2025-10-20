@@ -7,6 +7,7 @@ public class PowerUp : MonoBehaviour
     public static event Action HalfSpeed;
     public static event Action DoubleSpeed;
     public static event Action<int, float> ScoreMultiply;
+    public static event Action<float> OneShot;
 
     private int pUp;
 
@@ -18,7 +19,7 @@ public class PowerUp : MonoBehaviour
     private void Start()
     {
         AC = FindAnyObjectByType<AudioController>();
-        pUp = UnityEngine.Random.Range(0, 5);
+        pUp = UnityEngine.Random.Range(0, 6);
 
         Restart.OnRestart += ResetPups;
     }
@@ -57,9 +58,14 @@ public class PowerUp : MonoBehaviour
                 DoubleSpeed?.Invoke();
                 Destroy(gameObject);
             }
-            else
+            else if (pUp == 4)
             {
                 ScoreMultiply(2, 5f);
+                Destroy(gameObject);
+            }
+            else
+            {
+                OneShot?.Invoke(5f);
                 Destroy(gameObject);
             }
 
