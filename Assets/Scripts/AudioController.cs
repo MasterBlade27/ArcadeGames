@@ -18,7 +18,6 @@ public class AudioController : MonoBehaviour
 
     public int MusicLevel;
     public bool volume = true;
-    private bool ResetMute = false;
 
     [SerializeField]
     private GameObject MuteIcon;
@@ -107,21 +106,5 @@ public class AudioController : MonoBehaviour
         {
             audioSources[2].PlayOneShot(Sounds[index], Vol);
         }
-    }
-
-    public void StartMusic(int index)
-    {
-        ResetMute = false;
-/*        if (volume)
-        {
-            musicSources[index].volume = 1;
-        }*/
-    }
-
-    public void ResetMusic()
-    {
-        ResetMute = true;
-/*        for (int i = 0; i < musicSources.Count; i++)
-            musicSources[i].volume = 0;*/
     }
 }

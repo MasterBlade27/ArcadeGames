@@ -8,7 +8,6 @@ public class BlockRespawn : MonoBehaviour
     private GameObject[] BlockArray;
 
     public int BlockActive;
-    private int BlockClear = 0;
 
     [SerializeField]
     private AudioController AC;
@@ -38,7 +37,6 @@ public class BlockRespawn : MonoBehaviour
         {
             if (AC != null)
             {
-                BlockClear = 0;
                 AC.PlaySound(AC.oneUpSFX);
             }
 
