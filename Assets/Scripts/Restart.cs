@@ -81,6 +81,7 @@ public class Restart : MonoBehaviour
 
     public void BallReset()
     {
+        Debug.Log("Ball Reset");
         if (FindFirstObjectByType<Camera>().GetComponent<Animator>())
             FindFirstObjectByType<Camera>().GetComponent<Animator>().SetTrigger("Shake");
 
@@ -114,6 +115,7 @@ public class Restart : MonoBehaviour
     public void GamaOvar()
     {
         if (AC != null)
+            AC.musicSource.Stop();
             AC.PlaySound(AC.gameOverSFX);
 
         ReplayGo.SetActive(true);
@@ -125,7 +127,6 @@ public class Restart : MonoBehaviour
     {
         if (AC != null)
         {
-            AC.StartMusic(0);
             AC.PlayVol(AC.oneUpSFX, 5f);
         }
 
@@ -155,9 +156,6 @@ public class Restart : MonoBehaviour
 
         if (lives <= 0)
         {
-            if (AC != null)
-                AC.ResetMusic();
-
             mip.GameOver = true;
             mip.enabled = false;
 

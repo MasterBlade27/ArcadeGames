@@ -39,8 +39,7 @@ public class BlockRespawn : MonoBehaviour
             if (AC != null)
             {
                 BlockClear = 0;
-                AC.ResetMusic();
-                AC.StartMusic(0);
+                AC.PlaySound(AC.oneUpSFX);
             }
 
             foreach (var Block in BlockArray)
@@ -56,15 +55,15 @@ public class BlockRespawn : MonoBehaviour
     {
         if (AC != null)
         {
-            if (BlockActive % BlockArray.Length / 3 == 0)
+
+/*            if (BlockActive % BlockArray.Length / 3 == 0)
             {
                 BlockClear++;
                 if (BlockClear < 3)
                 {
                     AC.PlaySound(AC.oneUpSFX);
-                    AC.StartMusic(BlockClear);
                 }
-            }
+            }*/
         }
     }
 }

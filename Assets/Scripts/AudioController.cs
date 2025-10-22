@@ -4,7 +4,7 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public List<AudioSource> audioSources = new List<AudioSource>();
-    public List<AudioSource> musicSources = new List<AudioSource>();
+    public AudioSource musicSource; 
 
     public List<AudioClip> paddleAudioClips = new List<AudioClip>();
     public List<AudioClip> blockAudioClips = new List<AudioClip>();
@@ -25,8 +25,6 @@ public class AudioController : MonoBehaviour
 
     private void Start()
     {
-        StartMusic(0);
-
         if (!PlayerPrefs.HasKey("Volume"))
             PlayerPrefs.SetInt("Volume", 0);
 
@@ -54,9 +52,9 @@ public class AudioController : MonoBehaviour
             foreach (AudioSource AS in audioSources)
                 AS.volume = 1;
 
-            if(!ResetMute)
+          /*  if(!ResetMute)
             for (int i = 0; i <= Mathf.Clamp(MusicLevel, 0, 2); i++)
-                musicSources[i].volume = 1;
+                musicSources[i].volume = 1;*/
         }
 
         else
@@ -66,8 +64,8 @@ public class AudioController : MonoBehaviour
             foreach (AudioSource AS in audioSources)
                 AS.volume = 0;
 
-            for (int i = 0; i <= Mathf.Clamp(MusicLevel, 0, 2); i++)
-                musicSources[i].volume = 0;
+/*            for (int i = 0; i <= Mathf.Clamp(MusicLevel, 0, 2); i++)
+                musicSources[i].volume = 0;*/
         }
     }
 
@@ -114,16 +112,16 @@ public class AudioController : MonoBehaviour
     public void StartMusic(int index)
     {
         ResetMute = false;
-        if (volume)
+/*        if (volume)
         {
             musicSources[index].volume = 1;
-        }
+        }*/
     }
 
     public void ResetMusic()
     {
         ResetMute = true;
-        for (int i = 0; i < musicSources.Count; i++)
-            musicSources[i].volume = 0;
+/*        for (int i = 0; i < musicSources.Count; i++)
+            musicSources[i].volume = 0;*/
     }
 }

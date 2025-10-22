@@ -1017,6 +1017,8 @@ MonoBehaviour:
   speed: 10
   direction: 0
   moveDirection: 0
+  clamping: 0
+  GameOver: 0
 --- !u!114 &407880204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f80a888907a8d48af63e1e9b51bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paddle
+  half: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,12 +1781,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Demo: 0
+  Multi: 0
   Paddle: {fileID: 407880197}
+  OriBall: {fileID: 0}
   Vel: {x: 0, y: 0, z: 0}
   PadDir: {x: 0, y: 0, z: 0}
   speed: 5
   Bounce: 0
   StuckBounce: 0
+  BallAmt: 0
   Starto: 0
   AC: {fileID: 1321251076}
 --- !u!114 &712360593
@@ -1799,6 +1805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restart
   Test: 1
+  Multi: 0
+  Ball: {fileID: 0}
+  OriBall: {fileID: 0}
   lives: 10
   livetext: {fileID: 1449296127}
   ReplayGo: {fileID: 1512167726}
@@ -4470,9 +4479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095a648bff1826f4087fc776f52e817f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockRespawn
-  BlockSpawn: {fileID: 0}
-  BlockCol: 13
-  BlockRow: 3
+  Test: 1
   BlockActive: 0
   AC: {fileID: 1321251076}
 --- !u!4 &1666333811
@@ -6316,10 +6323,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio
       objectReference: {fileID: 0}
-    - target: {fileID: 1720392566706210209, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 736759096e9b81c4a8f2211806a8b20c, type: 3}
     - target: {fileID: 3361165258368421169, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6359,26 +6362,6 @@ PrefabInstance:
     - target: {fileID: 3361165258368421169, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524522183221113494, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524522183221113494, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 4cd489553d52bb94a877eba2a217e38d, type: 3}
-    - target: {fileID: 5241776785211524085, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 88686ddcc4c8cbd408e64f81885dc13d, type: 3}
-    - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
-      propertyPath: musicSources.Array.size
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
