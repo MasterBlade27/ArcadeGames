@@ -85,7 +85,6 @@ public class ArmorBlock : MonoBehaviour
         {
             BlockRespawn BR = gameObject.GetComponentInParent<BlockRespawn>();
             BR.BlockActive--;
-            BR.CheckMusic();
         }
 
         if (!Demo)

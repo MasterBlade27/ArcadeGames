@@ -48,20 +48,4 @@ public class BlockRespawn : MonoBehaviour
             BlockActive = BlockArray.Length;
         }
     }
-
-    public void CheckMusic()
-    {
-        if (AC != null)
-        {
-
-/*            if (BlockActive % BlockArray.Length / 3 == 0)
-            {
-                BlockClear++;
-                if (BlockClear < 3)
-                {
-                    AC.PlaySound(AC.oneUpSFX);
-                }
-            }*/
-        }
-    }
 }

@@ -1945,6 +1945,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4524522183221113494, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 3cd70e3857e82aa4cb39a2b4c0bf6552, type: 3}
     - target: {fileID: 5345499242922925253, guid: 4dda664612e840c44a56f9877832d4ad, type: 3}
       propertyPath: volume
       value: 1
@@ -1996,6 +2000,7 @@ MonoBehaviour:
   - {fileID: 1627694110793879037, guid: 534147e084e94b64999cb9ba8bd26331, type: 3}
   - {fileID: 1627694110793879037, guid: 18bd463ddc123ec4aa0d2df80883e11c, type: 3}
   - {fileID: 1627694110793879037, guid: 8b224ccc31b2f7e4dafa5f436c0a5c92, type: 3}
+  AC: {fileID: 1677286319}
 --- !u!4 &694861857
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ public class AudioController : MonoBehaviour
     public AudioClip oneUpSFX;
     public AudioClip powerupSpawn;
 
-    public int MusicLevel;
     public bool volume = true;
 
     [SerializeField]
@@ -28,12 +27,12 @@ public class AudioController : MonoBehaviour
             PlayerPrefs.SetInt("Volume", 0);
 
         var BVol = PlayerPrefs.GetInt("Volume");
-        if(BVol == 0 )
+        if (BVol == 0)
             volume = true;
         else
             volume = false;
 
-        if(MuteIcon != null)
+        if (MuteIcon != null)
             MuteIcon.SetActive(!volume);
     }
 
@@ -51,9 +50,7 @@ public class AudioController : MonoBehaviour
             foreach (AudioSource AS in audioSources)
                 AS.volume = 1;
 
-          /*  if(!ResetMute)
-            for (int i = 0; i <= Mathf.Clamp(MusicLevel, 0, 2); i++)
-                musicSources[i].volume = 1;*/
+            musicSource.volume = 1;
         }
 
         else
@@ -63,8 +60,7 @@ public class AudioController : MonoBehaviour
             foreach (AudioSource AS in audioSources)
                 AS.volume = 0;
 
-/*            for (int i = 0; i <= Mathf.Clamp(MusicLevel, 0, 2); i++)
-                musicSources[i].volume = 0;*/
+            musicSource.volume = 0;
         }
     }
 

@@ -8,6 +8,9 @@ public class LevelThingIGuess : MonoBehaviour
 
     private int levelCounter;
 
+    [SerializeField]
+    private AudioController AC;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +27,9 @@ public class LevelThingIGuess : MonoBehaviour
 
     private void NextLevel()
     {
+        if (AC != null)
+            AC.PlaySound(AC.oneUpSFX);
+
         levelCounter++;
         if (levelCounter >= Levels.Count)
             levelCounter = 0;

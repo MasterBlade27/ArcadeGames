@@ -11,14 +11,10 @@ public class BlocksForLevels : MonoBehaviour
     [SerializeField]
     private int blocks = 0;
 
-    [SerializeField]
-    private AudioController AC;
-
     public static event Action nextLevel;
 
     void Start()
     {
-        AC = FindAnyObjectByType<AudioController>();
         ArmorBlock.blockDel += theblockisdead;
         foreach (GameObject fuck in itstheblocksorsometypeshit)
         {
@@ -39,7 +35,6 @@ public class BlocksForLevels : MonoBehaviour
         if (blocks == 0 )
         {
             Debug.Log("end");
-            AC.PlaySound(AC.oneUpSFX);
             nextLevel();
             Destroy(gameObject);
         }
