@@ -8,6 +8,7 @@ public class PowerUp : MonoBehaviour
     public static event Action DoubleSpeed;
     public static event Action<int, float> ScoreMultiply;
     public static event Action<float> OneShot;
+    public static event Action OneUp;
 
     private int pUp;
 
@@ -80,6 +81,12 @@ public class PowerUp : MonoBehaviour
             {
                 Debug.Log("Multiball");
                 Instantiate(Ball, (transform.position + Vector3.up), Quaternion.identity);
+                Destroy(gameObject);
+            }
+            else if (pUp == 7)
+            {
+                Debug.Log("1UP");
+                OneUp?.Invoke();
                 Destroy(gameObject);
             }
 

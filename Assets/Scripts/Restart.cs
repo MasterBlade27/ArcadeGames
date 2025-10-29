@@ -43,6 +43,8 @@ public class Restart : MonoBehaviour
 
         Ball = gameObject;
 
+        PowerUp.OneUp += ExtraLife;
+
         if (ReplayGo != null)
             ReplayGo.SetActive(false);
 
@@ -61,6 +63,7 @@ public class Restart : MonoBehaviour
     private void OnDisable()
     {
         pInput.Disable();
+        PowerUp.OneUp -= ExtraLife;
     }
 
     private void Update()
@@ -190,6 +193,11 @@ public class Restart : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         MultiReset = null;
         Destroy(this.gameObject);
+    }
+
+    private void ExtraLife()
+    {
+        lives++;
     }
 
     private void ACTCheat()
