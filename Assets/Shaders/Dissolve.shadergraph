@@ -816,13 +816,13 @@
     "m_RefNameGeneratedByDisplayName": "Dissolve",
     "m_DefaultReferenceName": "_Dissolve",
     "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": false,
+    "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
     "m_DismissedVersion": 0,
     "m_Precision": 0,
     "overrideHLSLDeclaration": true,
-    "hlslDeclarationOverride": 1,
+    "hlslDeclarationOverride": 2,
     "m_Hidden": false,
     "m_PerRendererData": false,
     "m_customAttributes": [],
@@ -1079,9 +1079,9 @@
     "m_ShaderOutputName": "BaseColor",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.5,
-        "y": 0.5,
-        "z": 0.5
+        "x": 0.4000000059604645,
+        "y": 0.4000000059604645,
+        "z": 0.4000000059604645
     },
     "m_DefaultValue": {
         "x": 0.5,
@@ -1208,9 +1208,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1018.6666259765625,
-            "y": 716.6666259765625,
-            "width": 112.0,
+            "x": -947.3333740234375,
+            "y": 520.0,
+            "width": 112.00006103515625,
             "height": 36.0
         }
     },
@@ -1244,10 +1244,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1027.33349609375,
-            "y": 794.0000610351563,
-            "width": 129.33343505859376,
-            "height": 78.666748046875
+            "x": -956.0,
+            "y": 597.3333129882813,
+            "width": 129.33331298828126,
+            "height": 78.6666259765625
         }
     },
     "m_Slots": [
