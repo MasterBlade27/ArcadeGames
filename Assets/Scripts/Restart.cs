@@ -70,6 +70,7 @@ public class Restart : MonoBehaviour
     {
         if (Multi)
         {
+            lives = OriBall.GetComponent<Restart>().lives;
             Test = OriBall.GetComponent<Restart>().Test;
             livetext = OriBall.GetComponent<Restart>().livetext;
             ReplayGo = OriBall.GetComponent<Restart>().ReplayGo;
