@@ -22,7 +22,6 @@ public class PowerUp : MonoBehaviour
     {
         AC = FindAnyObjectByType<AudioController>();
         pUp = UnityEngine.Random.Range(0, AC.powerupClips.Count);
-        Debug.Log(AC.powerupClips.Count);
 
         Restart.OnRestart += ResetPups;
     }
@@ -39,7 +38,6 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("GameController"))
         {
-            pUp = 7;
             if (pUp == 0)
             {
                 Debug.Log("Large Paddle");
@@ -78,7 +76,7 @@ public class PowerUp : MonoBehaviour
                 OneShot?.Invoke(5f);
                 Destroy(gameObject);
             }
-            else
+            else if (pUp == 6)
             {
                 Debug.Log("Multiball");
                 Instantiate(Ball, (transform.position + Vector3.up), Quaternion.identity);
