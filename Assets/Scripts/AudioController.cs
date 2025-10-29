@@ -13,7 +13,7 @@ public class AudioController : MonoBehaviour
 
     public AudioClip floorSFX;
     public AudioClip gameOverSFX;
-    public AudioClip oneUpSFX;
+    public AudioClip nextLevelSFX;
     public AudioClip powerupSpawn;
 
     [SerializeField]

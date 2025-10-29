@@ -39,6 +39,7 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("GameController"))
         {
+            pUp = 7;
             if (pUp == 0)
             {
                 Debug.Log("Large Paddle");

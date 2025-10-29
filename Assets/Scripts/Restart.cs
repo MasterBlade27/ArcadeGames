@@ -135,7 +135,7 @@ public class Restart : MonoBehaviour
     {
         if (AC != null)
         {
-            AC.PlayVol(AC.oneUpSFX, 5f);
+            AC.PlayVol(AC.nextLevelSFX, 5f);
         }
 
         lives = totallives;
@@ -205,7 +205,7 @@ public class Restart : MonoBehaviour
         if (!Cheats)
         {
             Cheats = true;
-            AC.PlayVol(AC.oneUpSFX, 5f);
+            AC.PlayVol(AC.nextLevelSFX, 5f);
             lives += 100;
         }
     }
