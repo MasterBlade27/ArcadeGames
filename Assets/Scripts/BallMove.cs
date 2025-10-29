@@ -36,6 +36,8 @@ public class BallMove : MonoBehaviour
 
     private bool oneHit = false;
 
+    public static bool wait = false;
+
     void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -112,7 +114,7 @@ public class BallMove : MonoBehaviour
 
         if (Starto && Multi)
         {
-            transform.position = OriBall.transform.position - Vector3.down * 0.5f;
+            //transform.position = OriBall.transform.position - Vector3.down * 0.5f;
             Bounce = OriBall.GetComponent<BallMove>().Bounce;
             speed = OriBall.GetComponent<BallMove>().speed;
             AC = OriBall.GetComponent<BallMove>().AC;
@@ -195,7 +197,7 @@ public class BallMove : MonoBehaviour
 
                 Bounce = -1;
                 StuckBounce = -1;
-                speed = 5;
+                speed = (5 + LevelThingIGuess.levelSpeed);
             }
         }
 
@@ -322,5 +324,13 @@ public class BallMove : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         oneHit = false;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        wait = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        wait = false;
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5777556597950951617}
   - component: {fileID: 5658738163438283818}
+  - component: {fileID: 5195911735328059695}
   m_Layer: 0
   m_Name: LevelDemo 2
   m_TagString: Untagged
@@ -78,6 +79,27 @@ MonoBehaviour:
   - {fileID: 6975580898007314753}
   - {fileID: 8668491567771772666}
   blocks: 0
+--- !u!65 &5195911735328059695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627694110793879037}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13, y: 2.739439, z: 1}
+  m_Center: {x: 0, y: -0.36902714, z: 0}
 --- !u!1001 &1089228557228067732
 PrefabInstance:
   m_ObjectHideFlags: 0

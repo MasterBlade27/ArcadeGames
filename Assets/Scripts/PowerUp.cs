@@ -15,11 +15,13 @@ public class PowerUp : MonoBehaviour
     private float fallSpeed;
     [SerializeField]
     private AudioController AC;
+    [SerializeField]
+    private GameObject Ball;
 
     private void Start()
     {
         AC = FindAnyObjectByType<AudioController>();
-        pUp = UnityEngine.Random.Range(0, 6);
+        pUp = UnityEngine.Random.Range(0, 7);
 
         Restart.OnRestart += ResetPups;
     }
@@ -63,13 +65,18 @@ public class PowerUp : MonoBehaviour
                 ScoreMultiply(2, 5f);
                 Destroy(gameObject);
             }
-            else
+            else if (pUp == 5)
             {
                 OneShot?.Invoke(5f);
                 Destroy(gameObject);
             }
+            else
+            {
+                Instantiate(Ball, (transform.position + Vector3.up), Quaternion.identity);
+                Destroy(gameObject);
+            }
 
-            AC.PlayVol(AC.powerupClips, pUp, 2f);
+                AC.PlayVol(AC.powerupClips, pUp, 2f);
             StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
         }
         else if (collision.gameObject.CompareTag("KillBox"))

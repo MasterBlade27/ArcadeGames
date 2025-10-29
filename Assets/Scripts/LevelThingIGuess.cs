@@ -7,6 +7,7 @@ public class LevelThingIGuess : MonoBehaviour
     private List<GameObject> Levels = new List<GameObject>();
 
     private int levelCounter;
+    public static int levelSpeed = -1;
 
     [SerializeField]
     private AudioController AC;
@@ -23,6 +24,7 @@ public class LevelThingIGuess : MonoBehaviour
     private void OnDisable()
     {
         BlocksForLevels.nextLevel -= NextLevel;
+        BallMove.wait = false;
     }
 
     private void NextLevel()
@@ -31,6 +33,8 @@ public class LevelThingIGuess : MonoBehaviour
             AC.PlaySound(AC.oneUpSFX);
 
         levelCounter++;
+        levelSpeed++;
+        Debug.Log(levelSpeed);
         if (levelCounter >= Levels.Count)
             levelCounter = 0;
 

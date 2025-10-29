@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class BlocksForLevels : MonoBehaviour
@@ -18,14 +20,32 @@ public class BlocksForLevels : MonoBehaviour
         ArmorBlock.blockDel += theblockisdead;
         foreach (GameObject fuck in itstheblocksorsometypeshit)
         {
+            fuck.SetActive(false);
             Debug.Log(blocks);
             blocks++;
         }
+        spawn();
     }
 
     private void OnDisable()
     {
         ArmorBlock.blockDel -= theblockisdead;
+    }
+
+    private void spawn()
+    {
+        StartCoroutine(spawnRoutine());
+    }
+    private IEnumerator spawnRoutine()
+    {
+        // Wait until BallMove.wait is false without busy-waiting the main thread
+        yield return new WaitUntil(() => !BallMove.wait);
+        foreach (GameObject block in itstheblocksorsometypeshit)
+        {
+            yield return new WaitForSeconds(0.01f);
+            block.SetActive(true);
+        }
+
     }
 
     private void theblockisdead()
