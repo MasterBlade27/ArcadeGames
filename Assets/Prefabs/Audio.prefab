@@ -375,14 +375,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
   - {fileID: 8300000, guid: f88f6ca3a22b60e4186ad1a94fc2618a, type: 3}
   - {fileID: 8300000, guid: 8bbb1fc8f2421f14aa8706199e31a5d2, type: 3}
-  - {fileID: 8300000, guid: 8bbb1fc8f2421f14aa8706199e31a5d2, type: 3}
+  - {fileID: 8300000, guid: 441f0dc7fe75e024895f366865952a74, type: 3}
+  - {fileID: 8300000, guid: 4dcb316a6bef55d448e436ca39d6513c, type: 3}
   floorSFX: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 95428563d93624243b5431d49bb11d40, type: 3}
   oneUpSFX: {fileID: 8300000, guid: 4dcb316a6bef55d448e436ca39d6513c, type: 3}
   powerupSpawn: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
-  MusicLevel: 0
-  volume: 1
-  MuteIcon: {fileID: 0}
+  sfx: 1
+  music: 1
+  SFXIcon: {fileID: 0}
+  MusicIcon: {fileID: 0}
 --- !u!82 &4524522183221113494
 AudioSource:
   m_ObjectHideFlags: 0

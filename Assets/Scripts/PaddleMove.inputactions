@@ -177,7 +177,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "FaceButton",
+                    "name": "Triggers",
                     "id": "118a71f6-ee44-4647-8512-400b061e639a",
                     "path": "2DVector",
                     "interactions": "",
@@ -190,7 +190,7 @@
                 {
                     "name": "Left",
                     "id": "e44bec6f-2de3-40e0-ab04-df8b6e5e8886",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -201,7 +201,40 @@
                 {
                     "name": "Right",
                     "id": "22678316-035c-4ce4-aecb-7298662e7bfd",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Bumpers",
+                    "id": "c6fc2426-dea8-4fb8-bdbe-541907d1060a",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Left",
+                    "id": "2a21c5ff-8336-45b2-baa4-efe14f46bd62",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "40fa0a0e-af57-4b12-bca5-331272e5ca84",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -388,7 +421,7 @@
                 {
                     "name": "",
                     "id": "67c4da3a-1069-400e-a19f-7bf2f208dc54",
-                    "path": "<Gamepad>/select",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

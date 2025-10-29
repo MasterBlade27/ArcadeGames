@@ -32,13 +32,19 @@ public class TransitionLoad : MonoBehaviour
         {
             pInput = new PaddleMove();
             pInput.Enable();
+
+            pInput.Movement.Escape.performed += ctx => QuitGame();
         }
     }
 
     private void OnDisable()
     {
         if (Demo)
+        {
             pInput.Disable();
+
+            pInput.Movement.Escape.performed -= ctx => QuitGame();
+        }
     }
 
     void Update()

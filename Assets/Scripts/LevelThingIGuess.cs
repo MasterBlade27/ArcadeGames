@@ -15,6 +15,7 @@ public class LevelThingIGuess : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        levelSpeed = -1;
         levelCounter = -1;
         BlocksForLevels.nextLevel += NextLevel;
 

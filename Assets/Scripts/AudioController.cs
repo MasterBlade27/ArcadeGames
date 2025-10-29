@@ -16,41 +16,57 @@ public class AudioController : MonoBehaviour
     public AudioClip oneUpSFX;
     public AudioClip powerupSpawn;
 
-    public bool volume = true;
+    [SerializeField]
+    private bool sfx = true, music = true;
 
     [SerializeField]
-    private GameObject MuteIcon;
+    private GameObject SFXIcon, MusicIcon;
 
     private void Start()
     {
         if (!PlayerPrefs.HasKey("Volume"))
             PlayerPrefs.SetInt("Volume", 0);
 
+        if (!PlayerPrefs.HasKey("Music"))
+            PlayerPrefs.SetInt("Music", 0);
+
         var BVol = PlayerPrefs.GetInt("Volume");
         if (BVol == 0)
-            volume = true;
+            sfx = true;
         else
-            volume = false;
+            sfx = false;
 
-        if (MuteIcon != null)
-            MuteIcon.SetActive(!volume);
+        BVol = PlayerPrefs.GetInt("Music");
+        if (BVol == 0)
+            music = true;
+        else
+            music = false;
+
+        if (SFXIcon != null)
+            SFXIcon.SetActive(!sfx);
+
+        if (MusicIcon != null)
+            MusicIcon.SetActive(!music);
     }
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.M))
         {
-            ToggleMute();
+            ToggleSFX();
+        }
+        
+        if (Input.GetKeyUp(KeyCode.N))
+        {
+            ToggleMusic();
         }
 
-        if (volume)
+        if (sfx)
         {
             PlayerPrefs.SetInt("Volume", 0);
 
             foreach (AudioSource AS in audioSources)
                 AS.volume = 1;
-
-            musicSource.volume = 1;
         }
 
         else
@@ -59,21 +75,40 @@ public class AudioController : MonoBehaviour
 
             foreach (AudioSource AS in audioSources)
                 AS.volume = 0;
+        }
+
+        if (music)
+        {
+            PlayerPrefs.SetInt("Music", 0);
+
+            musicSource.volume = 1;
+        }
+
+        else
+        {
+            PlayerPrefs.SetInt("Music", 1);
 
             musicSource.volume = 0;
         }
     }
 
-    public void ToggleMute()
+    public void ToggleSFX()
     {
-        volume = !volume;
-        if (MuteIcon != null)
-            MuteIcon.SetActive(!volume);
+        sfx = !sfx;
+        if (SFXIcon != null)
+            SFXIcon.SetActive(!sfx);
+    }
+
+    public void ToggleMusic()
+    {
+        music = !music;
+        if (MusicIcon != null)
+            MusicIcon.SetActive(!music);
     }
 
     public void PlayBall(int Pitch, List<AudioClip> Sounds, int index)
     {
-        if (volume)
+        if (sfx)
         {
             audioSources[0].pitch = Pitch;
             audioSources[0].PlayOneShot(Sounds[index]);
@@ -82,7 +117,7 @@ public class AudioController : MonoBehaviour
 
     public void PlaySound(AudioClip Sound)
     {
-        if (volume)
+        if (sfx)
         {
             audioSources[1].PlayOneShot(Sound);
         }
@@ -90,7 +125,7 @@ public class AudioController : MonoBehaviour
 
     public void PlayVol(AudioClip Sound, float Vol)
     {
-        if (volume)
+        if (sfx)
         {
             audioSources[2].PlayOneShot(Sound, Vol);
         }
@@ -98,7 +133,7 @@ public class AudioController : MonoBehaviour
 
     public void PlayVol(List<AudioClip> Sounds, int index, float Vol)
     {
-        if (volume)
+        if (sfx)
         {
             audioSources[2].PlayOneShot(Sounds[index], Vol);
         }
