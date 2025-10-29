@@ -136,6 +136,7 @@ public class AudioController : MonoBehaviour
         if (sfx)
         {
             audioSources[2].PlayOneShot(Sounds[index], Vol);
+            Debug.Log("index");
         }
     }
 }

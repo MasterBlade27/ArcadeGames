@@ -165,7 +165,7 @@ public class BallMove : MonoBehaviour
             {
                 //Play sound when ball hits the paddle
                 ballPitch = 0;
-                AC.PlayBall(1, AC.paddleAudioClips, Random.Range(0, 5));
+                AC.PlayBall(1, AC.paddleAudioClips, Random.Range(0, AC.paddleAudioClips.Count));
             }
 
             //Finds the angle between the Ball and the Paddle
@@ -209,7 +209,7 @@ public class BallMove : MonoBehaviour
                 if (ballPitch < 5)
                     ballPitch += 1;
 
-                AC.PlayBall(ballPitch, AC.blockAudioClips, Random.Range(0, 12));
+                AC.PlayBall(ballPitch, AC.blockAudioClips, Random.Range(0, AC.blockAudioClips.Count));
             }
 
             if(oneHit)
@@ -237,7 +237,7 @@ public class BallMove : MonoBehaviour
             if (AC != null)
             {
                 //Play sound when ball hits the wall
-                AC.PlayBall(1, AC.wallAudioClips, Random.Range(0, 5));
+                AC.PlayBall(1, AC.wallAudioClips, Random.Range(0, AC.wallAudioClips.Count));
             }
 
             //The Ball will Bounce off the object in a Normal Reflective way

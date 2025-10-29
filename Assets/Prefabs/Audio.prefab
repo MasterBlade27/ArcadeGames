@@ -350,6 +350,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f115119ef3900d34aaf4728c0051996c, type: 3}
   - {fileID: 8300000, guid: 9e2471ba4d38f2f4cab0c70825dc7789, type: 3}
   - {fileID: 8300000, guid: ae6b10a61edbf6a4faa639ff71c2bec2, type: 3}
+  - {fileID: 8300000, guid: f88ccaf996c5e0541a596026596a348e, type: 3}
+  - {fileID: 8300000, guid: cb61aa75d9b4a2745a1fe7d83c3f1ca8, type: 3}
   blockAudioClips:
   - {fileID: 8300000, guid: c3931b53481f2c34dbb7550e5c7edc49, type: 3}
   - {fileID: 8300000, guid: 83e5dd99d659247419729073b2e46c78, type: 3}
@@ -369,14 +371,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e892364124027524dbe725225e39a7cb, type: 3}
   - {fileID: 8300000, guid: 44a01bcfd4f3ba94f8c6f27ba0694879, type: 3}
   - {fileID: 8300000, guid: 6acfa497a9de3414ab6dc96bc0655372, type: 3}
+  - {fileID: 8300000, guid: 9970bfada0325fd4da1dd7331631eecb, type: 3}
+  - {fileID: 8300000, guid: 8d581184613662541a38136bc40445ce, type: 3}
   powerupClips:
   - {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
   - {fileID: 8300000, guid: ea52b50f13c7faf429752170ea4a2b92, type: 3}
   - {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
   - {fileID: 8300000, guid: f88f6ca3a22b60e4186ad1a94fc2618a, type: 3}
-  - {fileID: 8300000, guid: 8bbb1fc8f2421f14aa8706199e31a5d2, type: 3}
-  - {fileID: 8300000, guid: 441f0dc7fe75e024895f366865952a74, type: 3}
   - {fileID: 8300000, guid: 4dcb316a6bef55d448e436ca39d6513c, type: 3}
+  - {fileID: 8300000, guid: 441f0dc7fe75e024895f366865952a74, type: 3}
+  - {fileID: 8300000, guid: 8bbb1fc8f2421f14aa8706199e31a5d2, type: 3}
   floorSFX: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 95428563d93624243b5431d49bb11d40, type: 3}
   oneUpSFX: {fileID: 8300000, guid: 4dcb316a6bef55d448e436ca39d6513c, type: 3}
