@@ -32,6 +32,8 @@ public class Restart : MonoBehaviour
 
     private PaddleMove pInput;
 
+    private bool Cheats;
+
     private void Start()
     {
         totallives = lives;
@@ -77,6 +79,9 @@ public class Restart : MonoBehaviour
 
         if (pInput.Movement.Play.IsPressed() && ReplayGo.activeSelf && Test)
             Replay();
+
+        if (CheatCode.ACT)
+            ACTCheat();
     }
 
     public void BallReset()
@@ -185,5 +190,15 @@ public class Restart : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         MultiReset = null;
         Destroy(this.gameObject);
+    }
+
+    private void ACTCheat()
+    {
+        if (!Cheats)
+        {
+            Cheats = true;
+            AC.PlayVol(AC.oneUpSFX, 5f);
+            lives += 100;
+        }
     }
 }
