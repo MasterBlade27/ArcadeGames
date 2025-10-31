@@ -30,7 +30,7 @@ public class HUDWipe : MonoBehaviour
 
     private IEnumerator TimedWipe()
     {
-        float timecounter = 5;
+        float timecounter = MaxDura;
 
         while (timecounter > 0)
         {
