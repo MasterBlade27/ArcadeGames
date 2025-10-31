@@ -10,7 +10,7 @@ public class PowerUp : MonoBehaviour
     public static event Action<float> OneShot;
     public static event Action OneUp;
 
-    private int pUp;
+    public int pUp;
 
     [SerializeField]
     private float fallSpeed;
@@ -22,7 +22,7 @@ public class PowerUp : MonoBehaviour
     private void Start()
     {
         AC = FindAnyObjectByType<AudioController>();
-        pUp = UnityEngine.Random.Range(0, AC.powerupClips.Count);
+        //pUp = UnityEngine.Random.Range(0, AC.powerupClips.Count);
 
         Restart.OnRestart += ResetPups;
     }
