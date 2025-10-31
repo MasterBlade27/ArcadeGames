@@ -15,9 +15,6 @@ public class QuickEscape : MonoBehaviour
         pInput.Enable();
 
         pInput.Movement.Escape.performed += ctx => PressEsc(true);
-
-        RS = FindAnyObjectByType<Restart>();
-        BM = FindAnyObjectByType<BallMove>();
     }
 
     private void OnDisable()
@@ -38,6 +35,9 @@ public class QuickEscape : MonoBehaviour
 
     public void ESCAPE()
     {
+        RS = FindAnyObjectByType<Restart>();
+        BM = FindAnyObjectByType<BallMove>();
+
         BM.Starto = false;
         RS.lives = 0;
         RS.BallReset();

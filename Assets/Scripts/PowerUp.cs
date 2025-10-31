@@ -18,10 +18,12 @@ public class PowerUp : MonoBehaviour
     private AudioController AC;
     [SerializeField]
     private GameObject Ball;
+    private PowerUpHUD PUHUD;
 
     private void Start()
     {
         AC = FindAnyObjectByType<AudioController>();
+        PUHUD = FindAnyObjectByType<PowerUpHUD>();
         //pUp = UnityEngine.Random.Range(0, AC.powerupClips.Count);
 
         Restart.OnRestart += ResetPups;
@@ -91,6 +93,7 @@ public class PowerUp : MonoBehaviour
             }
 
             AC.PlayVol(AC.powerupClips, pUp, 2f);
+            PUHUD.Appear(pUp);
             StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
         }
         else if (collision.gameObject.CompareTag("KillBox"))

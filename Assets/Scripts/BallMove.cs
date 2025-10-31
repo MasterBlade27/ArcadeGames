@@ -119,8 +119,7 @@ public class BallMove : MonoBehaviour
             speed = OriBall.GetComponent<BallMove>().speed;
             AC = OriBall.GetComponent<BallMove>().AC;
             Vel = OriBall.GetComponent<BallMove>().Vel;
-            if (Vel.y < 0f)
-                Vel.y *= -1f;
+            Vel.y = 1f;
             RB.linearVelocity = Vel.normalized * speed;
 
             Starto = false;
@@ -334,5 +333,10 @@ public class BallMove : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         wait = false;
+    }
+
+    public int CheckBalls()
+    {
+        return BallAmt;
     }
 }
