@@ -44,55 +44,55 @@ public class PowerUp : MonoBehaviour
         {
             if (pUp == 0)
             {
-                Debug.Log("Large Paddle");
+                Debug.Log("LargePaddle");
                 collision.gameObject.GetComponent<Paddle>().doubleSize(true);
                 Destroy(gameObject);
                 Dura = 10f;
             }
             else if (pUp == 1)
             {
-                Debug.Log("Small Paddle");
+                Debug.Log("SmallPaddle");
                 collision.gameObject.GetComponent<Paddle>().doubleSize(false);
                 Destroy(gameObject);
                 Dura = 10f;
             }
             else if (pUp == 2)
             {
-                Debug.Log("Slow Ball");
+                Debug.Log("SlowBall");
                 HalfSpeed?.Invoke();
                 Destroy(gameObject);
                 Dura = 20f;
             }
             else if (pUp == 3)
             {
-                Debug.Log("Fast Ball");
+                Debug.Log("FastBall");
                 DoubleSpeed?.Invoke();
                 Destroy(gameObject);
                 Dura = 5f;
             }
             else if (pUp == 4)
             {
-                Debug.Log("Score Up");
+                Debug.Log("DoubleScore");
                 ScoreMultiply(2, 20f);
                 Destroy(gameObject);
                 Dura = 20f;
             }
             else if (pUp == 5)
             {
-                Debug.Log("Oneshot");
+                Debug.Log("OneShot");
                 OneShot?.Invoke(20f);
                 Destroy(gameObject);
                 Dura = 20f;
             }
             else if (pUp == 6)
             {
-                Debug.Log("Multiball");
+                Debug.Log("MultiBall");
                 Instantiate(Ball, (transform.position + Vector3.up), Quaternion.identity);
                 Destroy(gameObject);
             }
             else if (pUp == 7)
             {
-                Debug.Log("1UP");
+                Debug.Log("ExtraLife");
                 OneUp?.Invoke();
                 Destroy(gameObject);
             }
