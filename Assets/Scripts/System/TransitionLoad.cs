@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 public class TransitionLoad : MonoBehaviour
 {
     [SerializeField]
-    private bool Demo;
+    private bool Demo, Menu;
 
     [SerializeField]
-    private string SceneName;
+    private string SceneName, MenuName;
 
     private PlayerMove pInput;
 
@@ -25,10 +25,10 @@ public class TransitionLoad : MonoBehaviour
             if (BufferTime != null)
                 StopCoroutine(BufferTime);
 
-            BufferTime = StartCoroutine(Buffering());
+            BufferTime = StartCoroutine(Buffering(2.5f));
         }
 
-        else
+        else if (Demo || Menu)
         {
             pInput = new PlayerMove();
             pInput.Enable();
@@ -39,7 +39,7 @@ public class TransitionLoad : MonoBehaviour
 
     private void OnDisable()
     {
-        if (Demo)
+        if (Demo || Menu)
         {
             pInput.Disable();
 
@@ -50,27 +50,29 @@ public class TransitionLoad : MonoBehaviour
     void Update()
     {
         if (BSwitch)
-            TransScene();
+            TransScene(SceneName);
 
         if (Demo)
         {
-            if (pInput.Movement.Play.IsPressed())
-                StartGame();
+            if (!Menu)
+                if (pInput.Movement.Play.IsPressed())
+                    StartGame();
 
             else if (Input.GetKeyUp(KeyCode.Escape))
                 QuitGame();
         }
     }
 
-    private void TransScene()
+    private void TransScene(string ToScene)
     {
+        Debug.Log(ToScene);
         BSwitch = false;
-        SceneManager.LoadScene(SceneName);
+        SceneManager.LoadScene(ToScene);
     }
 
-    private IEnumerator Buffering()
+    private IEnumerator Buffering(float Dura)
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(Dura);
 
         BSwitch = true;
         BufferTime = null;
@@ -78,11 +80,17 @@ public class TransitionLoad : MonoBehaviour
 
     public void StartGame()
     {
-        BSwitch = true;
+        if (BufferTime != null)
+            StopCoroutine(BufferTime);
+
+        BufferTime = StartCoroutine(Buffering(0.5f));
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        if (Menu)
+            Application.Quit();
+        else
+            TransScene(MenuName);
     }
 }

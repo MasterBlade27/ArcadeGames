@@ -2616,7 +2616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
-  SceneName: PlayDemo
+  Menu: 0
+  SceneName: BO_PlayDemo
+  MenuName: Atari_Menu
   BSwitch: 0
 --- !u!95 &1152053486
 Animator:

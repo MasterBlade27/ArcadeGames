@@ -4269,7 +4269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 0
-  SceneName: MainMenu
+  Menu: 0
+  SceneName: BO_MainMenu
+  MenuName: 
   BSwitch: 0
 --- !u!1001 &1555530067
 PrefabInstance:
