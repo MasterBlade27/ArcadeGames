@@ -11,7 +11,6 @@ public class ScoreList : MonoBehaviour
 
     List<GameObject> UIElem = new List<GameObject>();
 
-
     public void UpdateUI(List<HighscoreElement> list)
     {
         for (int i = 0; i < list.Count; i++)

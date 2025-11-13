@@ -7,10 +7,8 @@ public class HSHandler : MonoBehaviour
     
     [SerializeField]
     private int MaxCount = 10;
-
     public string filename;
-
-    ScoreList sl;
+    private ScoreList sl;
 
     private void Start()
     {
@@ -23,9 +21,7 @@ public class HSHandler : MonoBehaviour
         hsList = FileHandler.ReadListFromJSON<HighscoreElement> (filename);
 
         while (hsList.Count > MaxCount)
-        {
             hsList.RemoveAt (MaxCount);
-        }
 
         if(hsList.Count != 0)
             sl.UpdateUI(hsList);
@@ -39,12 +35,8 @@ public class HSHandler : MonoBehaviour
     public bool CheckHS(int score)
     {
         for (int i = 0; i < MaxCount; i++)
-        {
             if (i >= hsList.Count || score > hsList[i].Points)
-            {
                 return true;
-            }
-        }
 
         return false;
     }
@@ -60,12 +52,9 @@ public class HSHandler : MonoBehaviour
                 hsList.Insert(i, hs);
 
                 while (hsList.Count > MaxCount)
-                {
                     hsList.RemoveAt(MaxCount);
-                }
 
                 SaveHS();
-
                 sl.UpdateUI(hsList);
 
                 break;

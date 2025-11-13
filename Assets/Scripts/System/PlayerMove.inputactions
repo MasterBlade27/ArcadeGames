@@ -7,7 +7,7 @@
             "id": "6a1762bf-5d3c-4ab6-a8af-cbfcd9d2d3f1",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Paddle",
                     "type": "Value",
                     "id": "4a505130-15f5-4374-8635-39db9a841270",
                     "expectedControlType": "",
@@ -25,7 +25,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Cycle",
+                    "name": "FullMove",
                     "type": "Value",
                     "id": "4d12921f-a9c1-4556-af6e-e9407d84f3e1",
                     "expectedControlType": "",
@@ -51,7 +51,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -62,7 +62,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -73,7 +73,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -84,7 +84,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -95,7 +95,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -106,7 +106,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -117,7 +117,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -128,7 +128,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -139,7 +139,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -150,7 +150,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -161,7 +161,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -172,7 +172,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -183,7 +183,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -194,7 +194,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -205,7 +205,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -216,7 +216,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -227,7 +227,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -238,7 +238,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Paddle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -249,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -260,7 +260,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -271,7 +271,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "9db2f52f-6a5e-4447-9da0-877d6b74d2ac",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "847623c6-546e-4f99-88e6-e723de153dbf",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -282,7 +304,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -293,7 +315,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -304,7 +326,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "7c8228d8-8498-4684-b0d4-ba66d79c9a82",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "5f603120-9c83-44b0-8e6f-5218c35deab2",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -315,7 +359,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -326,7 +370,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -337,7 +381,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "f523c7d1-d5cd-4953-9c64-67ecb127788c",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "f051b1a1-3ff3-4bb4-8b96-c1d4590be0d2",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -348,7 +414,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -359,7 +425,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -370,7 +436,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "257f0f11-599c-4db2-800a-025ebeac8982",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "d7d36714-d77c-4d28-8ecd-81d79bcd0a85",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },

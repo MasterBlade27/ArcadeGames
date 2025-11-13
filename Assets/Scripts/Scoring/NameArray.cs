@@ -34,10 +34,6 @@ public class NameArray : MonoBehaviour
 
     private void UpdateLetterDisplay()
     {
-        if (Display != null)
-            Display.text = Alphabet[LetterNumb].ToString();
-        
-        else
-            Debug.LogError("Letter Display Text component is not assigned!");
+        Display.text = Alphabet[LetterNumb].ToString();
     }
 }

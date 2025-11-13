@@ -707,9 +707,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe6c2b3826b1c84bb061e203989406d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BO: 1
+  CT: 0
   speed: 10
-  direction: 0
-  moveDirection: 0
   clamping: 0
   GameOver: 0
 --- !u!96 &407880204

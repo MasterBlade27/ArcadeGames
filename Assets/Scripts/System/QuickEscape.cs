@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class QuickEscape : MonoBehaviour
 {
+    public bool BO, CT;
+
     private Restart RS;
     private BallMove BM;
     [SerializeField]
-    private GameObject GMS, INS;
+    private GameObject GMS, INS; //GMS = Game Over Screen | INS = Name Input Screen
     private bool XOR, PlzEsc = false;
     private PlayerMove pInput;
 
@@ -36,11 +38,19 @@ public class QuickEscape : MonoBehaviour
     public void ESCAPE()
     {
         RS = FindAnyObjectByType<Restart>();
-        BM = FindAnyObjectByType<BallMove>();
-
-        BM.Starto = false;
         RS.lives = 0;
-        RS.BallReset();
+
+        if (BO)
+        {
+            BM = FindAnyObjectByType<BallMove>();
+            BM.Starto = false;
+            RS.BallReset();
+        }
+
+        if (CT)
+        {
+            RS.CentiReset();
+        }
     }
 
     private void PressEsc(bool t)

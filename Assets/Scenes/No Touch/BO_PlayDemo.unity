@@ -1221,7 +1221,6 @@ GameObject:
   - component: {fileID: 407880199}
   - component: {fileID: 407880203}
   - component: {fileID: 407880204}
-  - component: {fileID: 407880205}
   - component: {fileID: 407880206}
   m_Layer: 7
   m_Name: Paddle
@@ -1334,9 +1333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe6c2b3826b1c84bb061e203989406d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveInput
+  BO: 1
+  CT: 0
   speed: 10
-  direction: 0
-  moveDirection: 0
   clamping: 0
   GameOver: 0
 --- !u!114 &407880204
@@ -1352,20 +1351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paddle
   half: 0
---- !u!114 &407880205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407880197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885fac130a73e0d4aa0dfd9d70e71eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuickEscape
-  GMS: {fileID: 1512167726}
-  INS: {fileID: 1564337658}
 --- !u!114 &407880206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885fac130a73e0d4aa0dfd9d70e71eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuickEscape
+  BO: 1
+  CT: 0
   GMS: {fileID: 1512167726}
   INS: {fileID: 1564337658}
 --- !u!1 &501223877
@@ -7393,6 +7380,10 @@ PrefabInstance:
       propertyPath: AC
       value: 
       objectReference: {fileID: 1677286319}
+    - target: {fileID: 5292052828356392541, guid: b3eeb73dd07fbf94fb928dcc490eed09, type: 3}
+      propertyPath: BO
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292052828356392541, guid: b3eeb73dd07fbf94fb928dcc490eed09, type: 3}
       propertyPath: Multi
       value: 0

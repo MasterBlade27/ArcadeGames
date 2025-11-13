@@ -10,6 +10,5 @@ public class HighscoreElement
     {
         Name = name;
         this.Points = points;
-
     }
 }

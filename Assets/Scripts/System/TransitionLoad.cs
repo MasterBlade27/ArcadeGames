@@ -53,14 +53,9 @@ public class TransitionLoad : MonoBehaviour
             TransScene(SceneName);
 
         if (Demo)
-        {
             if (!Menu)
                 if (pInput.Movement.Play.IsPressed())
                     StartGame();
-
-            else if (Input.GetKeyUp(KeyCode.Escape))
-                QuitGame();
-        }
     }
 
     private void TransScene(string ToScene)
