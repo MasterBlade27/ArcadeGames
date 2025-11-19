@@ -56,7 +56,7 @@ public class PowerUpSpawn : MonoBehaviour
         if (spawn)
         {
             if(AC != null)
-                AC.PlayVol(AC.powerupSpawn, 2f);
+                AC.PlayVol(AC.powerupSpawn, 0.5f);
     
             powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
             powerUp.GetComponent<PowerUp>().pUp = pUp;

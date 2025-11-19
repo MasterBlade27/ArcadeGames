@@ -373,6 +373,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6acfa497a9de3414ab6dc96bc0655372, type: 3}
   - {fileID: 8300000, guid: 9970bfada0325fd4da1dd7331631eecb, type: 3}
   - {fileID: 8300000, guid: 8d581184613662541a38136bc40445ce, type: 3}
+  playerAudioClips: []
+  centipedeAudioClips: []
+  spiderAudioClips: []
+  scorpionAudioClips: []
+  ticksAudioClips: []
+  powerupSpawn: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
   powerupClips:
   - {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
   - {fileID: 8300000, guid: ea52b50f13c7faf429752170ea4a2b92, type: 3}
@@ -382,10 +388,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 441f0dc7fe75e024895f366865952a74, type: 3}
   - {fileID: 8300000, guid: 8bbb1fc8f2421f14aa8706199e31a5d2, type: 3}
   - {fileID: 8300000, guid: 6fb9128776ebaf14c9f49aaa27bd067e, type: 3}
-  floorSFX: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
+  deathSFX: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 95428563d93624243b5431d49bb11d40, type: 3}
   nextLevelSFX: {fileID: 8300000, guid: 4dcb316a6bef55d448e436ca39d6513c, type: 3}
-  powerupSpawn: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
   sfx: 1
   music: 1
   SFXIcon: {fileID: 0}
