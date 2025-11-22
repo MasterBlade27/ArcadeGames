@@ -26,9 +26,7 @@ public static class FileHandler
         string content = ReadFile(GetPath(filename));
 
         if (string.IsNullOrEmpty(content) || content == "{}")
-        {
             return new List<T>();
-        }
 
         List<T> result = JsonHelper.FromJson<T>(content).ToList();
         return result;
@@ -40,9 +38,8 @@ public static class FileHandler
         string content = ReadFile(GetPath(filename));
 
         if (string.IsNullOrEmpty(content) || content == "{}")
-        {
             return default(T);
-        }
+
         List<T> rs = JsonHelper.FromJson<T>(content).ToList();
         T result = rs[0];
         return result;
@@ -58,9 +55,7 @@ public static class FileHandler
         FileStream fs = new FileStream(path, FileMode.Create);
 
         using (StreamWriter w = new StreamWriter(fs))
-        {
             w.Write(content);
-        }
     }
 
     private static string ReadFile(string path)

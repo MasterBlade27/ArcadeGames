@@ -99,7 +99,7 @@ public class PowerUp : MonoBehaviour
 
             FindAnyObjectByType<Scoring>().AddPuPScore();
             PUHUD.Appear(pUp, Dura);
-            AC.PlayVol(AC.powerupClips, pUp, 2f);
+            AC.PlayVol(AC.powerupClips, pUp, 0.75f);
             StartCoroutine(DestroyAfterSFX(AC.powerupClips[pUp].length));
         }
         else if (collision.gameObject.CompareTag("KillBox"))

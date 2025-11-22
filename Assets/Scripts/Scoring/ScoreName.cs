@@ -85,7 +85,7 @@ public class ScoreName : MonoBehaviour
 
             InputName[Count].fontStyle = FontStyles.Underline;
 
-            if (pInput.Movement.Move.ReadValue<Vector2>().x < 0 && pInput.Movement.Move.IsPressed())
+            if (pInput.Movement.FullMove.ReadValue<Vector2>().x < 0 && pInput.Movement.FullMove.IsPressed())
             {
                 Change = true;
                 Count--;
@@ -96,7 +96,7 @@ public class ScoreName : MonoBehaviour
                 yield return new WaitForSeconds(Secs);
             }
 
-            if (pInput.Movement.Move.ReadValue<Vector2>().x > 0 && pInput.Movement.Move.IsPressed())
+            if (pInput.Movement.FullMove.ReadValue<Vector2>().x > 0 && pInput.Movement.FullMove.IsPressed())
             {
                 Change = true;
                 Count++;
@@ -107,13 +107,13 @@ public class ScoreName : MonoBehaviour
                 yield return new WaitForSeconds(Secs);
             }
 
-            if (pInput.Movement.Cycle.ReadValue<Vector2>().y > 0 && pInput.Movement.Cycle.IsPressed())
+            if (pInput.Movement.FullMove.ReadValue<Vector2>().y > 0 && pInput.Movement.FullMove.IsPressed())
             {
                 InputName[Count].GetComponent<NameArray>().PreviousLetter();
                 yield return new WaitForSeconds(Secs);
             }
 
-            if (pInput.Movement.Cycle.ReadValue<Vector2>().y < 0 && pInput.Movement.Cycle.IsPressed())
+            if (pInput.Movement.FullMove.ReadValue<Vector2>().y < 0 && pInput.Movement.FullMove.IsPressed())
             {
                 InputName[Count].GetComponent<NameArray>().NextLetter();
                 yield return new WaitForSeconds(Secs);

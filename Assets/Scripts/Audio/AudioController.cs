@@ -4,20 +4,34 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public List<AudioSource> audioSources = new List<AudioSource>();
-    public AudioSource musicSource; 
+    public AudioSource musicSource;
 
+    [Header("Breakout")]
     public List<AudioClip> paddleAudioClips = new List<AudioClip>();
     public List<AudioClip> blockAudioClips = new List<AudioClip>();
     public List<AudioClip> wallAudioClips = new List<AudioClip>();
+
+    [Header("Centipede")]
+    public List<AudioClip> playerAudioClips = new List<AudioClip>();
+    public List<AudioClip> centipedeAudioClips = new List<AudioClip>();
+    public List<AudioClip> spiderAudioClips = new List<AudioClip>();
+    public List<AudioClip> scorpionAudioClips = new List<AudioClip>();
+    public List<AudioClip> ticksAudioClips = new List<AudioClip>();
+
+    [Header("Power Ups")]
+    public AudioClip powerupSpawn;
     public List<AudioClip> powerupClips = new List<AudioClip>();
 
-    public AudioClip floorSFX;
+    [Header("Levels")]
+    public AudioClip deathSFX;
     public AudioClip gameOverSFX;
     public AudioClip nextLevelSFX;
-    public AudioClip powerupSpawn;
 
+    [Header("Mute Button")]
     [SerializeField]
-    private bool sfx = true, music = true;
+    private bool sfx = true;
+    [SerializeField]
+    private bool music = true;
 
     [SerializeField]
     private GameObject SFXIcon, MusicIcon;
@@ -52,14 +66,10 @@ public class AudioController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.M))
-        {
             ToggleSFX();
-        }
         
         if (Input.GetKeyUp(KeyCode.N))
-        {
             ToggleMusic();
-        }
 
         if (sfx)
         {
@@ -111,6 +121,14 @@ public class AudioController : MonoBehaviour
         if (sfx)
         {
             audioSources[0].pitch = Pitch;
+            audioSources[0].PlayOneShot(Sounds[index]);
+        }
+    }
+
+    public void PlayPlayer(List<AudioClip> Sounds, int index)
+    {
+        if (sfx)
+        {
             audioSources[0].PlayOneShot(Sounds[index]);
         }
     }

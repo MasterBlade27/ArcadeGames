@@ -31,7 +31,7 @@ public class LevelThingIGuess : MonoBehaviour
     private void NextLevel()
     {
         if (AC != null)
-            AC.PlaySound(AC.nextLevelSFX);
+            AC.PlayVol(AC.nextLevelSFX, 0.5f);
 
         levelCounter++;
         levelSpeed++;

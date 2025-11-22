@@ -5,53 +5,57 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
-    [SerializeField]
+    public bool BO, CT;
+
+    [SerializeField] //Test = Test Scenes | Multi = Cloned Player
     private bool Test, Multi;
 
     [SerializeField]
-    private GameObject Ball, OriBall;
-    private Vector3 StopPos;
-    private Coroutine Reseting, MultiReset;
+    private GameObject Player;
+    private MoveInput mip; //mip = Move Input for Player
+    private Coroutine Reseting, MultiReset; //Reseting = Reset Game After Death | MultiReset = Cloned Player Death
+    private Vector3 OriPos, StopPos; //OriPos = Starting Position | //StopPos = End Position for Player
+    private PlayerMove pInput;
 
+    [SerializeField]
+    private GameObject ReplayGo; //ReplayGo = Game Over Screen
+    [SerializeField]
+    private TextMeshProUGUI livetext; //livetext = Lives Counter Textbox
     public int lives = 3;
-    private int totallives;
+    private int totallives; //totallives = Lives Number to Reset to for Test Scenes
 
-    [SerializeField]
-    private TextMeshProUGUI livetext;
-
-    [SerializeField]
-    private GameObject ReplayGo;
-
-    private MoveInput mip;
-    private Vector3 OriPad;
-
-    public static event Action OnRestart;
+    public static event Action OnRestart; //OnRestart = Delegate to Restart different scripts
 
     [SerializeField]
     private AudioController AC;
 
-    private PlayerMove pInput;
-
     private bool Cheats;
+
+    #region Breakout Variables
+    private GameObject OriBall; //OriBall = Original Player Ball to take Variables from
+    #endregion
 
     private void Start()
     {
         totallives = lives;
 
         mip = FindAnyObjectByType<MoveInput>();
-        OriPad = mip.transform.position;
+        OriPos = mip.transform.position;
 
-        Ball = gameObject;
+        Player = gameObject;
 
         PowerUp.OneUp += ExtraLife;
 
         if (ReplayGo != null)
             ReplayGo.SetActive(false);
 
-        if (Multi)
-            foreach (Restart RS in FindObjectsByType<Restart>(FindObjectsSortMode.None))
-                if (RS.Multi == false)
-                    OriBall = RS.Ball;
+        if (BO)
+        {
+            if (Multi)
+                foreach (Restart RS in FindObjectsByType<Restart>(FindObjectsSortMode.None))
+                    if (RS.Multi == false)
+                        OriBall = RS.Player;
+        }
     }
 
     private void OnEnable()
@@ -68,16 +72,18 @@ public class Restart : MonoBehaviour
 
     private void Update()
     {
-        if (Multi)
+        if (BO)
         {
-            lives = OriBall.GetComponent<Restart>().lives;
-            Test = OriBall.GetComponent<Restart>().Test;
-            livetext = OriBall.GetComponent<Restart>().livetext;
-            ReplayGo = OriBall.GetComponent<Restart>().ReplayGo;
-            AC = OriBall.GetComponent<Restart>().AC;
-            Cheats = OriBall.GetComponent<Restart>().Cheats;
-
-            Multi = false;
+            if (Multi)
+            {
+                lives = OriBall.GetComponent<Restart>().lives;
+                Test = OriBall.GetComponent<Restart>().Test;
+                livetext = OriBall.GetComponent<Restart>().livetext;
+                ReplayGo = OriBall.GetComponent<Restart>().ReplayGo;
+                AC = OriBall.GetComponent<Restart>().AC;
+                Cheats = OriBall.GetComponent<Restart>().Cheats;
+                Multi = false;
+            }
         }
 
         livetext.text = lives.ToString();
@@ -89,9 +95,9 @@ public class Restart : MonoBehaviour
             ACTCheat();
     }
 
+    #region Breakout Reset
     public void BallReset()
     {
-        Debug.Log("Ball Reset");
         if (FindFirstObjectByType<Camera>().GetComponent<Animator>())
             FindFirstObjectByType<Camera>().GetComponent<Animator>().SetTrigger("Shake");
 
@@ -99,9 +105,9 @@ public class Restart : MonoBehaviour
 
         if (lives > 0)
             if (AC != null)
-                AC.PlayVol(AC.floorSFX, 2f);
+                AC.PlayVol(AC.deathSFX, 1.5f);
 
-        StopPos = Ball.transform.position;
+        StopPos = Player.transform.position;
 
             OnRestart();
 
@@ -113,20 +119,46 @@ public class Restart : MonoBehaviour
     public void MultiKill()
     {
         if (AC != null)
-            AC.PlayVol(AC.floorSFX, 2f);
+            AC.PlayVol(AC.deathSFX, 1.5f);
 
-        StopPos = Ball.transform.position;
+        StopPos = Player.transform.position;
 
         if (MultiReset != null)
             StopCoroutine(MultiReset);
         MultiReset = StartCoroutine(MultiEnum());
     }
 
+    private IEnumerator MultiEnum()
+    {
+        Player.transform.position = StopPos;
+        Player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+
+        yield return new WaitForSeconds(0.2f);
+        MultiReset = null;
+        Destroy(this.gameObject);
+    }
+    #endregion
+
+    public void CentiReset()
+    {
+        lives--;
+
+        StopPos = Player.transform.position;
+
+//        OnRestart();
+
+        if (Reseting != null)
+            StopCoroutine(Reseting);
+        Reseting = StartCoroutine(ResetEnum());
+    }
+
     public void GamaOvar()
     {
         if (AC != null)
+        {
             AC.musicSource.Stop();
             AC.PlaySound(AC.gameOverSFX);
+        }
 
         ReplayGo.SetActive(true);
 
@@ -136,33 +168,38 @@ public class Restart : MonoBehaviour
     private void Replay()
     {
         if (AC != null)
-        {
-            AC.PlayVol(AC.nextLevelSFX, 5f);
-        }
+            AC.PlayVol(AC.nextLevelSFX, 1.5f);
 
         lives = totallives;
         ReplayGo.SetActive(false);
-        mip.GameOver = true;
+        mip.GameOver = false;
         mip.enabled = true;
-        mip.gameObject.transform.position = OriPad;
+        mip.gameObject.transform.position = OriPos;
 
-        BlockRespawn BR = FindAnyObjectByType<BlockRespawn>();
-        BR.TempRestart();
-        Scoring SC = FindAnyObjectByType<Scoring>();
-        SC.ResetScore();
+        if (BO)
+        {
+            BlockRespawn BR = FindAnyObjectByType<BlockRespawn>();
+            BR.TempRestart();
+            Scoring SC = FindAnyObjectByType<Scoring>();
+            SC.ResetScore();
+        }
 
         StartAgain();
     }
 
     private void StartAgain()
     {
-        Ball.GetComponent<BallMove>().Starto = true;
+        if (BO)
+            Player.GetComponent<BallMove>().Starto = true;
     }
 
     private IEnumerator ResetEnum()
     {
-        Ball.transform.position = StopPos;
-        Ball.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        if (BO)
+        {
+            Player.transform.position = StopPos;
+            Player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        }
 
         if (lives <= 0)
         {
@@ -187,16 +224,6 @@ public class Restart : MonoBehaviour
         Reseting = null;
     }
 
-    private IEnumerator MultiEnum()
-    {
-        Ball.transform.position = StopPos;
-        Ball.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-
-        yield return new WaitForSeconds(0.2f);
-        MultiReset = null;
-        Destroy(this.gameObject);
-    }
-
     private void ExtraLife()
     {
         lives++;
@@ -207,7 +234,7 @@ public class Restart : MonoBehaviour
         if (!Cheats)
         {
             Cheats = true;
-            AC.PlayVol(AC.nextLevelSFX, 5f);
+            AC.PlayVol(AC.nextLevelSFX, 1.5f);
             lives += 100;
         }
     }
