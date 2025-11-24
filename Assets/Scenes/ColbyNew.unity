@@ -2936,6 +2936,22 @@ PrefabInstance:
       propertyPath: Hiscoretext
       value: 
       objectReference: {fileID: 1611272627}
+    - target: {fileID: 7640715953578409444, guid: ab498d051053af5458fb3de55e038074, type: 3}
+      propertyPath: ArmorLvl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640715953578409444, guid: ab498d051053af5458fb3de55e038074, type: 3}
+      propertyPath: 'MatsArr.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: df43fddbad78d324ea167cd103ac6e88, type: 2}
+    - target: {fileID: 7640715953578409444, guid: ab498d051053af5458fb3de55e038074, type: 3}
+      propertyPath: 'MatsArr.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 180e7ebf7e2a09f4ea242f6e3cb46866, type: 2}
+    - target: {fileID: 7640715953578409444, guid: ab498d051053af5458fb3de55e038074, type: 3}
+      propertyPath: 'MatsArr.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8cea1839a9b035e4a884f88dec011efa, type: 2}
     - target: {fileID: 8952385460898416943, guid: ab498d051053af5458fb3de55e038074, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

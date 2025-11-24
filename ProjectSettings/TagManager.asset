@@ -7,6 +7,8 @@ TagManager:
   - KillBox
   - Block
   - Stuck
+  - Projectile
+  - Centipede
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Ball
   - KillBox
   - Shards
-  - 
+  - Centipede
   - 
   - 
   - 
