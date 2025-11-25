@@ -17,6 +17,10 @@ public class AudioController : MonoBehaviour
     public List<AudioClip> spiderAudioClips = new List<AudioClip>();
     public List<AudioClip> scorpionAudioClips = new List<AudioClip>();
     public List<AudioClip> ticksAudioClips = new List<AudioClip>();
+    public List<AudioClip> scoreMarchAudioClips = new List<AudioClip>();
+    public AudioClip playerHitSFX;
+    public AudioClip mushroomSFX;
+    public AudioClip centipedeHitSFX;
 
     [Header("Power Ups")]
     public AudioClip powerupSpawn;

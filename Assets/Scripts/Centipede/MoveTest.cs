@@ -14,6 +14,9 @@ public class MoveTest : MonoBehaviour
     [SerializeField]
     private GameObject projectilePrefab;
 
+    [SerializeField]
+    private AudioController AC;
+
     private float cooldown = 0.2f;
 
     private void OnEnable()
@@ -44,6 +47,7 @@ public class MoveTest : MonoBehaviour
 
         if (pInput.Movement.Play.IsPressed() && cooldown <= 0)
         {
+            AC.PlayPlayer(AC.playerAudioClips, Random.Range(0, AC.playerAudioClips.Count));
             cooldown = 0.2f;
             Instantiate(projectilePrefab, (transform.position + new Vector3(0, 0, 1f)), Quaternion.identity);
         }

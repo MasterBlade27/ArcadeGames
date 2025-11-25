@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System;
-using System.Runtime.CompilerServices;
+using System.Collections;
 
 public class Centipede : MonoBehaviour
 {
@@ -21,9 +20,13 @@ public class Centipede : MonoBehaviour
 
     private int level = 0;
 
+    [SerializeField]
+    private AudioController AC;
+
     private void Start()
     {
         Respawn();
+        StartCoroutine(DelayedWhileLoop());
     }
 
     public void Respawn()
@@ -68,6 +71,7 @@ public class Centipede : MonoBehaviour
         }
 
         //removes segment
+        AC.PlaySound(AC.centipedeHitSFX);
         segments.Remove(segment);
         Destroy(segment.gameObject);
     }
@@ -89,6 +93,8 @@ public class Centipede : MonoBehaviour
     {
         if (segments.Count == 0)
         {
+            foreach (var sound in AC.centipedeAudioClips)
+                AC.PlayVol(sound, 0);
             scoretest.scoreUpdate(50);
             level++;
             speed += 5f;
@@ -96,5 +102,14 @@ public class Centipede : MonoBehaviour
             Respawn();
         }
     }
-
+    private IEnumerator DelayedWhileLoop()
+    {
+        while (segments.Count > 0)
+        {
+            Debug.Log("Play sound");
+            AC.PlayVol(AC.centipedeAudioClips, Random.Range(0, AC.centipedeAudioClips.Count), 1);
+            yield return new WaitForSeconds(1f);
+            Debug.Log("Sound is over");
+        }
+    }
 }

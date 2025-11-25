@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private int lives = 3;
+    [SerializeField]
+    private AudioController AC;
     private Centipede Centipede => FindAnyObjectByType<Centipede>();
 
     // Optional: assign in inspector; will fallback to GetComponent<Renderer>()
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
 
     public void LoseLife()
     {
+        AC.PlaySound(AC.playerHitSFX);
         if (killCooldown >= 0.5f)
         {
             killCooldown = 0f;

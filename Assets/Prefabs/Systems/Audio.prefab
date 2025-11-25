@@ -373,11 +373,29 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6acfa497a9de3414ab6dc96bc0655372, type: 3}
   - {fileID: 8300000, guid: 9970bfada0325fd4da1dd7331631eecb, type: 3}
   - {fileID: 8300000, guid: 8d581184613662541a38136bc40445ce, type: 3}
-  playerAudioClips: []
-  centipedeAudioClips: []
-  spiderAudioClips: []
-  scorpionAudioClips: []
-  ticksAudioClips: []
+  playerAudioClips:
+  - {fileID: 8300000, guid: be6635a38da26e34d897805a6a4182ff, type: 3}
+  - {fileID: 8300000, guid: fc950b7dfda66cd43a95476f45206915, type: 3}
+  - {fileID: 8300000, guid: 9f79927d053038b42975de32d445b723, type: 3}
+  centipedeAudioClips:
+  - {fileID: 8300000, guid: 85a36a2582663ac4880991fdeeb49cc8, type: 3}
+  - {fileID: 8300000, guid: fa7fd1910a762084db5e9b4ea5f3a862, type: 3}
+  - {fileID: 8300000, guid: b7c390a254af81c4b8cbbfab36ad3290, type: 3}
+  spiderAudioClips:
+  - {fileID: 8300000, guid: 8320ecceed4664541a0b1054f4ee9712, type: 3}
+  - {fileID: 8300000, guid: 4f6d7da4829b4c3419d0e604c50fd88c, type: 3}
+  scorpionAudioClips:
+  - {fileID: 8300000, guid: 81aaaf011b5923b4294e9151cb2000c7, type: 3}
+  - {fileID: 8300000, guid: 197684b0c29d3da49bd266302d811f09, type: 3}
+  ticksAudioClips:
+  - {fileID: 8300000, guid: 1615adedd6d232f4e8dcdcb21640bf45, type: 3}
+  - {fileID: 8300000, guid: bf5f714b9e1b323459938d1d0b6e24f1, type: 3}
+  scoreMarchAudioClips:
+  - {fileID: 8300000, guid: cd0478bf0095ee74d95d7d58169391b8, type: 3}
+  - {fileID: 8300000, guid: 41f67ab5171071746ae93afe0489e331, type: 3}
+  playerHitSFX: {fileID: 8300000, guid: 0167e10b0279b4a4a8496ef7eb66836f, type: 3}
+  mushroomSFX: {fileID: 8300000, guid: 9dbc0e72ddbdb5a4ca952646ca6725f0, type: 3}
+  centipedeHitSFX: {fileID: 8300000, guid: b7c390a254af81c4b8cbbfab36ad3290, type: 3}
   powerupSpawn: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
   powerupClips:
   - {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}

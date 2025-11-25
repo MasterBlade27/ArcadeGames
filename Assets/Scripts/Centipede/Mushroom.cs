@@ -9,6 +9,9 @@ public class Mushroom : MonoBehaviour
     private int health;
     private scoretest stest;
 
+    [SerializeField]
+    private AudioController AC;
+
     private void Awake()
     {
         stest = FindAnyObjectByType<scoretest>();
@@ -17,6 +20,7 @@ public class Mushroom : MonoBehaviour
     }
     private void Start()
     {
+        AC = FindAnyObjectByType<AudioController>();
         Player.gameReset += Restart;
     }
     private void OnDisable()
@@ -26,6 +30,7 @@ public class Mushroom : MonoBehaviour
 
     private void TakeDamage()
     {
+        AC.PlaySound(AC.mushroomSFX);
         health--;
         if (health <= 0)
         {
