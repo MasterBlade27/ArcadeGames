@@ -6,6 +6,7 @@ public class QuickEscape : MonoBehaviour
 
     private Restart RS;
     private BallMove BM;
+    private Player CTP;
     [SerializeField]
     private GameObject GMS, INS; //GMS = Game Over Screen | INS = Name Input Screen
     private bool XOR, PlzEsc = false;
@@ -37,11 +38,10 @@ public class QuickEscape : MonoBehaviour
 
     public void ESCAPE()
     {
-        RS = FindAnyObjectByType<Restart>();
-        RS.lives = 0;
-
         if (BO)
         {
+            RS = FindAnyObjectByType<Restart>();
+            RS.lives = 0;
             BM = FindAnyObjectByType<BallMove>();
             BM.Starto = false;
             RS.BallReset();
@@ -49,7 +49,10 @@ public class QuickEscape : MonoBehaviour
 
         if (CT)
         {
-            RS.CentiReset();
+//            RS.CentiReset();
+            CTP = FindAnyObjectByType<Player>();
+            CTP.lives = 0;
+            CTP.LoseLife();
         }
     }
 

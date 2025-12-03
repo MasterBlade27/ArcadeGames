@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
   Menu: 1
-  SceneName: 0
+  SceneName: HalTest
   MenuName: 
   BSwitch: 0
 --- !u!114 &144065393
@@ -254,7 +254,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 144065390}
   m_OnClick:
     m_PersistentCalls:
@@ -1067,6 +1067,58 @@ PrefabInstance:
     - target: {fileID: 1682691089887089206, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TransitionLoad, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035712931573685520, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2982829505562473839, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_Name
@@ -2835,7 +2887,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2024130228}
-  - component: {fileID: 2024130227}
   - component: {fileID: 2024130226}
   - component: {fileID: 2024130225}
   m_Layer: 5
@@ -2891,28 +2942,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
---- !u!95 &2024130227
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024130222}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5ca976d035c3add44a12c30160e14155, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!224 &2024130228
 RectTransform:
   m_ObjectHideFlags: 0

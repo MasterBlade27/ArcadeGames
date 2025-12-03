@@ -759,6 +759,14 @@ PrefabInstance:
       propertyPath: filename
       value: highscore.json
       objectReference: {fileID: 0}
+    - target: {fileID: 4457605485975710148, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 4457605485975710148, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6116894417857506342, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: GMS
       value: 
@@ -2610,7 +2618,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1680792165
 RectTransform:

@@ -30,7 +30,9 @@ public class Mushroom : MonoBehaviour
 
     private void TakeDamage()
     {
-        AC.PlaySound(AC.mushroomSFX);
+        if (AC != null)
+            AC.PlaySound(AC.mushroomSFX);
+
         health--;
         if (health <= 0)
         {

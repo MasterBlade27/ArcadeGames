@@ -71,7 +71,9 @@ public class Centipede : MonoBehaviour
         }
 
         //removes segment
-        AC.PlaySound(AC.centipedeHitSFX);
+        if (AC != null)
+            AC.PlayVol(AC.centipedeAudioClips, AC.centipedeAudioClips.Count - 1, 1);
+
         segments.Remove(segment);
         Destroy(segment.gameObject);
     }
@@ -93,8 +95,6 @@ public class Centipede : MonoBehaviour
     {
         if (segments.Count == 0)
         {
-            foreach (var sound in AC.centipedeAudioClips)
-                AC.PlayVol(sound, 0);
             scoretest.scoreUpdate(50);
             level++;
             speed += 5f;
@@ -107,8 +107,8 @@ public class Centipede : MonoBehaviour
         while (segments.Count > 0)
         {
             Debug.Log("Play sound");
-            AC.PlayVol(AC.centipedeAudioClips, Random.Range(0, AC.centipedeAudioClips.Count), 1);
-            yield return new WaitForSeconds(1f);
+            AC.PlayVol(AC.centipedeAudioClips, Random.Range(0, AC.centipedeAudioClips.Count - 1), 1);
+            yield return new WaitForSeconds(0.1f);
             Debug.Log("Sound is over");
         }
     }

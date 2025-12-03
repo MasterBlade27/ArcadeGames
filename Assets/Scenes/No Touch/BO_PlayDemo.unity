@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 4026206428797544678, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4457605485975710148, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -424,10 +428,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 8135920584198216162, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8856888674179728947, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 8856888674179728947, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

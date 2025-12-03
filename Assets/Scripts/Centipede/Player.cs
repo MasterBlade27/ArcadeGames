@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 
+    public int lives = 3;
     [SerializeField]
-    private int lives = 3;
+    private TextMeshProUGUI livetext;
     [SerializeField]
-    private AudioController AC;
+    private GameObject GOS;
+
     private Centipede Centipede => FindAnyObjectByType<Centipede>();
 
     // Optional: assign in inspector; will fallback to GetComponent<Renderer>()
@@ -19,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float blinkInterval = 0.1f;
 
+    [SerializeField]
+    private AudioController AC;
+
     private Coroutine blinkCoroutine;
 
     public static event Action gameReset;
@@ -26,6 +32,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        livetext.text = lives.ToString();
+
         Debug.Log(killCooldown);
         if (killCooldown < 0.5f)
             killCooldown += Time.deltaTime;
@@ -42,7 +50,9 @@ public class Player : MonoBehaviour
 
     public void LoseLife()
     {
-        AC.PlaySound(AC.playerHitSFX);
+        if (AC != null)
+            AC.PlaySound(AC.playerHitSFX);
+    
         if (killCooldown >= 0.5f)
         {
             killCooldown = 0f;
@@ -53,6 +63,7 @@ public class Player : MonoBehaviour
             if (lives <= 0)
             {
                 Destroy(gameObject);
+                GOS.SetActive(true);
             }
         }
     }
