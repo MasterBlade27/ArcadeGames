@@ -869,7 +869,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 29, y: 1, z: 31}
+  m_Size: {x: 28, y: 1, z: 31}
   m_Center: {x: 0.5, y: 0, z: 0}
 --- !u!4 &740036025
 Transform:
@@ -1246,7 +1246,7 @@ PrefabInstance:
       objectReference: {fileID: 446150015}
     - target: {fileID: 5962464264649218956, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: SceneName
-      value: Atari_Menu
+      value: CTMenuTest
       objectReference: {fileID: 0}
     - target: {fileID: 7704085172165818870, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_Resource

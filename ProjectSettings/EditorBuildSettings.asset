@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/No Touch/BO_PlayDemo.unity
     guid: ee4c7d0439636f04aa1440402986b081
   - enabled: 1
+    path: Assets/Scenes/Centipede Test/CTMenuTest.unity
+    guid: 6b04b9dfae5da194db93f1dd254c1e4d
+  - enabled: 1
     path: Assets/Scenes/Centipede Test/HalTest.unity
     guid: f6bbcc3f59e385e468ff6dde4ec4284b
   m_configObjects:

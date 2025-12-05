@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        livetext.text = lives.ToString();
+        if (livetext != null)
+            livetext.text = lives.ToString();
 
         Debug.Log(killCooldown);
         if (killCooldown < 0.5f)
@@ -63,7 +64,8 @@ public class Player : MonoBehaviour
             if (lives <= 0)
             {
                 Destroy(gameObject);
-                GOS.SetActive(true);
+                if (GOS != null)
+                    GOS.SetActive(true);
             }
         }
     }

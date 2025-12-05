@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
   Menu: 1
-  SceneName: HalTest
+  SceneName: CTMenuTest
   MenuName: 
   BSwitch: 0
 --- !u!114 &144065393
