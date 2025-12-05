@@ -26,6 +26,8 @@ public class Centipede : MonoBehaviour
     private void Start()
     {
         Respawn();
+
+        if (AC != null)
         StartCoroutine(DelayedWhileLoop());
     }
 
