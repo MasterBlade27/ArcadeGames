@@ -108,7 +108,7 @@ public class Centipede : MonoBehaviour
         {
             Debug.Log("Play sound");
             AC.PlayVol(AC.centipedeAudioClips, Random.Range(0, AC.centipedeAudioClips.Count - 1), 1);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
             Debug.Log("Sound is over");
         }
     }
