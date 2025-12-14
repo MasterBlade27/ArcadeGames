@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private bool Cheats;
 
     public int lives = 3;
     [SerializeField]
@@ -46,6 +47,9 @@ public class Player : MonoBehaviour
         //Debug.Log(killCooldown);
         if (killCooldown < 0.5f)
             killCooldown += Time.deltaTime;
+
+        if (CheatCode.ACT)
+            ACTCheat();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -72,11 +76,11 @@ public class Player : MonoBehaviour
             gameReset();
             if (lives <= 0)
             {
-                if(GOS != null)
-                    GOS.SetActive(true);
                 mOnGameOver();
-                Destroy(gameObject);
-                
+
+                GetComponent<MoveTest>().enabled = false;
+                ScoreName SN = FindAnyObjectByType<ScoreName>();
+                SN.HighscoreRestart();
             }
         }
     }
@@ -112,5 +116,27 @@ public class Player : MonoBehaviour
         // Ensure renderer ends visible
         playerRenderer.enabled = true;
         blinkCoroutine = null;
+    }
+
+    public void GamaOvar()
+    {
+        if (AC != null)
+        {
+            AC.musicSource.Stop();
+            AC.PlaySound(AC.gameOverSFX);
+        }
+
+        GOS.SetActive(true);
+        Destroy(gameObject);
+    }
+
+    private void ACTCheat()
+    {
+        if (!Cheats)
+        {
+            Cheats = true;
+            AC.PlayVol(AC.nextLevelSFX, 1.5f);
+            lives += 100;
+        }
     }
 }

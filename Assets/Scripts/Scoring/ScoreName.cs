@@ -28,6 +28,19 @@ public class ScoreName : MonoBehaviour
     [SerializeField]
     private Image Button;
 
+    [SerializeField]
+    private Scoring SC;
+
+    [SerializeField]
+    private Restart RT;
+
+    [SerializeField]
+    private scoretest ST;
+
+    [SerializeField]
+    private Player PY;
+
+
     private void Start()
     {
         Button.color = Color.white;
@@ -54,9 +67,11 @@ public class ScoreName : MonoBehaviour
     {
         bool Checker;
 
-        Scoring SC = FindAnyObjectByType<Scoring>();
+        if (SC != null)
+            totalscore = SC.GiveScore();
+        if (ST != null)
+            totalscore = ST.GiveScore();
 
-        totalscore = SC.GiveScore();
         Checker = HSH.CheckHS(totalscore);
 
         if (Checker)
@@ -148,8 +163,10 @@ public class ScoreName : MonoBehaviour
 
     private IEnumerator GameOver()
     {
-        Restart RS = FindAnyObjectByType<Restart>();
-        RS.GamaOvar();
+        if (RT != null)
+            RT.GamaOvar();
+        if (PY != null)
+            PY.GamaOvar();
 
         yield return null;
     }

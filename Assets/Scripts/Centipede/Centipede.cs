@@ -23,12 +23,23 @@ public class Centipede : MonoBehaviour
     [SerializeField]
     private AudioController AC;
 
+    private bool GameOver = false;
+
     private void Start()
     {
+        GameOver = false;
+
         Respawn();
 
         if (AC != null)
         StartCoroutine(DelayedWhileLoop());
+
+        Player.mOnGameOver += OnGameOver;
+    }
+
+    private void OnDisable()
+    {
+        Player.mOnGameOver -= OnGameOver;
     }
 
     public void Respawn()
@@ -106,11 +117,19 @@ public class Centipede : MonoBehaviour
             Respawn();
         
     }
+
+    private void OnGameOver()
+    {
+        GameOver = true;
+        speed = 0;
+        StopCoroutine(DelayedWhileLoop());
+    }
+
     private IEnumerator DelayedWhileLoop()
     {
-        while (segments.Count > 0)
+        while (segments.Count > 0 && GameOver != true)
         {
-           //Debug.Log("Play sound");
+            //Debug.Log("Play sound");
             AC.PlayVol(AC.centipedeAudioClips, Random.Range(0, AC.centipedeAudioClips.Count - 1), 1);
             yield return new WaitForSeconds(0.3f);
             //Debug.Log("Sound is over");

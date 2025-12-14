@@ -93,7 +93,7 @@ public class Mushroom : MonoBehaviour
             stest.scoreUpdate(5);
 
             if (AC != null)
-                AC.PlayVol(AC.scoreMarchAudioClips, Random.Range(0, AC.scoreMarchAudioClips.Count - 1), 1);
+                AC.PlayVol(AC.scoreMarchAudioClips, Random.Range(0, AC.scoreMarchAudioClips.Count), 1);
 
             if (damage == 0)
             {

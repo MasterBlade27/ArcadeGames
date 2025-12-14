@@ -160,4 +160,10 @@ public class AudioController : MonoBehaviour
             audioSources[2].PlayOneShot(Sounds[index], Vol);
         }
     }
+
+    public void StopVol()
+    {
+        foreach (AudioSource Sound in audioSources)
+            Sound.Stop();
+    }
 }
