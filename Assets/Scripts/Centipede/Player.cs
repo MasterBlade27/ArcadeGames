@@ -72,7 +72,8 @@ public class Player : MonoBehaviour
             gameReset();
             if (lives <= 0)
             {
-                GOS.SetActive(true);
+                if(GOS != null)
+                    GOS.SetActive(true);
                 mOnGameOver();
                 Destroy(gameObject);
                 
