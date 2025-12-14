@@ -33,6 +33,10 @@ public class MoveTest : MonoBehaviour
 
     private void Update()
     {
+        // If any mushroom is currently regenerating, block player movement and firing
+        if (MushroomScoreMarch.regenerating)
+            return;
+
         //Reads Player's Input
         directionx = pInput.Movement.FullMove.ReadValue<Vector2>().x;
         directiony = pInput.Movement.FullMove.ReadValue<Vector2>().y;
@@ -54,4 +58,4 @@ public class MoveTest : MonoBehaviour
             Instantiate(projectilePrefab, (transform.position + new Vector3(0, 0, 1f)), Quaternion.identity);
         }
     }
-    }
+}

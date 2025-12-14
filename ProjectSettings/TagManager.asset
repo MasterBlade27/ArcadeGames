@@ -9,6 +9,7 @@ TagManager:
   - Stuck
   - Projectile
   - Centipede
+  - Mushroom
   layers:
   - Default
   - TransparentFX

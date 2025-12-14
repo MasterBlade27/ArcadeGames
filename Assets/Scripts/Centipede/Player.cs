@@ -12,7 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject GOS;
 
-    private Centipede Centipede => FindAnyObjectByType<Centipede>();
+    private Centipede pCentipede => FindAnyObjectByType<Centipede>();
+
+    private Vector3 startPosition;
 
     // Optional: assign in inspector; will fallback to GetComponent<Renderer>()
     [SerializeField]
@@ -28,14 +30,20 @@ public class Player : MonoBehaviour
     private Coroutine blinkCoroutine;
 
     public static event Action gameReset;
+    public static event Action mOnGameOver;
     private float killCooldown = 0f;
+
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
 
     private void Update()
     {
         if (livetext != null)
             livetext.text = lives.ToString();
 
-        Debug.Log(killCooldown);
+        //Debug.Log(killCooldown);
         if (killCooldown < 0.5f)
             killCooldown += Time.deltaTime;
     }
@@ -58,14 +66,16 @@ public class Player : MonoBehaviour
         {
             killCooldown = 0f;
             lives--;
+            transform.position = startPosition;
             playerBlink();
-            Centipede.Respawn();
+            pCentipede.Respawn();
             gameReset();
             if (lives <= 0)
             {
+                GOS.SetActive(true);
+                mOnGameOver();
                 Destroy(gameObject);
-                if (GOS != null)
-                    GOS.SetActive(true);
+                
             }
         }
     }

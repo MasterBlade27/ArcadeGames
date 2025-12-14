@@ -828,6 +828,7 @@ GameObject:
   - component: {fileID: 740036025}
   - component: {fileID: 740036024}
   - component: {fileID: 740036023}
+  - component: {fileID: 740036026}
   m_Layer: 0
   m_Name: mField
   m_TagString: Untagged
@@ -886,6 +887,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740036026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740036022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803a5d34ca08d374eb322741ecb50661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomScoreMarch
+  mushrooms: []
 --- !u!1 &752660313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2267406561354422755, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70
+      value: 69.99994
       objectReference: {fileID: 0}
     - target: {fileID: 2487407779772869888, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_text

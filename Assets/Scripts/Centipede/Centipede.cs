@@ -35,7 +35,6 @@ public class Centipede : MonoBehaviour
     {
         foreach (CentipedeSegment segment in segments)
         {
-            Instantiate(mushroomPrefab, GridPosition(segment.transform.position), Quaternion.Euler(90f, 0f, 0f));
             Destroy(segment.gameObject);
         }
 
@@ -61,7 +60,6 @@ public class Centipede : MonoBehaviour
     {
         //instatiate mushroom here
         Instantiate(mushroomPrefab, GridPosition(segment.transform.position), Quaternion.Euler(90f, 0f, 0f));
-        scoretest.scoreUpdate(10);
 
         if (segment.ahead != null)
             segment.ahead.behind = null;
@@ -72,12 +70,18 @@ public class Centipede : MonoBehaviour
             segment.behind.UpdateHeadSegement();
         }
 
+        segments.Remove(segment);
+        Destroy(segment.gameObject);
+
         //removes segment
         if (AC != null)
             AC.PlayVol(AC.centipedeAudioClips, AC.centipedeAudioClips.Count - 1, 1);
 
-        segments.Remove(segment);
-        Destroy(segment.gameObject);
+        scoretest.scoreUpdate(10);
+        if (segments.Count == 0)
+        {
+            Restart();
+        }
     }
 
     private CentipedeSegment GetSegmetAt(int index)
@@ -93,25 +97,23 @@ public class Centipede : MonoBehaviour
         return position;
     }
 
-    private void Update()
+    private void Restart()
     {
-        if (segments.Count == 0)
-        {
             scoretest.scoreUpdate(50);
             level++;
-            speed += 5f;
+            speed += 2f;
             size += level;
             Respawn();
-        }
+        
     }
     private IEnumerator DelayedWhileLoop()
     {
         while (segments.Count > 0)
         {
-            Debug.Log("Play sound");
+           //Debug.Log("Play sound");
             AC.PlayVol(AC.centipedeAudioClips, Random.Range(0, AC.centipedeAudioClips.Count - 1), 1);
             yield return new WaitForSeconds(0.3f);
-            Debug.Log("Sound is over");
+            //Debug.Log("Sound is over");
         }
     }
 }

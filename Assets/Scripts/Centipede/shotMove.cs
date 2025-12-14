@@ -24,7 +24,7 @@ public class shotMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Centipede"))
+        if (other.gameObject.CompareTag("Centipede") || other.gameObject.CompareTag("Mushroom"))
         {
             Destroy(gameObject);
         }

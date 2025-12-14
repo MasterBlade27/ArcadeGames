@@ -32,7 +32,9 @@ public class CentipedeSegment : MonoBehaviour
             UpdateHeadSegement();
         }
 
-        float movespeed = centipede.speed * Time.deltaTime;
+        // If mushrooms are healing, freeze centipede movement
+        
+        float movespeed = (MushroomScoreMarch.regenerating ? 0f : centipede.speed) * Time.deltaTime;
 
         Vector3 currentPosition = transform.position;
         transform.position = Vector3.MoveTowards(currentPosition, targetPosition, movespeed);
@@ -55,9 +57,15 @@ public class CentipedeSegment : MonoBehaviour
 
         targetPosition.x += direction.x;
 
-        if (Physics.OverlapBox(targetPosition, new Vector3(0,0,0), Quaternion.identity, centipede.collisionMask).Length > 0)
+        // use a small half-extents box (not zero) and center it on the grid position
+        // this reliably detects mushrooms/obstacles that occupy the grid cell
+        Vector3 checkCenter = GridPosition(targetPosition);
+        Vector3 halfExtents = new Vector3(0.45f, 0.5f, 0.45f); // half extents in world units
+        Collider[] hits = Physics.OverlapBox(checkCenter, halfExtents, Quaternion.identity, centipede.collisionMask);
+
+        if (hits != null && hits.Length > 0)
         { 
-            Debug.Log("yes");
+            //Debug.Log("obstacle detected at " + checkCenter + " (" + hits.Length + " hits)");
             direction.x = -direction.x;
 
             targetPosition.x = gridPosition.x;

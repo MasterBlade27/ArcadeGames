@@ -1,31 +1,43 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
     [SerializeField]
     private List<Mesh> damageLevels;
-    private MeshFilter mushroomMfilter;
-    private int health;
+    public MeshFilter mushroomMfilter;
+    public int damage = 0;
     private scoretest stest;
 
     [SerializeField]
     private AudioController AC;
 
+    [SerializeField]
+    private float regenStepDelay = 0.2f; // time between each health step during restart
+    private Coroutine restartCorutine;
+    public bool isDone = false;
+
+    // static tracking for global regen state
+    //public static int regeneratingCount = 0;
+    //public static bool AnyHealing => regeneratingCount > 0;
+    //public bool isRegeneratingInstance = false;
+
     private void Awake()
     {
         stest = FindAnyObjectByType<scoretest>();
         mushroomMfilter = GetComponent<MeshFilter>();
-        health = damageLevels.Count;
     }
     private void Start()
     {
         AC = FindAnyObjectByType<AudioController>();
-        Player.gameReset += Restart;
+        Player.mOnGameOver += onGameOver;
+        //isRegeneratingInstance = false;
+        mushroomMfilter.sharedMesh = damageLevels[0];
     }
     private void OnDisable()
     {
-        Player.gameReset -= Restart;
+        Player.mOnGameOver -= onGameOver;
     }
 
     private void TakeDamage()
@@ -33,8 +45,8 @@ public class Mushroom : MonoBehaviour
         if (AC != null)
             AC.PlaySound(AC.mushroomSFX);
 
-        health--;
-        if (health <= 0)
+        damage++;
+        if (damage >= damageLevels.Count)
         {
             stest.scoreUpdate(5);
             Destroy(gameObject);
@@ -42,7 +54,7 @@ public class Mushroom : MonoBehaviour
         else
         {
             stest.scoreUpdate(1);
-            mushroomMfilter.sharedMesh = damageLevels[damageLevels.Count - health - 1];
+            mushroomMfilter.sharedMesh = damageLevels[damage];
         }
     }
 
@@ -54,9 +66,62 @@ public class Mushroom : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-    private void Restart()
+    public void ScoreMarch()
     {
-        health = damageLevels.Count;
-        mushroomMfilter.sharedMesh = damageLevels[0];
+        Debug.Log("score march triggered");
+        // Stop any running restart coroutine and start a new staggered regen only if not full health
+        if (restartCorutine != null)
+            StopCoroutine(restartCorutine);
+
+        if (damage > 0)
+        {
+            /*if (!isRegeneratingInstance)
+            {
+                isRegeneratingInstance = true;
+                regeneratingCount++;
+            }*/
+            restartCorutine = StartCoroutine(RestartCoroutine());
+        }
+    }
+
+    private IEnumerator RestartCoroutine()
+    { 
+       isDone = false;
+        while (damage > 0)
+        {
+            damage--;
+            stest.scoreUpdate(5);
+
+            if (AC != null)
+                AC.PlaySound(AC.scoreMarchAudioClips[0]);
+
+            if (damage == 0)
+            {
+                mushroomMfilter.sharedMesh = damageLevels[0];
+            }
+            else
+            {
+                mushroomMfilter.sharedMesh = damageLevels[damage];
+            }
+
+            yield return new WaitForSeconds(regenStepDelay);
+        }
+        isDone = true;
+
+        restartCorutine = null;
+    }
+    private void onGameOver()
+    {
+        /*if (isRegeneratingInstance)
+        {
+            isRegeneratingInstance = false;
+            regeneratingCount = 0;
+        }*/
+    }
+
+    private IEnumerator RestartCorutine()
+    {
+        // kept for compatibility: unused
+        yield break;
     }
 }
