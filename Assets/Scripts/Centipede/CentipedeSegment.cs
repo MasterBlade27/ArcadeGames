@@ -57,13 +57,7 @@ public class CentipedeSegment : MonoBehaviour
 
         targetPosition.x += direction.x;
 
-        // use a small half-extents box (not zero) and center it on the grid position
-        // this reliably detects mushrooms/obstacles that occupy the grid cell
-        Vector3 checkCenter = GridPosition(targetPosition);
-        Vector3 halfExtents = new Vector3(0.45f, 0.5f, 0.45f); // half extents in world units
-        Collider[] hits = Physics.OverlapBox(checkCenter, halfExtents, Quaternion.identity, centipede.collisionMask);
-
-        if (hits != null && hits.Length > 0)
+        if (Physics.OverlapBox(targetPosition, new Vector3(0, 0, 0), Quaternion.identity, centipede.collisionMask).Length > 0)
         { 
             //Debug.Log("obstacle detected at " + checkCenter + " (" + hits.Length + " hits)");
             direction.x = -direction.x;

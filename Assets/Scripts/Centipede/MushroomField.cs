@@ -29,7 +29,7 @@ public class MushroomField : MonoBehaviour
                 0.5f,
                 Mathf.Round(Random.Range(fieldArea.bounds.min.z, fieldArea.bounds.max.z))
             );
-            Instantiate(mushroomPrefab, position, Quaternion.Euler(90f, 0f, 0f), transform);
+            Instantiate(mushroomPrefab, position, Quaternion.Euler(0f, 0f, 0f), transform);
         }
     }
 }

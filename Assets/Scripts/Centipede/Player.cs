@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         startPosition = transform.position;
+        MushroomScoreMarch.regenerating = false;
     }
 
     private void Update()
@@ -73,7 +74,8 @@ public class Player : MonoBehaviour
             transform.position = startPosition;
             playerBlink();
             pCentipede.Respawn();
-            gameReset();
+            if(lives > 0)
+                gameReset();
             if (lives <= 0)
             {
                 mOnGameOver();

@@ -424,6 +424,22 @@ PrefabInstance:
       propertyPath: SceneName
       value: BO_MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6116894417857506342, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: BO
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116894417857506342, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: CT
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975938625465421686, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: RT
+      value: 
+      objectReference: {fileID: 1120078950}
+    - target: {fileID: 7975938625465421686, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: SC
+      value: 
+      objectReference: {fileID: 694861858}
     - target: {fileID: 8135920584198216162, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1621,6 +1637,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6513642710742308255, guid: 77300260d1e822e4e995b4f4497c070c, type: 3}
   m_PrefabInstance: {fileID: 1081192096}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120078950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5292052828356392541, guid: b3eeb73dd07fbf94fb928dcc490eed09, type: 3}
+  m_PrefabInstance: {fileID: 7659086230289552453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0cbf9392bdc0f7449a3b3d61aa70c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Restart
 --- !u!114 &1163688570 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}

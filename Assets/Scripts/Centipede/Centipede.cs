@@ -70,7 +70,7 @@ public class Centipede : MonoBehaviour
     public void Remove(CentipedeSegment segment)
     {
         //instatiate mushroom here
-        Instantiate(mushroomPrefab, GridPosition(segment.transform.position), Quaternion.Euler(90f, 0f, 0f));
+        Instantiate(mushroomPrefab, GridPosition(segment.transform.position), Quaternion.Euler(0f, 0f, 0f));
 
         if (segment.ahead != null)
             segment.ahead.behind = null;

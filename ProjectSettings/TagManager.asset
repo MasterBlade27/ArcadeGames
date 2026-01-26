@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Centipede
   - Mushroom
+  - Tick
   layers:
   - Default
   - TransparentFX
