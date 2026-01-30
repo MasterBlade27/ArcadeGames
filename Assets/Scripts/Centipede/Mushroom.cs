@@ -43,7 +43,7 @@ public class Mushroom : MonoBehaviour
     private void TakeDamage()
     {
         if (AC != null)
-            AC.PlaySound(AC.mushroomSFX);
+            AC.PlayNormal(AC.mushroom, 6);
 
         damage++;
         if (damage >= damageLevels.Count)
@@ -93,7 +93,7 @@ public class Mushroom : MonoBehaviour
             stest.scoreUpdate(5);
 
             if (AC != null)
-                AC.PlayVol(AC.scoreMarchAudioClips, Random.Range(0, AC.scoreMarchAudioClips.Count), 1);
+                AC.PlayVol(1.5f, AC.scoreMarch, Random.Range(0, AC.scoreMarch.Count), 6);
 
             if (damage == 0)
             {

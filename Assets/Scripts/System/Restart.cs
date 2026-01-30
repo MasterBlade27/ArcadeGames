@@ -105,7 +105,7 @@ public class Restart : MonoBehaviour
 
         if (lives > 0)
             if (AC != null)
-                AC.PlayVol(AC.deathSFX, 1.5f);
+                AC.PlayVol(1.5f, AC.death, 1);
 
         StopPos = Player.transform.position;
 
@@ -119,7 +119,7 @@ public class Restart : MonoBehaviour
     public void MultiKill()
     {
         if (AC != null)
-            AC.PlayVol(AC.deathSFX, 1.5f);
+            AC.PlayVol(1.5f, AC.death, 1);
 
         StopPos = Player.transform.position;
 
@@ -156,8 +156,8 @@ public class Restart : MonoBehaviour
     {
         if (AC != null)
         {
-            AC.musicSource.Stop();
-            AC.PlaySound(AC.gameOverSFX);
+            AC.MS.Stop();
+            AC.PlayNormal(AC.gameOver, 0);
         }
 
         ReplayGo.SetActive(true);
@@ -168,7 +168,7 @@ public class Restart : MonoBehaviour
     private void Replay()
     {
         if (AC != null)
-            AC.PlayVol(AC.nextLevelSFX, 1.5f);
+            AC.PlayVol(1.5f, AC.nextLevel, 0);
 
         lives = totallives;
         ReplayGo.SetActive(false);
@@ -234,7 +234,7 @@ public class Restart : MonoBehaviour
         if (!Cheats)
         {
             Cheats = true;
-            AC.PlayVol(AC.nextLevelSFX, 1.5f);
+            AC.PlayVol(1.5f, AC.nextLevel, 0);
             lives += 100;
         }
     }

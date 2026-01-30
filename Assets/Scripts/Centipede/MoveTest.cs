@@ -19,6 +19,8 @@ public class MoveTest : MonoBehaviour
 
     private float cooldown = 0.2f;
 
+    public bool MSHT = false;
+
     private void OnEnable()
     {
         pInput = new PlayerMove();
@@ -49,10 +51,10 @@ public class MoveTest : MonoBehaviour
         if(cooldown > 0)
             cooldown -= Time.deltaTime;
 
-        if (pInput.Movement.Play.IsPressed() && cooldown <= 0)
+        if ((pInput.Movement.Play.IsPressed() || MSHT) && cooldown <= 0)
         {
             if (AC != null)
-                AC.PlayPlayer(AC.playerAudioClips, Random.Range(0, AC.playerAudioClips.Count));
+                AC.PlayRandom(AC.playerSounds, Random.Range(0, AC.playerSounds.Count), 1);
 
             cooldown = 0.2f;
             Instantiate(projectilePrefab, (transform.position + new Vector3(0, 0, 1f)), Quaternion.identity);

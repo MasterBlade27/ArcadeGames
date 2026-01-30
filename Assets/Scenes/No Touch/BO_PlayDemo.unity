@@ -400,6 +400,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 8300000, guid: 62a67d2231d1c674e9a04585c45800e4, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: powerupSounds.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d07529a45742f4a4493dad457bd3a765, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ea52b50f13c7faf429752170ea4a2b92, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0777ea0538006864f9fcda5093ad2d32, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f88f6ca3a22b60e4186ad1a94fc2618a, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 315766433839bef4dad76f6e3ca67810, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 441f0dc7fe75e024895f366865952a74, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fb9128776ebaf14c9f49aaa27bd067e, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8bbb1fc8f2421f14aa8706199e31a5d2, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'powerupSounds.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 430d60629b187d241bdf6c6a298f4ef5, type: 3}
     - target: {fileID: 2982829505562473839, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_Name
       value: GameSystems
@@ -432,6 +476,10 @@ PrefabInstance:
       propertyPath: CT
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7704085172165818870, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 3cd70e3857e82aa4cb39a2b4c0bf6552, type: 3}
     - target: {fileID: 7975938625465421686, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: RT
       value: 

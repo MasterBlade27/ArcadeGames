@@ -37,7 +37,7 @@ public class BlockRespawn : MonoBehaviour
         {
             if (AC != null)
             {
-                AC.PlaySound(AC.nextLevelSFX);
+//                AC.PlaySound(AC.nextLevelSFX);
             }
 
             foreach (var Block in BlockArray)

@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     public void LoseLife()
     {
         if (AC != null)
-            AC.PlaySound(AC.playerHitSFX);
+            AC.PlayNormal(AC.death, 1);
     
         if (killCooldown >= 0.5f)
         {
@@ -81,6 +81,7 @@ public class Player : MonoBehaviour
                 mOnGameOver();
 
                 GetComponent<MoveTest>().enabled = false;
+                FindAnyObjectByType<MouseHover>().enabled = false;
                 ScoreName SN = FindAnyObjectByType<ScoreName>();
                 SN.HighscoreRestart();
             }
@@ -124,8 +125,8 @@ public class Player : MonoBehaviour
     {
         if (AC != null)
         {
-            AC.musicSource.Stop();
-            AC.PlaySound(AC.gameOverSFX);
+            AC.MS.Stop();
+            AC.PlayNormal(AC.gameOver, 0);
         }
 
         GOS.SetActive(true);
@@ -137,7 +138,7 @@ public class Player : MonoBehaviour
         if (!Cheats)
         {
             Cheats = true;
-            AC.PlayVol(AC.nextLevelSFX, 1.5f);
+            AC.PlayVol(1.5f, AC.nextLevel, 0);
             lives += 100;
         }
     }

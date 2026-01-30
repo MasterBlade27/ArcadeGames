@@ -648,6 +648,73 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &509355368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509355370}
+  - component: {fileID: 509355369}
+  - component: {fileID: 509355371}
+  m_Layer: 0
+  m_Name: Mouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &509355369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509355368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70b4c7667ed23a4e9c2ceec00f5e1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseHover
+  Player: {fileID: 674441404}
+--- !u!4 &509355370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509355368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.5, y: 4, z: -19.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &509355371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509355368}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 72, y: 1, z: 40}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &674441404
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +872,7 @@ MonoBehaviour:
   moveDirectiony: 0
   projectilePrefab: {fileID: 447719753121039475, guid: 11a07a1a771957741ac43ac9cd3ddc0f, type: 3}
   AC: {fileID: 1510535148}
+  MSHT: 0
 --- !u!114 &674441412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,9 +1432,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 8300000, guid: 0167e10b0279b4a4a8496ef7eb66836f, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: nextLevelSFX
       value: 
       objectReference: {fileID: 8300000, guid: 897ffcdcffd2f9d408deca6736f89443, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: m_EditorClassIdentifier
+      value: Assembly-CSharp::AudioController
+      objectReference: {fileID: 0}
     - target: {fileID: 2267406561354422755, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 70
@@ -1643,7 +1719,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f108bd1a18d070548bc57dc6193fbf25, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::AudioController
 --- !u!1 &1829791944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +2000,7 @@ SceneRoots:
   - {fileID: 740036025}
   - {fileID: 674441409}
   - {fileID: 1012574414}
+  - {fileID: 509355370}
   - {fileID: 1400360954}
   - {fileID: 1454889373}
   - {fileID: 1131405684}

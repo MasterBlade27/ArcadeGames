@@ -3,33 +3,43 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    public List<AudioSource> audioSources = new List<AudioSource>();
-    public AudioSource musicSource;
+    /* 0 = Levels + Power Ups
+     * 1 = Player + Death
+     * 2 = Enemy #1 + Block
+     * 3 = Enemy #2 + Wall
+     * 4 = Enemy #3
+     * 5 = Enemy #4
+     * 6 = Enemy #5 + Mushrooms
+    */
+    public List<AudioSource> SFS = new List<AudioSource>();
+    public AudioSource MS;
 
     [Header("Breakout")]
-    public List<AudioClip> paddleAudioClips = new List<AudioClip>();
-    public List<AudioClip> blockAudioClips = new List<AudioClip>();
-    public List<AudioClip> wallAudioClips = new List<AudioClip>();
+    public List<AudioClip> paddleSounds = new List<AudioClip>();
+    public List<AudioClip> blockSounds = new List<AudioClip>();
+    public List<AudioClip> wallSounds = new List<AudioClip>();
 
     [Header("Centipede")]
-    public List<AudioClip> playerAudioClips = new List<AudioClip>();
-    public List<AudioClip> centipedeAudioClips = new List<AudioClip>();
-    public List<AudioClip> spiderAudioClips = new List<AudioClip>();
-    public List<AudioClip> scorpionAudioClips = new List<AudioClip>();
-    public List<AudioClip> ticksAudioClips = new List<AudioClip>();
-    public List<AudioClip> scoreMarchAudioClips = new List<AudioClip>();
-    public AudioClip playerHitSFX;
-    public AudioClip mushroomSFX;
-    public AudioClip centipedeHitSFX;
+    public List<AudioClip> playerSounds = new List<AudioClip>();
+    public List<AudioClip> centipedeSounds = new List<AudioClip>();
+    public List<AudioClip> spiderSounds = new List<AudioClip>();
+    public List<AudioClip> scorpionSounds = new List<AudioClip>();
+    public List<AudioClip> tickSounds = new List<AudioClip>();
+    public AudioClip centipedeHit;
+    public AudioClip spiderHit;
+    public AudioClip scorpionHit;
+    public AudioClip tickHit;
+    public AudioClip mushroom;
+    public List<AudioClip> scoreMarch = new List<AudioClip>();
 
     [Header("Power Ups")]
     public AudioClip powerupSpawn;
-    public List<AudioClip> powerupClips = new List<AudioClip>();
+    public List<AudioClip> powerupSounds = new List<AudioClip>();
 
     [Header("Levels")]
-    public AudioClip deathSFX;
-    public AudioClip gameOverSFX;
-    public AudioClip nextLevelSFX;
+    public AudioClip death;
+    public AudioClip gameOver;
+    public AudioClip nextLevel;
 
     [Header("Mute Button")]
     [SerializeField]
@@ -79,7 +89,7 @@ public class AudioController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Volume", 0);
 
-            foreach (AudioSource AS in audioSources)
+            foreach (AudioSource AS in SFS)
                 AS.volume = 1;
         }
 
@@ -87,7 +97,7 @@ public class AudioController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Volume", 1);
 
-            foreach (AudioSource AS in audioSources)
+            foreach (AudioSource AS in SFS)
                 AS.volume = 0;
         }
 
@@ -95,14 +105,14 @@ public class AudioController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Music", 0);
 
-            musicSource.volume = 1;
+            MS.volume = 1;
         }
 
         else
         {
             PlayerPrefs.SetInt("Music", 1);
 
-            musicSource.volume = 0;
+            MS.volume = 0;
         }
     }
 
@@ -120,50 +130,59 @@ public class AudioController : MonoBehaviour
             MusicIcon.SetActive(!music);
     }
 
-    public void PlayBall(int Pitch, List<AudioClip> Sounds, int index)
+    public void PlayNormal(AudioClip Sound, int ASN)
     {
         if (sfx)
         {
-            audioSources[0].pitch = Pitch;
-            audioSources[0].PlayOneShot(Sounds[index]);
+            SFS[ASN].PlayOneShot(Sound);
         }
     }
 
-    public void PlayPlayer(List<AudioClip> Sounds, int index)
+    public void PlayRandom(List<AudioClip> Sounds, int index, int ASN)
     {
         if (sfx)
         {
-            audioSources[0].PlayOneShot(Sounds[index]);
+            SFS[ASN].PlayOneShot(Sounds[index]);
         }
     }
 
-    public void PlaySound(AudioClip Sound)
+    public void PlayVol(float Vol, AudioClip Sound, int ASN)
     {
         if (sfx)
         {
-            audioSources[1].PlayOneShot(Sound);
+            SFS[ASN].PlayOneShot(Sound, Vol);
         }
     }
 
-    public void PlayVol(AudioClip Sound, float Vol)
+    public void PlayVol(float Vol, List<AudioClip> Sounds, int index, int ASN)
     {
         if (sfx)
         {
-            audioSources[2].PlayOneShot(Sound, Vol);
+            SFS[ASN].PlayOneShot(Sounds[index], Vol);
         }
     }
 
-    public void PlayVol(List<AudioClip> Sounds, int index, float Vol)
+    public void PlayPitch(int Pitch, AudioClip Sound, int ASN)
     {
         if (sfx)
         {
-            audioSources[2].PlayOneShot(Sounds[index], Vol);
+            SFS[ASN].pitch = Pitch;
+            SFS[ASN].PlayOneShot(Sound);
+        }
+    }
+
+    public void PlayPitch(int Pitch, List<AudioClip> Sounds, int index, int ASN)
+    {
+        if (sfx)
+        {
+            SFS[ASN].pitch = Pitch;
+            SFS[ASN].PlayOneShot(Sounds[index]);
         }
     }
 
     public void StopVol()
     {
-        foreach (AudioSource Sound in audioSources)
+        foreach (AudioSource Sound in SFS)
             Sound.Stop();
     }
 }

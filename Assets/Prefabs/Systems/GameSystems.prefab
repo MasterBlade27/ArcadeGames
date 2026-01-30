@@ -4183,6 +4183,10 @@ MonoBehaviour:
   HSH: {fileID: 0}
   totalscore: 0
   Button: {fileID: 7399438255767476207}
+  SC: {fileID: 0}
+  RT: {fileID: 0}
+  ST: {fileID: 0}
+  PY: {fileID: 0}
 --- !u!1 &8507148781714460440
 GameObject:
   m_ObjectHideFlags: 0

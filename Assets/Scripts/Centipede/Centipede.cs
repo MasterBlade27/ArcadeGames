@@ -86,7 +86,7 @@ public class Centipede : MonoBehaviour
 
         //removes segment
         if (AC != null)
-            AC.PlayVol(AC.centipedeAudioClips, AC.centipedeAudioClips.Count - 1, 1);
+            AC.PlayNormal(AC.centipedeHit, 2);
 
         scoretest.scoreUpdate(10);
         if (segments.Count == 0)
@@ -130,7 +130,7 @@ public class Centipede : MonoBehaviour
         while (segments.Count > 0 && GameOver != true)
         {
             //Debug.Log("Play sound");
-            AC.PlayVol(AC.centipedeAudioClips, Random.Range(0, AC.centipedeAudioClips.Count - 1), 1);
+            AC.PlayRandom(AC.centipedeSounds, Random.Range(0, AC.centipedeSounds.Count), 2);
             yield return new WaitForSeconds(0.3f);
             //Debug.Log("Sound is over");
         }
