@@ -412,7 +412,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 58.744476
   orthographic: 0
   orthographic size: 20
   m_Depth: -1
@@ -438,8 +438,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446150013}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13192408, y: 0, z: 0, w: 0.9912599}
-  m_LocalPosition: {x: 14.5, y: 8.1, z: -48.5}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 14.5, y: 7.5, z: -47.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3d1d42a56ff0148b75e4082fa5ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomField
-  mushroomPrefab: {fileID: 5402657108315819188, guid: 85564810e60ca9244b4211c0aa9b736d, type: 3}
+  mushroomPrefab: {fileID: 5859205703733105504, guid: f2197a24da832274f83679d99ab112f5, type: 3}
   numberOfMushrooms: 30
   rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &740036024
@@ -1308,6 +1308,7 @@ Transform:
   m_Children:
   - {fileID: 804594309}
   - {fileID: 1952012111}
+  - {fileID: 1678127427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131405682
@@ -1374,10 +1375,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderSpawn
   SpawnOpprotunity: 0
-  SpiderPrefab: {fileID: 2370385590381416332, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
+  SpiderPrefab: {fileID: 2370385590381416332, guid: 51f294498637c4f4ab103d7db415f84c, type: 3}
   SpiderSpawnChance: 0.5
   SpawnInterval: 5
-  spawnPos: {x: 0.549, y: 0.581, z: -38.857}
+  spawnPos: {x: 0.5, y: 0.5, z: -38.5}
 --- !u!1001 &1400360954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1675,7 +1676,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60
+    FieldOfView: 58.744476
     OrthographicSize: 20
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -1702,13 +1703,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454889371}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13192408, y: -0, z: -0, w: 0.9912599}
-  m_LocalPosition: {x: 14.5, y: 8.1, z: -48.5}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 14.5, y: 7.5, z: -47.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 15.162, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &1454889374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,11 +1724,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 3.98}
+    PositionDamping: {x: 1, y: 1, z: 4}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 7.6, z: -11}
+  FollowOffset: {x: 0, y: 7, z: -10}
 --- !u!114 &1510535148 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
@@ -1807,12 +1808,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678127424}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 0.5, z: -34.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1012574414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1829791944
 GameObject:
@@ -2083,77 +2084,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1012574414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3821991216985862937
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2370385590381416332, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_Name
-      value: Spider
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.549
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.581
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -38.857
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147626423558329654, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 842de198ef5fd014691c7a81019c7b44, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 446150016}
+  - {fileID: 1454889373}
   - {fileID: 466597473}
   - {fileID: 1829791945}
   - {fileID: 1909142569}
   - {fileID: 740036025}
+  - {fileID: 1131405684}
   - {fileID: 674441409}
   - {fileID: 1012574414}
   - {fileID: 509355370}
   - {fileID: 1400360954}
-  - {fileID: 1454889373}
-  - {fileID: 1131405684}
-  - {fileID: 1678127427}
-  - {fileID: 3821991216985862937}

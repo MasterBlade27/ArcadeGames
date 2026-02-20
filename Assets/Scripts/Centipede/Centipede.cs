@@ -115,7 +115,6 @@ public class Centipede : MonoBehaviour
             speed += 2f;
             size += level;
             Respawn();
-        
     }
 
     private void OnGameOver()

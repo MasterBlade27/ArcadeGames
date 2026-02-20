@@ -12,7 +12,7 @@ public class SpiderSpawn : MonoBehaviour
     private float SpawnInterval = 5f;
     [SerializeField]
     private Vector3 spawnPos;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private void Update()
     {
         if (!MushroomScoreMarch.regenerating)

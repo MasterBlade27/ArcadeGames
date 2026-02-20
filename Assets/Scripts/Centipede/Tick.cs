@@ -1,5 +1,5 @@
-using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class Tick : MonoBehaviour
 {
@@ -10,13 +10,16 @@ public class Tick : MonoBehaviour
     private float moveTarget = -1;
     private int curZ;
     public LayerMask collisionMask;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private AudioController AC;
+
+    private void Start()
     {
-        
+        AC = FindAnyObjectByType<AudioController>();
+
+        if (AC != null)
+            AC.PlayRandom(AC.tickSounds, Random.Range(0, AC.tickSounds.Count), 3);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 0.5f, moveTarget), moveSpeed);
@@ -48,6 +51,8 @@ public class Tick : MonoBehaviour
     { 
         if (collision.gameObject.CompareTag("Projectile"))
         {
+            if (AC != null)
+                AC.PlayNormal(AC.tickHit, 3);
             Destroy(gameObject);
         }
     }
