@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class DigMovement : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class DigMovement : MonoBehaviour
     //pInput = Paddle/Player Input
     private PlayerMove pInput;
     [SerializeField]
-    private float directionx, directiony, moveDirectionx, moveDirectiony;
+    private Vector3 POS;
+    [SerializeField]
+    private float directionx, directiony;
     [SerializeField]
     private bool XFloat, YFloat;
 
@@ -34,6 +37,9 @@ public class DigMovement : MonoBehaviour
     {
         XFloat = IsWhole(transform.position.x);
         YFloat = IsWhole(transform.position.z);
+
+//        if (!XFloat || !YFloat)
+  //          PosCor();
     }
 
     private IEnumerator Movement()
@@ -49,33 +55,89 @@ public class DigMovement : MonoBehaviour
             //Normalize and Multiply the Direction of the Player
             if (directionx != 0 && YFloat)
             {
-                moveDirectionx = directionx * Time.deltaTime * speed;
-                Normals = new Vector3(moveDirectionx, 0, 0);
+                Debug.Log("X MOVE");
+                if (directionx > 0)
+                    MOVERIGHT();
+                else if (directionx < 0)
+                    MOVELEFT();
             }
 
             else if (directiony != 0 && XFloat)
             {
-                moveDirectiony = directiony * Time.deltaTime * speed;
-                Normals = new Vector3(0, 0, moveDirectiony);
+                Debug.Log("Y MOVE");
+                if (directiony > 0)
+                    MOVEUP();
+
+                else if (directiony < 0)
+                    MOVEDOWN();
             }
 
-            Normals = Normals.normalized / 5f;
-            Debug.Log(Normals);
-            transform.position += Normals;
+            else if (directionx != 0 && !YFloat)
+                ChangeAxX();
+
+            else if (directiony != 0 && !XFloat)
+                ChangeAxY();
 
             yield return new WaitForSeconds(0.15f);
         }
     }
 
-    private bool IsWhole(float F)
+    private void MOVERIGHT()
     {
-        Debug.Log(F + " - " + Mathf.Round(F));
-        return Mathf.Approximately(F, Mathf.Round(F));
+        transform.position += Vector3.right * 2f;
     }
 
-    private void PosCor()
+    private void MOVELEFT()
     {
-        Vector3 POS = transform.position;
-//        POS.x = 
+        transform.position += Vector3.left * 2f;
+    }
+
+    private void MOVEUP()
+    {
+        transform.position += Vector3.forward * 2f;
+    }
+
+    private void MOVEDOWN()
+    {
+        transform.position += Vector3.back * 2f;
+    }
+
+    private bool IsWhole(float F)
+    {
+        return F % 10 == 0;
+    }
+
+    private void ChangeAxY()
+    {
+        POS = transform.position;
+
+        float ModX = POS.x % 10;
+
+        if (ModX > 5 || ModX < -5)
+        {
+            MOVERIGHT();
+        }
+
+        else if (ModX > -5 || ModX < 5)
+        {
+            MOVELEFT();
+        }
+    }
+
+    private void ChangeAxX()
+    {
+        POS = transform.position;
+
+        float ModY = POS.z % 10;
+
+        if (ModY > 5 || ModY < -5)
+        {
+            MOVEUP();
+        }
+
+        else if (ModY > -5 || ModY < 5)
+        {
+            MOVEDOWN();
+        }
     }
 }
