@@ -113,12 +113,12 @@ public class DigMovement : MonoBehaviour
 
         float ModX = POS.x % 10;
 
-        if (ModX > 5 || ModX < -5)
+        if (ModX > 5 || (0 > ModX && ModX > -5))
         {
             MOVERIGHT();
         }
 
-        else if (ModX > -5 || ModX < 5)
+        else if (ModX < -5 || (0 < ModX && ModX < 5))
         {
             MOVELEFT();
         }
@@ -130,12 +130,12 @@ public class DigMovement : MonoBehaviour
 
         float ModY = POS.z % 10;
 
-        if (ModY > 5 || ModY < -5)
+        if (ModY > 5 || (0 > ModY && ModY > -5))
         {
             MOVEUP();
         }
 
-        else if (ModY > -5 || ModY < 5)
+        else if (ModY < -5 || (0 < ModY && ModY < 5))
         {
             MOVEDOWN();
         }
