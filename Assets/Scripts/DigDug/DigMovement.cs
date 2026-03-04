@@ -4,10 +4,6 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class DigMovement : MonoBehaviour
 {
-    //Speed for the Paddle, 10 seems like good speed
-    [SerializeField]
-    private float speed = 15f;
-
     //pInput = Paddle/Player Input
     private PlayerMove pInput;
     [SerializeField]
@@ -16,6 +12,9 @@ public class DigMovement : MonoBehaviour
     private float directionx, directiony;
     [SerializeField]
     private bool XFloat, YFloat;
+    [SerializeField]
+    private Collider RWall, LWall, Floor;
+    private float RBd, LBd, FBd;
 
     [SerializeField]
     private AudioController AC;
@@ -26,6 +25,10 @@ public class DigMovement : MonoBehaviour
         pInput.Enable();
 
         StartCoroutine(Movement());
+
+        RBd = RWall.transform.position.x - 10;
+        LBd = LWall.transform.position.x + 10;
+        FBd = Floor.transform.position.z + 10;
     }
 
     private void OnDisable()
@@ -37,9 +40,6 @@ public class DigMovement : MonoBehaviour
     {
         XFloat = IsWhole(transform.position.x);
         YFloat = IsWhole(transform.position.z);
-
-//        if (!XFloat || !YFloat)
-  //          PosCor();
     }
 
     private IEnumerator Movement()
@@ -84,12 +84,14 @@ public class DigMovement : MonoBehaviour
 
     private void MOVERIGHT()
     {
-        transform.position += Vector3.right * 2f;
+        if (transform.position.x < RBd)
+            transform.position += Vector3.right * 2f;
     }
 
     private void MOVELEFT()
     {
-        transform.position += Vector3.left * 2f;
+        if(transform.position.x > LBd)
+            transform.position += Vector3.left * 2f;
     }
 
     private void MOVEUP()
@@ -99,7 +101,8 @@ public class DigMovement : MonoBehaviour
 
     private void MOVEDOWN()
     {
-        transform.position += Vector3.back * 2f;
+        if (transform.position.z > FBd)
+            transform.position += Vector3.back * 2f;
     }
 
     private bool IsWhole(float F)
@@ -121,7 +124,7 @@ public class DigMovement : MonoBehaviour
         else if (ModX < -5 || (0 < ModX && ModX < 5))
         {
             MOVELEFT();
-        }
+        } 
     }
 
     private void ChangeAxX()
