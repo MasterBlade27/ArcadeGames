@@ -7,8 +7,10 @@ public class MouseHover : MonoBehaviour
     [SerializeField]
     private GameObject Player;
     private Vector3 ObjectDirect;
+    private bool FreeMouse;
 
     private MoveTest MT;
+
 
     private void Start()
     {
@@ -25,14 +27,32 @@ public class MouseHover : MonoBehaviour
 
     void Update()
     {
-        ObjectDirect.x = Input.mousePositionDelta.x * Time.deltaTime * speed;
-        ObjectDirect.z = Input.mousePositionDelta.y * Time.deltaTime * speed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            FreeMouse = true;
+        }
 
-        Player.transform.position += ObjectDirect;
-
-        if (Input.GetMouseButton(0))
-            MT.MSHT = true;
         else
-            MT.MSHT = false;
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            FreeMouse = false;
+        }
+
+
+        if (!FreeMouse)
+        {
+            ObjectDirect.x = Input.mousePositionDelta.x * Time.deltaTime * speed;
+            ObjectDirect.z = Input.mousePositionDelta.y * Time.deltaTime * speed;
+
+            Player.transform.position += ObjectDirect;
+
+            if (Input.GetMouseButton(0))
+                MT.MSHT = true;
+            else
+                MT.MSHT = false;
+        }
     }
 }
