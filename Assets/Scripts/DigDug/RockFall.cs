@@ -18,20 +18,32 @@ public class RockFall : MonoBehaviour
     {
         if (Dirts.Count == 0)
             FALL = true;
+
         else
             FALL = false;
+    }
 
-        if (FALL)
-            Debug.Log("HEYEADS");
+    private void OnTriggerExit(Collider other)
+    {
+        if (FALL && other.CompareTag("Player"))
+        {
+            RockSelf.enabled = true;
+            Checker.enabled = false;
+            StartCoroutine(FALLING());
+        }
     }
 
     private IEnumerator FALLING()
     {
-        yield return null;
+        while (FALL)
+        {
+            MOVEDOWN();
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 
     private void MOVEDOWN()
     {
-        transform.position += Vector3.back * 0.2f;
+        transform.position += Vector3.back * 2f;
     }
 }

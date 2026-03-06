@@ -129,6 +129,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4782894517746255606, guid: 40099b6d4ef969442b201ca39294f90e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: edb79da904453b441b4f44fe77b10e93, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -196,6 +200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CentiBodyRig
       objectReference: {fileID: 0}
+    - target: {fileID: 5980487296029819068, guid: 06eed3d4cb2c295499caf9b3d4ecc140, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fccce699bd54e9f4486745bcf9bc64c5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

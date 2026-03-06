@@ -30,7 +30,9 @@ public class DiggingHoles : MonoBehaviour
         if (other.gameObject.GetComponentInParent<RockFall>() != null)
         {
             Rocky = other.gameObject.GetComponentInParent<RockFall>();
-            Rocky.Dirts.Add(this.gameObject);
+
+            if (other == Rocky.Checker)
+                Rocky.Dirts.Add(this.gameObject);
         }
     }
 }

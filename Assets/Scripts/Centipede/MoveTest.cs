@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class MoveTest : MonoBehaviour
 {
@@ -20,12 +21,15 @@ public class MoveTest : MonoBehaviour
     private float cooldown = 0.2f;
 
     public bool MSHT = false;
+    private Animator PAnim;
 
     private void OnEnable()
     {
         pInput = new PlayerMove();
         //Enable the Movement Script
         pInput.Enable();
+
+        PAnim = GetComponentInChildren<Animator>();
     }
 
     private void OnDisable()
@@ -53,6 +57,9 @@ public class MoveTest : MonoBehaviour
 
         if ((pInput.Movement.Play.IsPressed() || MSHT) && cooldown <= 0)
         {
+            if (PAnim != null)
+                PAnim.SetTrigger("Shoot");
+
             if (AC != null)
                 AC.PlayRandom(AC.playerSounds, Random.Range(0, AC.playerSounds.Count), 1);
 
