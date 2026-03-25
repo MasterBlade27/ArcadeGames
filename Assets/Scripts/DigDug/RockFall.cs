@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class RockFall : MonoBehaviour
 {
     public Collider Checker, RockSelf;
     public List<GameObject> Dirts = new List<GameObject>();
     [SerializeField]
-    private bool FALL;
+    private bool FALL, STFall;
 
     private void OnEnable()
     {
@@ -27,19 +30,37 @@ public class RockFall : MonoBehaviour
     {
         if (FALL && other.CompareTag("Player"))
         {
+            STFall = true;
             RockSelf.enabled = true;
-            Checker.enabled = false;
             StartCoroutine(FALLING());
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("Hey");
+        if (!FALL && Dirts.Count >= 50)
+        {
+            Debug.Log("STOPPP");
+            STFall = false;
+            StopCoroutine(FALLING());
+            StartCoroutine(BREAK());
         }
     }
 
     private IEnumerator FALLING()
     {
-        while (FALL)
+        while (STFall)
         {
             MOVEDOWN();
             yield return new WaitForSeconds(0.05f);
         }
+    }
+
+    private IEnumerator BREAK()
+    {
+        yield return new WaitForSeconds(0.9f);
+        gameObject.SetActive(false);
     }
 
     private void MOVEDOWN()
