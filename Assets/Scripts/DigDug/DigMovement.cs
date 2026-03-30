@@ -84,6 +84,8 @@ public class DigMovement : MonoBehaviour
 
     private void MOVERIGHT()
     {
+//        if ()
+
         if (transform.position.x < RBd)
             transform.position += Vector3.right * 2f;
     }

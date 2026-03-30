@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class QuickEscape : MonoBehaviour
 {
-    public bool BO, CT;
+    public bool BO, CT, DD;
 
     private Restart RS;
     private BallMove BM;
@@ -53,6 +53,11 @@ public class QuickEscape : MonoBehaviour
             CTP = FindAnyObjectByType<Player>();
             CTP.lives = 0;
             CTP.LoseLife();
+        }
+
+        if (DD)
+        {
+
         }
     }
 
