@@ -213,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 304778055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.166667, y: 0.5, z: 4.875}
+  m_LocalPosition: {x: 7.87, y: 0.5, z: 4.875}
   m_LocalScale: {x: 0.33333334, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -381,7 +381,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5431974, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1829791945}
@@ -1143,8 +1143,8 @@ Transform:
   m_GameObject: {fileID: 740036022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14, y: 0.5, z: -16}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 13.728, y: 0.5, z: -16}
+  m_LocalScale: {x: 1.5431974, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1210,7 +1210,7 @@ Transform:
   m_GameObject: {fileID: 752660313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.166667, y: 0.5, z: 4.875}
+  m_LocalPosition: {x: -7.88, y: 0.5, z: 4.875}
   m_LocalScale: {x: 0.33333334, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1478,7 +1478,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 14.5, y: 0.5, z: -34.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5419481, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 804594309}
@@ -1723,6 +1723,7 @@ GameObject:
   - component: {fileID: 1131405684}
   - component: {fileID: 1131405683}
   - component: {fileID: 1131405685}
+  - component: {fileID: 1131405686}
   m_Layer: 0
   m_Name: EnmHandler
   m_TagString: Untagged
@@ -1779,7 +1780,23 @@ MonoBehaviour:
   SpiderPrefab: {fileID: 2370385590381416332, guid: 51f294498637c4f4ab103d7db415f84c, type: 3}
   SpiderSpawnChance: 0.5
   SpawnInterval: 5
-  spawnPos: {x: 0.5, y: 0, z: -38.5}
+  spawnPos: {x: -7.5, y: 0, z: -38.5}
+--- !u!114 &1131405686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131405682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f655b0efd33bb14468b43eec84f44180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScorpionSpawn
+  SpawnOpprotunity: 0
+  sPrefab: {fileID: 4966317743463856267, guid: 93f3eb2c717f704428d2691c9257b9fb, type: 3}
+  sSpawnChance: 0.3
+  SpawnInterval: 5
 --- !u!1001 &1321919974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2313,16 +2330,40 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 0167e10b0279b4a4a8496ef7eb66836f, type: 3}
     - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: mushroom
+      value: 
+      objectReference: {fileID: 8300000, guid: 15d7378d2faa6f64cb656bf4959e8260, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: nextLevelSFX
       value: 
       objectReference: {fileID: 8300000, guid: 897ffcdcffd2f9d408deca6736f89443, type: 3}
     - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: scoreMarch.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_EditorClassIdentifier
       value: Assembly-CSharp::AudioController
       objectReference: {fileID: 0}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'scoreMarch.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: de76ffd6070b0f543b11184edf43b22f, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'scoreMarch.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 15d7378d2faa6f64cb656bf4959e8260, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'scoreMarch.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4340893a6f631a14db26a815f2ebed4c, type: 3}
+    - target: {fileID: 2166015281409988517, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
+      propertyPath: 'scoreMarch.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 74d09a82cfce2f84a9a5bb46f78199b8, type: 3}
     - target: {fileID: 2267406561354422755, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70.00003
+      value: 70.00006
       objectReference: {fileID: 0}
     - target: {fileID: 2487407779772869888, guid: 2ed005b0158e9d041998b74dc164bcf8, type: 3}
       propertyPath: m_text
@@ -2744,6 +2785,7 @@ MonoBehaviour:
   homeArea: {fileID: 1952012110}
   size: 12
   speed: 20
+  level: 0
   AC: {fileID: 1510535148}
 --- !u!4 &1909142569
 Transform:

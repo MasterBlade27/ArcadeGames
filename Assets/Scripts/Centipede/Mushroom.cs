@@ -17,6 +17,9 @@ public class Mushroom : MonoBehaviour
     private float regenStepDelay = 0.2f; // time between each health step during restart
     private Coroutine restartCorutine;
     public bool isDone = false;
+    public bool Poison = false;
+    private MeshRenderer mr;
+    public Material pMat;
 
     // static tracking for global regen state
     //public static int regeneratingCount = 0;
@@ -32,12 +35,22 @@ public class Mushroom : MonoBehaviour
     {
         AC = FindAnyObjectByType<AudioController>();
         Player.mOnGameOver += onGameOver;
+        mr = GetComponent<MeshRenderer>();
         //isRegeneratingInstance = false;
         mushroomMfilter.sharedMesh = damageLevels[0];
     }
     private void OnDisable()
     {
         Player.mOnGameOver -= onGameOver;
+    }
+
+    private void Update()
+    {
+
+        if(Poison && mr.material != pMat)
+        {
+             mr.material = pMat;
+        }
     }
 
     private void TakeDamage()

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Tick : MonoBehaviour
 {
+    private scoretest scoretest => FindAnyObjectByType<scoretest>();
     [SerializeField]
     private float moveSpeed = 2f;
     [SerializeField]
@@ -53,6 +54,7 @@ public class Tick : MonoBehaviour
         {
             if (AC != null)
                 AC.PlayNormal(AC.tickHit, 3);
+            scoretest.scoreUpdate(200);
             Destroy(gameObject);
         }
     }

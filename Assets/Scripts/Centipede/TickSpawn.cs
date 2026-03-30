@@ -12,14 +12,20 @@ public class TickSpawn : MonoBehaviour
     private float SpawnInterval = 5f;
     [SerializeField]
     private float lBound, rBound;
+    private Centipede Centipede;
+
+    private void OnEnable()
+    {
+        Centipede = FindAnyObjectByType<Centipede>();
+    }
 
     private void Update()
     {
-        if(!MushroomScoreMarch.regenerating)
+        if (!MushroomScoreMarch.regenerating)
             SpawnOpprotunity += Time.deltaTime;
         if (SpawnOpprotunity >= SpawnInterval)
         {
-            if(Random.Range(0f, 1f) <= TickSpawnChance)
+            if(Random.Range(0f, 1f) <= TickSpawnChance && Centipede.level > 1)
                 SpawnTick();
             SpawnOpprotunity = 0f;
         }

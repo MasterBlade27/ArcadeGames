@@ -56,7 +56,9 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision Detected with " + collision.gameObject.name);
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Centipede") || collision.gameObject.name == "Spider")
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Centipede") 
+            || collision.gameObject.name == "SpiderFinal" 
+            || collision.gameObject.name == "SpiderFinal(Clone)")
         {
             LoseLife();
         }

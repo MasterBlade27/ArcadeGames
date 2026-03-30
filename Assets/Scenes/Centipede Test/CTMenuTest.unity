@@ -1980,7 +1980,7 @@ MonoBehaviour:
   mushroomPrefab: {fileID: 5402657108315819188, guid: 85564810e60ca9244b4211c0aa9b736d, type: 3}
   collisionMask:
     serializedVersion: 2
-    m_Bits: 2560
+    m_Bits: 3584
   homeArea: {fileID: 1952012110}
   size: 12
   speed: 20

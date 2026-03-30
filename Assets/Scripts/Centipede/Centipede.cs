@@ -18,7 +18,7 @@ public class Centipede : MonoBehaviour
 
     public float speed = 5f;
 
-    private int level = 0;
+    public int level = 0;
 
     [SerializeField]
     private AudioController AC;

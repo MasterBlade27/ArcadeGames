@@ -14,6 +14,9 @@ public class CentipedeSegment : MonoBehaviour
     private Vector3 direction = Vector3.right + Vector3.back;
     private Vector3 targetPosition;
 
+    // New: when true the head will dive straight down ignoring obstacles
+    private bool isDivingPoison = false;
+
     private void Awake()
     {
         targetPosition = transform.position;
@@ -55,27 +58,89 @@ public class CentipedeSegment : MonoBehaviour
     {
         Vector3 gridPosition = GridPosition(transform.position);
 
-        targetPosition.x += direction.x;
-
-        if (Physics.OverlapBox(targetPosition, new Vector3(0, 0, 0), Quaternion.identity, centipede.collisionMask).Length > 0)
-        { 
-            //Debug.Log("obstacle detected at " + checkCenter + " (" + hits.Length + " hits)");
-            direction.x = -direction.x;
+        // If currently diving due to poison, step straight down and ignore obstacle checks
+        if (isDivingPoison)
+        {
+            // ensure we're moving straight down
+            direction.x = 0f;
+            direction.z = -1f;
 
             targetPosition.x = gridPosition.x;
             targetPosition.z = gridPosition.z + direction.z;
 
             Bounds bounds = centipede.homeArea.bounds;
+            if (targetPosition.z < bounds.min.z)
+                targetPosition.z = bounds.min.z;
 
-            if((direction.z == 1f && targetPosition.z > bounds.max.z) || 
-                (direction.z == -1f && targetPosition.z < bounds.min.z))
+            // stop diving when we've reached the bottom row
+            if (gridPosition.z <= -36f)
             {
-                direction.z = -direction.z;
+                isDivingPoison = false;
+                direction.x = 1f;
+            }
+
+            if (behind != null)
+                behind.UpdateBodySegment();
+            Debug.Log("I'm diving bitch");
+            return;
+        }
+
+        // Normal horizontal step
+        targetPosition.x += direction.x;
+
+        // use a small half-extents box (not zero) and center it on the grid cell
+        Vector3 checkCenter = GridPosition(targetPosition);
+        Vector3 halfExtents = new Vector3(0.45f, 0.5f, 0.45f); // half extents in world units
+        Collider[] hits = Physics.OverlapBox(targetPosition, new Vector3(0, 0, 0), Quaternion.identity, centipede.collisionMask);
+
+        if (hits != null && hits.Length > 0)
+        {
+            // If any hit is a poisonous mushroom, enter poison-dive mode
+            bool foundPoison = false;
+            foreach (var col in hits)
+            {
+                if (col == null) continue;
+                Mushroom m = col.GetComponent<Mushroom>();
+                if (m != null && m.Poison)
+                {
+                    foundPoison = true;
+                    break;
+                }
+            }
+
+            if (foundPoison)
+            {
+                isDivingPoison = true;
+                // set to dive down immediately
+                direction.x = 0f;
+                direction.z = -1f;
+                targetPosition.x = gridPosition.x;
                 targetPosition.z = gridPosition.z + direction.z;
+
+                Bounds bounds = centipede.homeArea.bounds;
+                if (targetPosition.z < bounds.min.z)
+                    targetPosition.z = bounds.min.z;
+            }
+            else
+            {
+                // regular obstacle response: reverse horizontal dir and step down
+                direction.x = -direction.x;
+
+                targetPosition.x = gridPosition.x;
+                targetPosition.z = gridPosition.z + direction.z;
+
+                Bounds bounds = centipede.homeArea.bounds;
+
+                if ((direction.z == 1f && targetPosition.z > bounds.max.z) ||
+                    (direction.z == -1f && targetPosition.z < bounds.min.z))
+                {
+                    direction.z = -direction.z;
+                    targetPosition.z = gridPosition.z + direction.z;
+                }
             }
         }
 
-        if(behind != null)
+        if (behind != null)
             behind.UpdateBodySegment();
 
     }

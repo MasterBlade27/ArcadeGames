@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3147626423558329654}
   - component: {fileID: 7385050235398006206}
-  - component: {fileID: 150899023933665462}
   - component: {fileID: 6861752906886702181}
+  - component: {fileID: 6642019334194106069}
   m_Layer: 11
   m_Name: SpiderFinal
   m_TagString: Untagged
@@ -50,27 +50,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1024
---- !u!135 &150899023933665462
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2370385590381416332}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.5, z: 0}
+  speed: 5
 --- !u!54 &6861752906886702181
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,6 +78,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!65 &6642019334194106069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370385590381416332}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.91, y: 1, z: 0.86}
+  m_Center: {x: 0, y: 0.59, z: 0}
 --- !u!1001 &6346875799096311283
 PrefabInstance:
   m_ObjectHideFlags: 0

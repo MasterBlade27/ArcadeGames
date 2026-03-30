@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7083568570947485637}
   - component: {fileID: 5859205703733105504}
   - component: {fileID: 7692730036652984666}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MushroomFinal
-  m_TagString: Untagged
+  m_TagString: Mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,8 @@ MonoBehaviour:
   AC: {fileID: 0}
   regenStepDelay: 0.1
   isDone: 0
+  Poison: 0
+  pMat: {fileID: 2100000, guid: d33d8b87d9aa621478638ad59f1c22c0, type: 2}
 --- !u!208 &7692730036652984666
 NavMeshObstacle:
   m_ObjectHideFlags: 0

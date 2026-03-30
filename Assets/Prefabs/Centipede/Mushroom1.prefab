@@ -138,6 +138,7 @@ MonoBehaviour:
   AC: {fileID: 0}
   regenStepDelay: 0.1
   isDone: 0
+  Poison: 0
 --- !u!208 &5762485922877871003
 NavMeshObstacle:
   m_ObjectHideFlags: 0
