@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Cinemachine;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class RockFall : MonoBehaviour
 {
