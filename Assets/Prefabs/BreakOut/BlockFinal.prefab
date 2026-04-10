@@ -144,7 +144,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6661b5227c8154d9f6da70bdb6592f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawn
-  powerUpPrefab: {fileID: 8539397282913917906, guid: a20f5159f65541e45843d78625289a93, type: 3}
+  Demo: 0
+  powerUpPrefab:
+  - {fileID: 4828067028768584197, guid: 273cb4e48f1a3eb4e9964f0bcb7513f2, type: 3}
+  - {fileID: 7015956463879772443, guid: 5038a35ffd9392b419a27e7a26bc8e3b, type: 3}
+  - {fileID: 4905515173241826213, guid: d1ed1d5eb53c99a4d9ef7d666c7319fb, type: 3}
+  - {fileID: 1285817844272733590, guid: 2790af516a24ab34b8149fe1836b4f75, type: 3}
+  - {fileID: 7001245183744274492, guid: b5f28fea69e4fd749bf42efcf9759e36, type: 3}
+  - {fileID: 7640927859459360408, guid: ea4f9ce286fe80148a6175c3dbe79ef6, type: 3}
+  - {fileID: 4380907464934912355, guid: 9b94b2851c015f14f8564da34d71522a, type: 3}
+  - {fileID: 5519234587269045612, guid: 78eba1c12a9c8d54e8e78f100facda06, type: 3}
   AC: {fileID: 0}
   powerUpIcons:
   - {fileID: 2100000, guid: 4f061c9308ce3624998765359f76ed43, type: 2}

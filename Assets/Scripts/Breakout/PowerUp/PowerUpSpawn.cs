@@ -6,7 +6,7 @@ public class PowerUpSpawn : MonoBehaviour
     [SerializeField]
     private bool Demo;
     [SerializeField]
-    private GameObject powerUpPrefab;
+    private List<GameObject> powerUpPrefab = new List<GameObject>();
     [SerializeField]
     private AudioController AC;
     [SerializeField]
@@ -58,7 +58,7 @@ public class PowerUpSpawn : MonoBehaviour
             if(AC != null)
                 AC.PlayVol(0.5f, AC.powerupSpawn, 0);
     
-            powerUp = Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
+            powerUp = Instantiate(powerUpPrefab[pUp], transform.position, powerUpPrefab[pUp].transform.rotation);
             powerUp.GetComponent<PowerUp>().pUp = pUp;
             iconObj.SetActive(false);
         }
