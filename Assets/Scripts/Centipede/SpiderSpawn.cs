@@ -12,6 +12,8 @@ public class SpiderSpawn : MonoBehaviour
     private float SpawnInterval = 5f;
     [SerializeField]
     private Vector3 spawnPos;
+    [SerializeField]
+    private Vector2 spawnXBounds;
 
     private void Update()
     {
@@ -30,6 +32,7 @@ public class SpiderSpawn : MonoBehaviour
         Debug.Log("Attempting to spawn spider...");
         if (FindAnyObjectByType<Spider>())
             return;
+        spawnPos.x = Random.Range(spawnXBounds.x, spawnXBounds.y);
         Instantiate(SpiderPrefab, spawnPos, Quaternion.identity);
     }
 }

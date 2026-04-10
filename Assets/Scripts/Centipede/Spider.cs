@@ -46,7 +46,7 @@ public class Spider : MonoBehaviour
             }
         }
         else
-            transform.position += new Vector3(xMove, 0, zMove) * Time.deltaTime * 20f;
+            transform.position += new Vector3(xMove, 0, zMove) /* Time.deltaTime */ * movespeed;
         if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitinfo ,0.5f, collisionMask))
         {
             Destroy(hitinfo.transform.gameObject);

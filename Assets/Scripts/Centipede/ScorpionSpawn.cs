@@ -10,6 +10,8 @@ public class ScorpionSpawn : MonoBehaviour
     private float sSpawnChance = 0.3f;
     [SerializeField]
     private float SpawnInterval = 5f;
+    [SerializeField]
+    private int SpawnLevel = 1;
 
     private Centipede Centipede;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,7 +27,8 @@ public class ScorpionSpawn : MonoBehaviour
             SpawnOpprotunity += Time.deltaTime;
         if (SpawnOpprotunity >= SpawnInterval)
         {
-            if (Random.Range(0f, 1f) <= sSpawnChance && Centipede.level > 2)
+            Scorpion scorpion = FindAnyObjectByType<Scorpion>();
+            if (Random.Range(0f, 1f) <= sSpawnChance && Centipede.level >= SpawnLevel && scorpion == null)
                 SpawnS();
             SpawnOpprotunity = 0f;
         }

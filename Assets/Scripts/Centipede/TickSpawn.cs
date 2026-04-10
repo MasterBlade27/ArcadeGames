@@ -12,6 +12,8 @@ public class TickSpawn : MonoBehaviour
     private float SpawnInterval = 5f;
     [SerializeField]
     private float lBound, rBound;
+    [SerializeField]
+    private int SpawnLevel = 1;
     private Centipede Centipede;
 
     private void OnEnable()
@@ -25,7 +27,7 @@ public class TickSpawn : MonoBehaviour
             SpawnOpprotunity += Time.deltaTime;
         if (SpawnOpprotunity >= SpawnInterval)
         {
-            if(Random.Range(0f, 1f) <= TickSpawnChance && Centipede.level > 1)
+            if(Random.Range(0f, 1f) <= TickSpawnChance && Centipede.level >= SpawnLevel)
                 SpawnTick();
             SpawnOpprotunity = 0f;
         }

@@ -50,7 +50,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1024
-  speed: 5
+  speed: 15
 --- !u!54 &6861752906886702181
 Rigidbody:
   m_ObjectHideFlags: 0
