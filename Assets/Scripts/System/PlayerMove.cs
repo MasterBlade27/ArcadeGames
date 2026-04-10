@@ -127,6 +127,15 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""cb11b16f-9581-498b-a5ab-006a1cb194ba"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -602,6 +611,39 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad258ecc-9486-4d79-a31b-0cd508a2679c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d36066f-e89d-4ba5-b204-7b12e1c8e68b"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdb4b675-b202-4978-a429-d5e660b95a7b"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -808,6 +850,7 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
         m_Movement_Play = m_Movement.FindAction("Play", throwIfNotFound: true);
         m_Movement_FullMove = m_Movement.FindAction("FullMove", throwIfNotFound: true);
         m_Movement_Escape = m_Movement.FindAction("Escape", throwIfNotFound: true);
+        m_Movement_Select = m_Movement.FindAction("Select", throwIfNotFound: true);
         // CheatCode
         m_CheatCode = asset.FindActionMap("CheatCode", throwIfNotFound: true);
         m_CheatCode_Up = m_CheatCode.FindAction("Up", throwIfNotFound: true);
@@ -901,6 +944,7 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Play;
     private readonly InputAction m_Movement_FullMove;
     private readonly InputAction m_Movement_Escape;
+    private readonly InputAction m_Movement_Select;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -928,6 +972,10 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Escape".
         /// </summary>
         public InputAction @Escape => m_Wrapper.m_Movement_Escape;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Select".
+        /// </summary>
+        public InputAction @Select => m_Wrapper.m_Movement_Select;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -966,6 +1014,9 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
         }
 
         /// <summary>
@@ -989,6 +1040,9 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
         }
 
         /// <summary>
@@ -1208,6 +1262,13 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEscape(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Select" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelect(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CheatCode" which allows adding and removing callbacks.

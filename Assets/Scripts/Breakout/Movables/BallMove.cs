@@ -82,6 +82,7 @@ public class BallMove : MonoBehaviour
 
     private void Update()
     {
+        //Play Demo
         if (Starto && !Demo)
         {
             transform.position = Paddle.transform.position + Vector3.up * 0.5f;
@@ -101,6 +102,7 @@ public class BallMove : MonoBehaviour
             }
         }
 
+        //Menu Show
         else if (Starto && Demo)
         {
             //Starting Movement for the Ball
@@ -130,27 +132,34 @@ public class BallMove : MonoBehaviour
         Vel = RB.linearVelocity;
 
         //Corrects Ball's Speed if decreased due to Bouncing
-        if(speed != Vel.magnitude)
+        if (speed != Vel.magnitude)
         {
             //Course Correction
             RB.linearVelocity = Vel.normalized * speed;
         }
 
         //Anti Stuck Correction
-        if(Stuck)
+        if (Stuck)
         {
             Stuck = false;
             Vector3 fforce;
 
-            if(RB.linearVelocity.y > 0f)
+            if (RB.linearVelocity.y > 0f)
                 fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(0.5f, 0.75f), 0f);
             else
                 fforce = new Vector3(Random.Range(-0.75f, 0.75f), Random.Range(-0.5f, -0.75f), 0f);
-            
+
             RB.AddForce(fforce * 2, ForceMode.VelocityChange);
         }
 
-        BallAmt = FindObjectsByType<BallMove>(FindObjectsSortMode.InstanceID).Length;
+        int count = 0;
+        foreach (Restart rs in FindObjectsByType<Restart>(FindObjectsSortMode.None))
+        {
+            if (rs.DeadBall == false)
+                count++;
+        }
+
+        BallAmt = count;
     }
 
     //Test for if the Ball hits anything

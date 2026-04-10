@@ -68,7 +68,10 @@ public class ScoreName : MonoBehaviour
         bool Checker;
 
         if (SC != null)
+        {
             totalscore = SC.GiveScore();
+            RT = FindAnyObjectByType<Restart>();
+        }
         if (ST != null)
             totalscore = ST.GiveScore();
 

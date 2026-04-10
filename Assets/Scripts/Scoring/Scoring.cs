@@ -12,6 +12,7 @@ public class Scoring : MonoBehaviour
     [SerializeField]
     private List<int> score;
 
+    [SerializeField]
     private int scoreCount = 0;
 
     HSHandler HSH;
