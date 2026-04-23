@@ -27,7 +27,7 @@ public class RespawnBall : MonoBehaviour
     private IEnumerator KILLRESET()
     {
         BallPos = FindAnyObjectByType<BallMove>().transform.position;
-        FindObjectOfType<BallMove>().gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        FindAnyObjectByType<BallMove>().gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         yield return new WaitForEndOfFrame();
         transform.position = BallPos;
         yield return new WaitForSeconds(2);

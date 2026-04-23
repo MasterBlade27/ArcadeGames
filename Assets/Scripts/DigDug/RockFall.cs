@@ -7,7 +7,8 @@ public class RockFall : MonoBehaviour
     public Collider Checker, RockSelf;
     public List<GameObject> Dirts = new List<GameObject>();
     [SerializeField]
-    private bool FALL, STFall;
+    private bool FALL;
+    public bool STFall;
 
     private void OnEnable()
     {
@@ -36,7 +37,7 @@ public class RockFall : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         Debug.Log("Hey");
-        if (!FALL && Dirts.Count >= 50)
+        if (!FALL && Dirts.Count >= 36)
         {
             Debug.Log("STOPPP");
             STFall = false;

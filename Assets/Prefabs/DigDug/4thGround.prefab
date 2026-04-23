@@ -124,7 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &172662850004805859
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &189498635867463647
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &306768235543034144
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &435165760221706977
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &591788172166336870
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +794,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &683689662150016263
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +921,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &744242197659431016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1048,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &834164607278762208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &838990315638943584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &967025653007517147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &1072160213527230833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,7 +1446,7 @@ GameObject:
   - component: {fileID: 1753170581266781614}
   - component: {fileID: 7071207045812046122}
   m_Layer: 0
-  m_Name: Q4
+  m_Name: Q4 C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1534,7 +1556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 2232291440808769001}
+  HCorner: {fileID: 2805999215148554213}
+  CORN: 1
 --- !u!1 &1246189161795914947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,7 +1683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &1397897839908608497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &1411698155452698880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,7 +1937,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &1666438717012471162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,7 +2064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &1817355121349022029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &1861001712373190447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,7 +2318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2047715869092008117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2080782697323168015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,7 +2572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2232291440808769001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,7 +2589,7 @@ GameObject:
   - component: {fileID: 6940989660053063098}
   - component: {fileID: 6928356948902770685}
   m_Layer: 0
-  m_Name: Q4
+  m_Name: Q4 V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2659,7 +2699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2571976997142851822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,7 +2826,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2720889155910132201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,7 +2953,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2763103091436113172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,7 +3080,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2782206019984238225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,7 +3207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &2805999215148554213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3174,7 +3224,7 @@ GameObject:
   - component: {fileID: 2961051381356530506}
   - component: {fileID: 7123429482228411018}
   m_Layer: 0
-  m_Name: Q4
+  m_Name: Q4 H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3284,7 +3334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3128097645045977554
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,7 +3461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3131455410104278123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,7 +3478,7 @@ GameObject:
   - component: {fileID: 3262265216958076832}
   - component: {fileID: 143593017007388941}
   m_Layer: 0
-  m_Name: Q2
+  m_Name: Q2 H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3534,7 +3588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3134948003633862493
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,7 +3715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3201785854913181886
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,7 +3842,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3386190139699333639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,7 +3969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3470881486065402136
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,7 +4096,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3524288001509424093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,7 +4223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3588027404870960663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4284,7 +4350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3695138254046834732
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,7 +4477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3704521335231163132
 GameObject:
   m_ObjectHideFlags: 0
@@ -4590,7 +4660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3853704093988735866
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,7 +4787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3886963002786319281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4840,7 +4914,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3905455970486095790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,7 +5041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &3960248214585445994
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,7 +5168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &4168671129671102061
 GameObject:
   m_ObjectHideFlags: 0
@@ -5271,7 +5351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &4329746764772207792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,7 +5478,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &4341996744934395578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5521,7 +5605,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &4380384400004844703
 GameObject:
   m_ObjectHideFlags: 0
@@ -5646,7 +5732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &4460943886665052744
 GameObject:
   m_ObjectHideFlags: 0
@@ -5661,7 +5749,7 @@ GameObject:
   - component: {fileID: 6664664785841492391}
   - component: {fileID: 6487434511649448827}
   m_Layer: 0
-  m_Name: Q3
+  m_Name: Q3 C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5771,7 +5859,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 5434941830993130951}
+  HCorner: {fileID: 9087467279596837632}
+  CORN: 1
 --- !u!1 &4626295119670834651
 GameObject:
   m_ObjectHideFlags: 0
@@ -5896,7 +5986,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5009254514430434779
 GameObject:
   m_ObjectHideFlags: 0
@@ -6021,7 +6113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5077329123434047772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6146,7 +6240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5133738708074490634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6271,7 +6367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5200289230584390036
 GameObject:
   m_ObjectHideFlags: 0
@@ -6396,7 +6494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5234782208465757058
 GameObject:
   m_ObjectHideFlags: 0
@@ -6521,7 +6621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5286967159442264159
 GameObject:
   m_ObjectHideFlags: 0
@@ -6646,7 +6748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5351317655642372225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6771,7 +6875,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5434941830993130951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,7 +6892,7 @@ GameObject:
   - component: {fileID: 8691318356959173140}
   - component: {fileID: 7027976454535463006}
   m_Layer: 0
-  m_Name: Q3
+  m_Name: Q3 V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6896,7 +7002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5523538819473525518
 GameObject:
   m_ObjectHideFlags: 0
@@ -7021,7 +7129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5566292198860282649
 GameObject:
   m_ObjectHideFlags: 0
@@ -7146,7 +7256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5568049682805432124
 GameObject:
   m_ObjectHideFlags: 0
@@ -7271,7 +7383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5752722967735594409
 GameObject:
   m_ObjectHideFlags: 0
@@ -7396,7 +7510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &5797758411654871161
 GameObject:
   m_ObjectHideFlags: 0
@@ -7521,7 +7637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6002180264298953641
 GameObject:
   m_ObjectHideFlags: 0
@@ -7646,7 +7764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6065014537001497825
 GameObject:
   m_ObjectHideFlags: 0
@@ -7771,7 +7891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6282811020231704480
 GameObject:
   m_ObjectHideFlags: 0
@@ -7896,7 +8018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6375694573520763775
 GameObject:
   m_ObjectHideFlags: 0
@@ -8021,7 +8145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6567304523588295935
 GameObject:
   m_ObjectHideFlags: 0
@@ -8146,7 +8272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6627359080544933472
 GameObject:
   m_ObjectHideFlags: 0
@@ -8271,7 +8399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6652367836895188687
 GameObject:
   m_ObjectHideFlags: 0
@@ -8286,7 +8416,7 @@ GameObject:
   - component: {fileID: 821987844347070704}
   - component: {fileID: 7581282887376119576}
   m_Layer: 0
-  m_Name: Q1
+  m_Name: Q1 C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8396,7 +8526,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 7486505071082593219}
+  HCorner: {fileID: 8996163898371990920}
+  CORN: 1
 --- !u!1 &6764760965358148019
 GameObject:
   m_ObjectHideFlags: 0
@@ -8521,7 +8653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6792363236416841044
 GameObject:
   m_ObjectHideFlags: 0
@@ -8646,7 +8780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6811191438566849982
 GameObject:
   m_ObjectHideFlags: 0
@@ -8661,7 +8797,7 @@ GameObject:
   - component: {fileID: 8064249241637249354}
   - component: {fileID: 8831286401773841350}
   m_Layer: 0
-  m_Name: Q2
+  m_Name: Q2 C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8771,7 +8907,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 8745463809057978845}
+  HCorner: {fileID: 3131455410104278123}
+  CORN: 1
 --- !u!1 &6817726798362754538
 GameObject:
   m_ObjectHideFlags: 0
@@ -8896,7 +9034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &6820533181059919591
 GameObject:
   m_ObjectHideFlags: 0
@@ -9021,7 +9161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7216991401091675510
 GameObject:
   m_ObjectHideFlags: 0
@@ -9146,7 +9288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7220204740918713009
 GameObject:
   m_ObjectHideFlags: 0
@@ -9271,7 +9415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7357767816068299305
 GameObject:
   m_ObjectHideFlags: 0
@@ -9396,7 +9542,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7402705030789003243
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,7 +9669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7416296231112985546
 GameObject:
   m_ObjectHideFlags: 0
@@ -9702,7 +9852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7486505071082593219
 GameObject:
   m_ObjectHideFlags: 0
@@ -9717,7 +9869,7 @@ GameObject:
   - component: {fileID: 4410952859872371528}
   - component: {fileID: 3009529941131469494}
   m_Layer: 0
-  m_Name: Q1
+  m_Name: Q1 V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9827,7 +9979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7500713305894537047
 GameObject:
   m_ObjectHideFlags: 0
@@ -9952,7 +10106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7612267092719471234
 GameObject:
   m_ObjectHideFlags: 0
@@ -10077,7 +10233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7672939751957442879
 GameObject:
   m_ObjectHideFlags: 0
@@ -10202,7 +10360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7704584425177484467
 GameObject:
   m_ObjectHideFlags: 0
@@ -10327,7 +10487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7783441155094622773
 GameObject:
   m_ObjectHideFlags: 0
@@ -10452,7 +10614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7783741177739196838
 GameObject:
   m_ObjectHideFlags: 0
@@ -10577,7 +10741,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7800233758729890817
 GameObject:
   m_ObjectHideFlags: 0
@@ -10702,7 +10868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &7930525092735908787
 GameObject:
   m_ObjectHideFlags: 0
@@ -10827,7 +10995,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8074515309779458970
 GameObject:
   m_ObjectHideFlags: 0
@@ -10952,7 +11122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8190605609504640470
 GameObject:
   m_ObjectHideFlags: 0
@@ -11077,7 +11249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8190910198816808465
 GameObject:
   m_ObjectHideFlags: 0
@@ -11258,7 +11432,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8405097386845535079
 GameObject:
   m_ObjectHideFlags: 0
@@ -11383,7 +11559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8529451156063809692
 GameObject:
   m_ObjectHideFlags: 0
@@ -11508,7 +11686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8529499192686905713
 GameObject:
   m_ObjectHideFlags: 0
@@ -11633,7 +11813,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8570424742239841367
 GameObject:
   m_ObjectHideFlags: 0
@@ -11758,7 +11940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8719199480408213777
 GameObject:
   m_ObjectHideFlags: 0
@@ -11883,7 +12067,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8745463809057978845
 GameObject:
   m_ObjectHideFlags: 0
@@ -11898,7 +12084,7 @@ GameObject:
   - component: {fileID: 3723793838587437924}
   - component: {fileID: 8238193388812439322}
   m_Layer: 0
-  m_Name: Q2
+  m_Name: Q2 V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12008,7 +12194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8915495615580438142
 GameObject:
   m_ObjectHideFlags: 0
@@ -12133,7 +12321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8996163898371990920
 GameObject:
   m_ObjectHideFlags: 0
@@ -12148,7 +12338,7 @@ GameObject:
   - component: {fileID: 3880377897747906411}
   - component: {fileID: 3931402104082157608}
   m_Layer: 0
-  m_Name: Q1
+  m_Name: Q1 H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12258,7 +12448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &8996849784551648363
 GameObject:
   m_ObjectHideFlags: 0
@@ -12383,7 +12575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &9087467279596837632
 GameObject:
   m_ObjectHideFlags: 0
@@ -12398,7 +12592,7 @@ GameObject:
   - component: {fileID: 8206465168790084570}
   - component: {fileID: 8430270515540302589}
   m_Layer: 0
-  m_Name: Q3
+  m_Name: Q3 H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12508,7 +12702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &9139588083381481652
 GameObject:
   m_ObjectHideFlags: 0
@@ -12633,7 +12829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0
 --- !u!1 &9221481574652722984
 GameObject:
   m_ObjectHideFlags: 0
@@ -12758,4 +12956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b50c1c50bc4b234985a50d03327c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiggingHoles
-  Dirt: {fileID: 0}
+  VCorner: {fileID: 0}
+  HCorner: {fileID: 0}
+  CORN: 0

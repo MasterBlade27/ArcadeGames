@@ -1,6 +1,7 @@
 using System.Collections;
+using System.IO.Compression;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public class DigMovement : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class DigMovement : MonoBehaviour
     [SerializeField]
     private bool XFloat, YFloat;
     [SerializeField]
-    private Collider RWall, LWall, Floor;
-    private float RBd, LBd, FBd;
+    private Collider RWall, LWall, Floor, Top;
+    private float RBd, LBd, FBd, TBd;
 
     [SerializeField]
     private AudioController AC;
@@ -29,6 +30,7 @@ public class DigMovement : MonoBehaviour
         RBd = RWall.transform.position.x - 10;
         LBd = LWall.transform.position.x + 10;
         FBd = Floor.transform.position.z + 10;
+        TBd = Top.transform.position.z - 10;
     }
 
     private void OnDisable()
@@ -46,8 +48,6 @@ public class DigMovement : MonoBehaviour
     {
         while (true)
         {
-            Vector3 Normals = Vector3.zero;
-
             //Reads Player's Input
             directionx = pInput.Movement.FullMove.ReadValue<Vector2>().x;
             directiony = pInput.Movement.FullMove.ReadValue<Vector2>().y;
@@ -79,26 +79,26 @@ public class DigMovement : MonoBehaviour
                 ChangeAxY();
 
             yield return new WaitForSeconds(0.15f);
+            OddNumb();
         }
     }
 
     private void MOVERIGHT()
     {
-//        if ()
-
         if (transform.position.x < RBd)
             transform.position += Vector3.right * 2f;
     }
 
     private void MOVELEFT()
     {
-        if(transform.position.x > LBd)
+        if (transform.position.x > LBd)
             transform.position += Vector3.left * 2f;
     }
 
     private void MOVEUP()
     {
-        transform.position += Vector3.forward * 2f;
+        if (transform.position.z < TBd)
+            transform.position += Vector3.forward * 2f;
     }
 
     private void MOVEDOWN()
@@ -144,5 +144,24 @@ public class DigMovement : MonoBehaviour
         {
             MOVEDOWN();
         }
+    }
+    
+    private void OddNumb()
+    {
+        float XF = transform.position.x;
+        float ZF = transform.position.z;
+        if (XF % 2 == 0 && ZF % 2 == 0)
+            return;
+
+        XF = Mathf.RoundToInt(XF);
+        while (XF % 2 != 0)
+            XF++;
+
+        ZF = Mathf.RoundToInt(ZF);
+        while (ZF % 2 != 0)
+            ZF++;
+
+        Debug.Log(XF + " " + ZF);
+        transform.position = new Vector3(XF, transform.position.y, ZF);
     }
 }

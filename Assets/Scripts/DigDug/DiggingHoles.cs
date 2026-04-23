@@ -3,16 +3,16 @@ using UnityEngine;
 public class DiggingHoles : MonoBehaviour
 {
     [SerializeField]
-    private MeshRenderer Dirt;
-    private Collider Box;
+    private GameObject VCorner, HCorner;
+    [SerializeField]
+    private bool CORN;
     private RockFall Rocky;
 
-    void Start()
+    private void Update()
     {
-        Box = GetComponent<Collider>();
-        Box.enabled = true;
-        Dirt = GetComponent<MeshRenderer>();
-        Dirt.enabled = true;
+        if (CORN)
+            if (!VCorner.activeSelf && !HCorner.activeSelf)
+                this.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,8 +23,6 @@ public class DiggingHoles : MonoBehaviour
                 Rocky.Dirts.Remove(this.gameObject);
 
             this.gameObject.SetActive(false);
-//            Box.enabled = false;
-  //          Dirt.enabled = false;
         }
 
         if (other.gameObject.GetComponentInParent<RockFall>() != null)
@@ -33,6 +31,12 @@ public class DiggingHoles : MonoBehaviour
 
             if (other == Rocky.Checker)
                 Rocky.Dirts.Add(this.gameObject);
+
+            if (other == Rocky.RockSelf && Rocky.STFall)
+            {
+                Rocky.Dirts.Remove(this.gameObject);
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }
