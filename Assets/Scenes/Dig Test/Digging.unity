@@ -10900,7 +10900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &534600274
 Transform:
   m_ObjectHideFlags: 0
@@ -11813,7 +11813,7 @@ GameObject:
   - component: {fileID: 584400905}
   m_Layer: 0
   m_Name: TopBox
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11937,7 +11937,7 @@ MonoBehaviour:
   - {fileID: 18271}
   - {fileID: 1313979165}
   - {fileID: 2009970442}
-  LvlCount: 0
+  LvlCount: 1
   LvlChange: 0
 --- !u!1001 &587130060
 PrefabInstance:
@@ -14331,6 +14331,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8142345391335697806, guid: d373e09ddc70a7449ada3dc9d3845c4f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142345391335697806, guid: d373e09ddc70a7449ada3dc9d3845c4f, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15415,7 +15423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &759291880
 Transform:
   m_ObjectHideFlags: 0
@@ -19180,7 +19188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &953891831
 Transform:
   m_ObjectHideFlags: 0
@@ -24696,7 +24704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1199403236
 CapsuleCollider:
   m_ObjectHideFlags: 0

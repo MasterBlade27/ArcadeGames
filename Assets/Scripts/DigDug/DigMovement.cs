@@ -26,7 +26,7 @@ public class DigMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        DrillerP = Drill.GetComponent<DrillShoot>();
+        DrillerP = Drill.GetComponentInChildren<DrillShoot>();
 
         pInput = new PlayerMove();
         pInput.Enable();
@@ -202,13 +202,16 @@ public class DigMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Block"))
-            Drill.SetActive(true);
+        Debug.Log(other.tag);
+//        if (other.CompareTag("Block"))
+  //          Drill.SetActive(true);
     }
+
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Block"))
-            Drill.SetActive(false);
+    //    if (other.CompareTag("Block"))
+      //      Drill.SetActive(false);
     }
+
 }
