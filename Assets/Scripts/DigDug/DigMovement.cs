@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System.Collections;
 using System.IO.Compression;
 using UnityEditor.ShaderGraph;
@@ -7,6 +8,9 @@ public class DigMovement : MonoBehaviour
 {
     //pInput = Paddle/Player Input
     private PlayerMove pInput;
+    [SerializeField]
+    private GameObject Drill;
+    private DrillShoot DrillerP;
     [SerializeField]
     private Vector3 POS;
     [SerializeField]
@@ -22,6 +26,8 @@ public class DigMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        DrillerP = Drill.GetComponent<DrillShoot>();
+
         pInput = new PlayerMove();
         pInput.Enable();
 
@@ -48,13 +54,25 @@ public class DigMovement : MonoBehaviour
     {
         while (true)
         {
+            if (pInput.Movement.Play.IsPressed())
+            {
+                Drill.SetActive(true);
+                DrillerP.Extend();
+                yield return new WaitUntil(() => DrillerP.ExPu == null);
+            }
+
             //Reads Player's Input
             directionx = pInput.Movement.FullMove.ReadValue<Vector2>().x;
             directiony = pInput.Movement.FullMove.ReadValue<Vector2>().y;
 
+            if (directionx != 0 || directiony != 0)
+                DrillerP.Direction(directionx, directiony);
+
             //Normalize and Multiply the Direction of the Player
             if (directionx != 0 && YFloat)
             {
+                transform.rotation = Quaternion.identity;
+
                 Debug.Log("X MOVE");
                 if (directionx > 0)
                     MOVERIGHT();
@@ -85,24 +103,41 @@ public class DigMovement : MonoBehaviour
 
     private void MOVERIGHT()
     {
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),
+                                            transform.localScale.y,
+                                            transform.localScale.z);
+
         if (transform.position.x < RBd)
             transform.position += Vector3.right * 2f;
     }
 
     private void MOVELEFT()
     {
+        transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x),
+                                            transform.localScale.y,
+                                            transform.localScale.z);
         if (transform.position.x > LBd)
             transform.position += Vector3.left * 2f;
     }
 
     private void MOVEUP()
     {
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),
+                                            transform.localScale.y,
+                                            transform.localScale.z);
+        transform.rotation = Quaternion.Euler(0, -90, 0);
+
         if (transform.position.z < TBd)
             transform.position += Vector3.forward * 2f;
     }
 
     private void MOVEDOWN()
     {
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),
+                                            transform.localScale.y,
+                                            transform.localScale.z);
+        transform.rotation = Quaternion.Euler(0, 90, 0);
+
         if (transform.position.z > FBd)
             transform.position += Vector3.back * 2f;
     }
@@ -163,5 +198,17 @@ public class DigMovement : MonoBehaviour
 
         Debug.Log(XF + " " + ZF);
         transform.position = new Vector3(XF, transform.position.y, ZF);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Block"))
+            Drill.SetActive(true);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Block"))
+            Drill.SetActive(false);
     }
 }

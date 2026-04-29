@@ -49,7 +49,6 @@ public class QuickEscape : MonoBehaviour
 
         if (CT)
         {
-//            RS.CentiReset();
             CTP = FindAnyObjectByType<Player>();
             CTP.lives = 0;
             CTP.LoseLife();
