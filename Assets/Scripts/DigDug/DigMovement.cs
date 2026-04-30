@@ -1,7 +1,4 @@
-using Mono.Cecil;
 using System.Collections;
-using System.IO.Compression;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class DigMovement : MonoBehaviour
@@ -23,6 +20,8 @@ public class DigMovement : MonoBehaviour
 
     [SerializeField]
     private AudioController AC;
+
+    public bool PumpinAction;
 
     private void OnEnable()
     {
@@ -54,7 +53,7 @@ public class DigMovement : MonoBehaviour
     {
         while (true)
         {
-            if (pInput.Movement.Play.IsPressed())
+            if (pInput.Movement.Play.IsPressed() && !PumpinAction)
             {
                 Drill.SetActive(true);
                 DrillerP.Extend();
@@ -66,7 +65,10 @@ public class DigMovement : MonoBehaviour
             directiony = pInput.Movement.FullMove.ReadValue<Vector2>().y;
 
             if (directionx != 0 || directiony != 0)
+            {
+                PumpinAction = false;
                 DrillerP.Direction(directionx, directiony);
+            }
 
             //Normalize and Multiply the Direction of the Player
             if (directionx != 0 && YFloat)
@@ -202,16 +204,15 @@ public class DigMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
-//        if (other.CompareTag("Block"))
-  //          Drill.SetActive(true);
+        if (other.CompareTag("Block"))
+            Drill.SetActive(true);
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-    //    if (other.CompareTag("Block"))
-      //      Drill.SetActive(false);
+        if (other.CompareTag("Block"))
+            Drill.SetActive(false);
     }
 
 }

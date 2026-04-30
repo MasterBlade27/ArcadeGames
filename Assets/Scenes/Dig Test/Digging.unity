@@ -17925,6 +17925,7 @@ MonoBehaviour:
   Floor: {fileID: 1110699353}
   Top: {fileID: 584400903}
   AC: {fileID: 0}
+  PumpinAction: 0
 --- !u!54 &867741871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40199,22 +40200,6 @@ PrefabInstance:
     - target: {fileID: 2209506179754434901, guid: 29d100964e22c504e96d49376e603c15, type: 3}
       propertyPath: m_Name
       value: PEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2209506179754434901, guid: 29d100964e22c504e96d49376e603c15, type: 3}
-      propertyPath: m_TagString
-      value: Centipede
-      objectReference: {fileID: 0}
-    - target: {fileID: 2639967393646848661, guid: 29d100964e22c504e96d49376e603c15, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2639967393646848661, guid: 29d100964e22c504e96d49376e603c15, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2639967393646848661, guid: 29d100964e22c504e96d49376e603c15, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2639967393646848661, guid: 29d100964e22c504e96d49376e603c15, type: 3}
       propertyPath: m_LocalPosition.x

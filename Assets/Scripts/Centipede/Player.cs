@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     private bool Cheats;
 
-    public int lives = 3;
+    public int lives = 5;
     [SerializeField]
     private TextMeshProUGUI livetext;
     [SerializeField]

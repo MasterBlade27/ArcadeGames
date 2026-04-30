@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using UnityEngine;
 
 public class DrillShoot : MonoBehaviour
@@ -9,6 +10,8 @@ public class DrillShoot : MonoBehaviour
     private int length;
     private Vector3 Dir, ExOriSca, ExOriPos, DrillOriPos;
     public Coroutine ExPu;
+
+    public static event Action Pumping;
 
     private void Start()
     {
@@ -57,7 +60,7 @@ public class DrillShoot : MonoBehaviour
         ExPu = null;
     }
 
-    private void ResetPump()
+    public void ResetPump()
     {
         length = 0;
         Rope.transform.localScale = ExOriSca;
@@ -65,12 +68,16 @@ public class DrillShoot : MonoBehaviour
         Drill.transform.localPosition = DrillOriPos;
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Centipede"))
         {
-
+            Pumping();
+            if (ExPu != null)
+            {
+                StopCoroutine(ExPu);
+                ExPu = null;
+            }
         }
 
         if (other.CompareTag("Block"))
