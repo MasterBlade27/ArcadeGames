@@ -27,14 +27,14 @@ public class CheatCode : MonoBehaviour
 
     private void OnDisable()
     {
-        KInput.Disable();
-
         KInput.CheatCode.Up.performed -= ctx => AddInput("U");
         KInput.CheatCode.Down.performed -= ctx => AddInput("D");
         KInput.CheatCode.Left.performed -= ctx => AddInput("L");
         KInput.CheatCode.Right.performed -= ctx => AddInput("R");
         KInput.CheatCode.B.performed -= ctx => AddInput("B");
         KInput.CheatCode.A.performed -= ctx => AddInput("A");
+
+        KInput.Disable();
     }
 
     private void Update()

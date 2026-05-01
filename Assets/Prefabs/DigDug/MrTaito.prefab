@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 10.5, y: 10.5, z: 10.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2405526520643457176}
@@ -106,6 +106,7 @@ MonoBehaviour:
   Floor: {fileID: 0}
   Top: {fileID: 0}
   AC: {fileID: 0}
+  PumpinAction: 0
 --- !u!54 &4690190790277373194
 Rigidbody:
   m_ObjectHideFlags: 0
