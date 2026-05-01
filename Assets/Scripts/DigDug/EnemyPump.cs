@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class EnemyPump : MonoBehaviour
 {
-    [SerializeField]
-    private int Inflate;
+    public int Inflate;
     [SerializeField]
     private float DeflationTime;
     [SerializeField] 
