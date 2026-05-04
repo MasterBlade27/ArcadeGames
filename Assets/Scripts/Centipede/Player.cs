@@ -144,4 +144,10 @@ public class Player : MonoBehaviour
             lives += 100;
         }
     }
+
+    public void AddLife()
+    {
+        lives++;
+        AC.PlayVol(1f, AC.nextLevel, 0);
+    }
 }

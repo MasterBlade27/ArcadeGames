@@ -6,14 +6,19 @@ public class Scorpion : MonoBehaviour
     [SerializeField]
     private float speed = 2f;
     private float timePassed = 0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [SerializeField]
+    private AudioController AC;
+
+    private void Start()
     {
-        
+        AC = FindAnyObjectByType<AudioController>();
+
+        if (AC != null)
+            AC.PlayRandom(AC.scorpionSounds, Random.Range(0, AC.scorpionSounds.Count), 5);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         timePassed += Time.deltaTime;
         transform.position += Vector3.right * speed * Time.deltaTime;
@@ -33,8 +38,14 @@ public class Scorpion : MonoBehaviour
         }
         if(other.CompareTag("Projectile"))
         {
+            if (AC != null)
+            {
+                AC.StopVol(5);
+                AC.PlayNormal(AC.scorpionHit, 5);
+            }
+
             if (scoretest != null)
-                scoretest.scoreUpdate(500);
+                scoretest.scoreUpdate(1000);
             Destroy(gameObject);
         }
     }

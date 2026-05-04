@@ -11,9 +11,15 @@ public class Spider : MonoBehaviour
     private bool ud = false;
     public float speed = 10f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private AudioController AC;
+
     void Start()
     {
+        AC = FindAnyObjectByType<AudioController>();
+        if (AC != null)
+            AC.PlayRandom(AC.spiderSounds, Random.Range(0, AC.spiderSounds.Count), 4);
+
         Player.gameReset += onReset;
     }
     private void OnDisable()
@@ -58,7 +64,14 @@ public class Spider : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             if (scoretest != null)
-                scoretest.scoreUpdate(200);
+                scoretest.scoreUpdate(300);
+
+            if (AC != null)
+            {
+                AC.StopVol(4);
+                AC.PlayNormal(AC.spiderHit, 4);
+            }
+
             Destroy(gameObject);
         }
         else if (collision.gameObject.name == "sBarrier")

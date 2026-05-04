@@ -22,9 +22,9 @@ public class QuickEscape : MonoBehaviour
 
     private void OnDisable()
     {
-        pInput.Disable();
-
         pInput.Movement.Escape.performed -= ctx => PressEsc(true);
+
+        pInput.Disable();
     }
 
     void Update()
@@ -56,7 +56,7 @@ public class QuickEscape : MonoBehaviour
 
         if (DD)
         {
-
+            FindFirstObjectByType<TransitionLoad>().enabled = true;
         }
     }
 

@@ -53,7 +53,10 @@ public class Tick : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             if (AC != null)
+            {
+                AC.StopVol(3);
                 AC.PlayNormal(AC.tickHit, 3);
+            }
             scoretest.scoreUpdate(200);
             Destroy(gameObject);
         }

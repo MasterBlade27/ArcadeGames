@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class scoretest : MonoBehaviour
 {
+    private Player pp;
+    private int livecount;
     private int score = 0;
     [SerializeField]
     private TextMeshProUGUI scoreText, Hiscoretext, endingScore;
@@ -10,6 +12,8 @@ public class scoretest : MonoBehaviour
 
     private void Start()
     {
+        livecount = 1;
+        pp = FindAnyObjectByType<Player>();
         HSH = FindAnyObjectByType<HSHandler>();
 
         //Gather the Highscore from Stored Data
@@ -38,5 +42,15 @@ public class scoretest : MonoBehaviour
         endingScore.text = score.ToString();
 
         return score;
+    }
+
+    private void CheckLife()
+    {
+        int scoremod = score / 10000;
+        if (scoremod >= livecount)
+        {
+            livecount++;
+            pp.AddLife();
+        }
     }
 }

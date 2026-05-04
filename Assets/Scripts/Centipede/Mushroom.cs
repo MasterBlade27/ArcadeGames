@@ -5,8 +5,8 @@ using UnityEngine;
 public class Mushroom : MonoBehaviour
 {
     [SerializeField]
-    private List<Mesh> damageLevels;
-    public MeshFilter mushroomMfilter;
+    private List<Mesh> damageCap, damageStem;
+    public MeshFilter CapMFilter, StemMFilter;
     public int damage = 0;
     private scoretest stest;
 
@@ -18,8 +18,9 @@ public class Mushroom : MonoBehaviour
     private Coroutine restartCorutine;
     public bool isDone = false;
     public bool Poison = false;
-    private MeshRenderer mr;
-    public Material pMat;
+    private MeshRenderer cmr, smr;
+    public Material pMat, goldmat;
+    public Material OriCap, OriStem;
 
     // static tracking for global regen state
     //public static int regeneratingCount = 0;
@@ -29,15 +30,18 @@ public class Mushroom : MonoBehaviour
     private void Awake()
     {
         stest = FindAnyObjectByType<scoretest>();
-        mushroomMfilter = GetComponent<MeshFilter>();
+        CapMFilter = transform.GetChild(0).GetComponent<MeshFilter>();
+        StemMFilter = transform.GetChild(1).GetComponent<MeshFilter>();
     }
     private void Start()
     {
         AC = FindAnyObjectByType<AudioController>();
         Player.mOnGameOver += onGameOver;
-        mr = GetComponent<MeshRenderer>();
+        cmr = transform.GetChild(0).GetComponent<MeshRenderer>();
+        smr = transform.GetChild(1).GetComponent<MeshRenderer>();
         //isRegeneratingInstance = false;
-        mushroomMfilter.sharedMesh = damageLevels[0];
+        CapMFilter.sharedMesh = damageCap[0];
+        StemMFilter.sharedMesh = damageStem[0];
     }
     private void OnDisable()
     {
@@ -47,9 +51,10 @@ public class Mushroom : MonoBehaviour
     private void Update()
     {
 
-        if(Poison && mr.material != pMat)
+        if(Poison && cmr.material != pMat)
         {
-             mr.material = pMat;
+            cmr.material = pMat;
+            smr.material = pMat;
         }
     }
 
@@ -59,15 +64,16 @@ public class Mushroom : MonoBehaviour
             AC.PlayNormal(AC.mushroom, 6);
 
         damage++;
-        if (damage >= damageLevels.Count)
+        if (damage >= damageCap.Count)
         {
-            stest.scoreUpdate(5);
+            stest.scoreUpdate(50);
             Destroy(gameObject);
         }
         else
         {
-            stest.scoreUpdate(1);
-            mushroomMfilter.sharedMesh = damageLevels[damage];
+            stest.scoreUpdate(10);
+            CapMFilter.sharedMesh = damageCap[damage];
+            StemMFilter.sharedMesh = damageStem[damage];
         }
     }
 
@@ -81,6 +87,9 @@ public class Mushroom : MonoBehaviour
     }
     public void ScoreMarch()
     {
+        cmr.material = goldmat;
+        smr.material = goldmat;
+
         Debug.Log("score march triggered");
         // Stop any running restart coroutine and start a new staggered regen only if not full health
         if (restartCorutine != null)
@@ -110,16 +119,20 @@ public class Mushroom : MonoBehaviour
 
             if (damage == 0)
             {
-                mushroomMfilter.sharedMesh = damageLevels[0];
+                CapMFilter.sharedMesh = damageCap[0];
+                StemMFilter.sharedMesh = damageStem[0];
             }
             else
             {
-                mushroomMfilter.sharedMesh = damageLevels[damage];
+                CapMFilter.sharedMesh = damageCap[damage];
+                StemMFilter.sharedMesh = damageStem[damage];
             }
 
             yield return new WaitForSeconds(regenStepDelay);
         }
         isDone = true;
+        cmr.material = OriCap;
+        smr.material = OriStem;
 
         restartCorutine = null;
     }

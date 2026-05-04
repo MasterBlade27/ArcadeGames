@@ -23,15 +23,12 @@ public class EnemyPump : MonoBehaviour
         Enema = FindFirstObjectByType<DrillShoot>();
         Domme = FindFirstObjectByType<DigMovement>();
 
-        DrillShoot.Pumping += PumpOn;
-
         pInput = new PlayerMove();
         pInput.Enable();
     }
 
     private void OnDisable()
     {
-        DrillShoot.Pumping -= PumpOn;
         pInput.Disable();
     }
 
@@ -53,7 +50,7 @@ public class EnemyPump : MonoBehaviour
         transform.localScale = OriFlate + Vector3.one * Inflate * 2;
     }
 
-    private void PumpOn()
+    public void PumpOn()
     {
         if (CanPump != null)
             StopCoroutine(CanPump);

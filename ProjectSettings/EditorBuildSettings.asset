@@ -15,14 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/No Touch/BO_PlayDemo.unity
     guid: ee4c7d0439636f04aa1440402986b081
   - enabled: 1
-    path: Assets/Scenes/Centipede Test/CTMenuTest.unity
+    path: Assets/Scenes/No Touch/CT_MainMenu.unity
     guid: 6b04b9dfae5da194db93f1dd254c1e4d
   - enabled: 1
-    path: Assets/Scenes/Centipede Test/HalTest.unity
+    path: Assets/Scenes/No Touch/CT_PlayDemo.unity
     guid: f6bbcc3f59e385e468ff6dde4ec4284b
   - enabled: 1
-    path: Assets/Scenes/Dig Test/Digging.unity
-    guid: 4a853de463f659f479a19938a918609c
+    path: Assets/Scenes/Dig Test/DiggingFM.unity
+    guid: 0e4fdc15d5c5fbf4c8428bfdcd13c4f9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

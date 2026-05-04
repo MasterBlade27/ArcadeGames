@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class TransitionLoad : MonoBehaviour
 {
     [SerializeField]
-    private bool Demo, Menu;
+    private bool Demo, Menu, DD;
 
     [SerializeField]
     private string SceneName, MenuName;
@@ -49,6 +49,9 @@ public class TransitionLoad : MonoBehaviour
 
     void Update()
     {
+        if (DD)
+            BSwitch = false;
+
         if (BSwitch)
             TransScene(SceneName);
 
@@ -75,6 +78,12 @@ public class TransitionLoad : MonoBehaviour
 
     public void StartGame()
     {
+        if (DD)
+        {
+            TransScene(SceneName);
+            return;
+        }
+
         if (BufferTime != null)
             StopCoroutine(BufferTime);
 
@@ -83,7 +92,7 @@ public class TransitionLoad : MonoBehaviour
 
     public void QuitGame()
     {
-        if (Menu)
+        if (Menu && Demo)
             Application.Quit();
         else
             TransScene(MenuName);

@@ -10,11 +10,13 @@ public class DrillShoot : MonoBehaviour
     private int length;
     private Vector3 Dir, ExOriSca, ExOriPos, DrillOriPos;
     public Coroutine ExPu;
-
-    public static event Action Pumping;
+    private Collider TOUCH;
 
     private void Start()
     {
+        TOUCH = GetComponent<Collider>();
+        TOUCH.enabled = false;
+
         ExOriSca = Rope.transform.localScale;
         ExOriPos = Rope.transform.localPosition;
         DrillOriPos = Drill.transform.localPosition;
@@ -44,6 +46,8 @@ public class DrillShoot : MonoBehaviour
         if (Dir == Vector3.zero)
             Dir = new Vector3(2, 0, 0);
 
+        TOUCH.enabled = true;
+
         while (length < 20)
         {
             length++;
@@ -62,6 +66,8 @@ public class DrillShoot : MonoBehaviour
 
     public void ResetPump()
     {
+        TOUCH.enabled = false;
+
         length = 0;
         Rope.transform.localScale = ExOriSca;
         Rope.transform.localPosition = ExOriPos;
@@ -72,7 +78,7 @@ public class DrillShoot : MonoBehaviour
     {
         if (other.CompareTag("Centipede"))
         {
-            Pumping();
+            other.GetComponent<EnemyPump>().PumpOn();
             if (ExPu != null)
             {
                 StopCoroutine(ExPu);

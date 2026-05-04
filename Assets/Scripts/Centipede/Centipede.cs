@@ -88,7 +88,7 @@ public class Centipede : MonoBehaviour
         if (AC != null)
             AC.PlayNormal(AC.centipedeHit, 2);
 
-        scoretest.scoreUpdate(10);
+        scoretest.scoreUpdate(20);
         if (segments.Count == 0)
         {
             Restart();
@@ -110,7 +110,7 @@ public class Centipede : MonoBehaviour
 
     private void Restart()
     {
-            scoretest.scoreUpdate(50);
+            scoretest.scoreUpdate(100);
             level++;
             speed += 2f;
             size += level;

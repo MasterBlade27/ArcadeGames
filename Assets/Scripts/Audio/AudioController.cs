@@ -185,4 +185,9 @@ public class AudioController : MonoBehaviour
         foreach (AudioSource Sound in SFS)
             Sound.Stop();
     }
+
+    public void StopVol(int ASN)
+    {
+        SFS[ASN].Stop();
+    }
 }

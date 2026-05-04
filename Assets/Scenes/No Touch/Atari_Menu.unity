@@ -212,7 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
   Menu: 1
-  SceneName: CTMenuTest
+  DD: 0
+  SceneName: CT_MainMenu
   MenuName: 
   BSwitch: 0
 --- !u!114 &144065393
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
   Menu: 1
+  DD: 0
   SceneName: 
   MenuName: 
   BSwitch: 0
@@ -477,7 +479,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dig Draw
+  m_text: Dig Dug
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -874,7 +876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
   Menu: 1
-  SceneName: Digging
+  DD: 0
+  SceneName: DiggingFM
   MenuName: 
   BSwitch: 0
 --- !u!114 &338342569
@@ -1260,7 +1263,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Centipede
 
-'
+    (Centi-3D)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1287,8 +1290,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1469,6 +1472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
   Menu: 1
+  DD: 0
   SceneName: BO_MainMenu
   MenuName: 
   BSwitch: 0
@@ -1819,6 +1823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TransitionLoad
   Demo: 1
   Menu: 1
+  DD: 0
   SceneName: 0
   MenuName: 
   BSwitch: 0
@@ -2121,7 +2126,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dimensia Ball
+  m_text: 'Breakout
+
+    (Dimensia Ball)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2148,8 +2155,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2443,7 +2450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ATARI REDUX
+  m_text: ARCADE REDUX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -2470,8 +2477,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
